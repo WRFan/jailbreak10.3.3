@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>com.apple.MobileAsset.AppleKeyServicesCRL</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.AppleKeyServicesCRL</string>
+		<key>Automatically Update Assets</key>
+		<false/>
+		<key>Supported Compatibility Version</key>
+		<integer>1</integer>
+		<key>Uniquely Identifying Keys</key>
+		<array/>
+	</dict>
+	<key>com.apple.MobileAsset.CarPlayAppBlacklist</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.CarPlayAppBlacklist</string>
+		<key>Automatically Update Assets</key>
+		<false/>
+		<key>Supported Compatibility Version</key>
+		<integer>1</integer>
+		<key>Uniquely Identifying Keys</key>
+		<array/>
+	</dict>
+	<key>com.apple.MobileAsset.CoreAS</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.CoreAS</string>
+		<key>Automatically Update Assets</key>
+		<false/>
+		<key>Supported Compatibility Version</key>
+		<integer>1</integer>
+		<key>Uniquely Identifying Keys</key>
+		<array/>
+	</dict>
+	<key>com.apple.MobileAsset.CoreSuggestions</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.CoreSuggestions</string>
+		<key>Automatically Update Assets</key>
+		<false/>
+		<key>Supported Compatibility Version</key>
+		<integer>12</integer>
+		<key>Uniquely Identifying Keys</key>
+		<array/>
+	</dict>
+	<key>com.apple.MobileAsset.CoreSuggestionsQPAssets</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.CoreSuggestionsQPAssets</string>
+		<key>Automatically Update Assets</key>
+		<false/>
+		<key>Supported Compatibility Version</key>
+		<integer>2</integer>
+		<key>Uniquely Identifying Keys</key>
+		<array>
+			<string>STSQP_id</string>
+		</array>
+	</dict>
+	<key>com.apple.MobileAsset.DictionaryServices.dictionary2</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.DictionaryServices.dictionary2</string>
+		<key>Automatically Update Assets</key>
+		<false/>
+		<key>Supported Compatibility Version</key>
+		<integer>5</integer>
+		<key>Uniquely Identifying Keys</key>
+		<array>
+			<string>DictionaryPackageName</string>
+		</array>
+	</dict>
+	<key>com.apple.MobileAsset.Duet</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.Duet</string>
+	</dict>
+	<key>com.apple.MobileAsset.DuetExpertCenterAsset</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.DuetExpertCenterAsset</string>
+		<key>Automatically Update Assets</key>
+		<false/>
+		<key>Supported Compatibility Version</key>
+		<integer>18</integer>
+		<key>Uniquely Identifying Keys</key>
+		<array/>
+	</dict>
+	<key>com.apple.MobileAsset.EmbeddedSpeech</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.EmbeddedSpeech</string>
+	</dict>
+	<key>com.apple.MobileAsset.HomeKit</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.HomeKit</string>
+	</dict>
+	<key>com.apple.MobileAsset.LinguisticData</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.LinguisticData</string>
+		<key>Automatically Update Assets</key>
+		<false/>
+		<key>Supported Compatibility Version</key>
+		<integer>1</integer>
+		<key>Uniquely Identifying Keys</key>
+		<array>
+			<string>AssetLocale</string>
+			<string>AssetType</string>
+		</array>
+	</dict>
+	<key>com.apple.MobileAsset.SharingAssets</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.SharingAssets</string>
+	</dict>
+	<key>com.apple.MobileAsset.TimeZoneUpdate</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.TimeZoneUpdate</string>
+	</dict>
+	<key>com.apple.MobileAsset.VoiceServices.GryphonVoice</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.VoiceServices.GryphonVoice</string>
+		<key>Automatically Update Assets</key>
+		<false/>
+		<key>Supported Compatibility Version</key>
+		<integer>9</integer>
+		<key>Uniquely Identifying Keys</key>
+		<array>
+			<string>Languages</string>
+			<string>Footprint</string>
+			<string>Gender</string>
+			<string>Type</string>
+			<string>Name</string>
+		</array>
+	</dict>
+	<key>com.apple.MobileAsset.VoiceServices.VoiceResources</key>
+	<dict>
+		<key>Asset Type</key>
+		<string>com.apple.MobileAsset.VoiceServices.VoiceResources</string>
+		<key>Automatically Update Assets</key>
+		<false/>
+		<key>Supported Compatibility Version</key>
+		<integer>3</integer>
+		<key>Uniquely Identifying Keys</key>
+		<array>
+			<string>Languages</string>
+		</array>
+	</dict>
+</dict>
+</plist>
