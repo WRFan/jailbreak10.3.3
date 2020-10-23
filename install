@@ -1485,7 +1485,7 @@ var1=`lsdtrip app net.whatsapp.WhatsApp | grep 'Container URL'` && var2=`expr le
 plutil -key kBadgedForSoftwareUpdateKey -false /private/var/mobile/Library/Preferences/com.apple.Preferences.plist
 plutil -key kBadgedForSoftwareUpdateJumpOnceKey -false /private/var/mobile/Library/Preferences/com.apple.Preferences.plist
 
-############################################################################### proxy settings (exceptions). itunes already restored?
+########################################################## proxy settings (exceptions). itunes backups this, so only perform ONCE !!!
 # nano /private/var/preferences/SystemConfiguration/preferences.plist
 
 # <key>ExceptionsList</key>
