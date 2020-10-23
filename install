@@ -567,7 +567,7 @@ dpkg -i com.ps.letmeblock_0.0.7.5_iphoneos-arm.deb
 wget http://192.168.0.15/private/etc/hosts
 mv /tmp/hosts /private/etc
 
-############################################################################### no_sim Sabina ONLY BELOW !!!
+############################################################################### no_sim TestPhone ONLY BELOW !!!
 wget https://sparkdev.me/download/com.spark.nosimalert/1.0.0.deb
 dpkg -i 1.0.0.deb
 
@@ -1370,7 +1370,7 @@ rm -r /System/Library/PrivateFrameworks/WatchListKitUI.framework
 rm -r /System/Library/AccessibilityBundles/WatchListKitUI.axbundle
 rm -r /private/var/mobile/Library/com.apple.WatchListKit
 
-############################################################################### podcasts my3
+############################################################################### podcasts
 rm -r /Applications/Podcasts.app
 
 rm -r /System/Library/AccessibilityBundles/Podcasts.axbundle
