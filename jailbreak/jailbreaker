@@ -1,0 +1,214 @@
+cp /tmp/DH.tar.xz /work
+tar xfv /work/DH.tar.xz
+mkdir /work/Cydia-10
+tar xvf /work/Cydia-10.tar -C /work/Cydia-10
+
+rm /work/DH.tar.xz
+rm /work/Cydia-10.tar
+
+//-----------------------------------------------------------------------------
+cp -av /private/etc/ssl /work/Cydia-10/private/etc
+cp -av /usr/lib/ssl /work/Cydia-10/usr/lib
+
+//-----------------------------------------------------------------------------
+cp /usr/bin/autopoint /work/Cydia-10/usr/bin
+cp /usr/bin/envsubst /work/Cydia-10/usr/bin
+cp /usr/bin/gettext /work/Cydia-10/usr/bin
+cp /usr/bin/gettext.sh /work/Cydia-10/usr/bin
+cp /usr/bin/gettextize /work/Cydia-10/usr/bin
+cp /usr/bin/msgattrib /work/Cydia-10/usr/bin
+cp /usr/bin/msgcat /work/Cydia-10/usr/bin
+cp /usr/bin/msgcmp /work/Cydia-10/usr/bin
+cp /usr/bin/msgcomm /work/Cydia-10/usr/bin
+cp /usr/bin/msgconv /work/Cydia-10/usr/bin
+cp /usr/bin/msgen /work/Cydia-10/usr/bin
+cp /usr/bin/msgexec /work/Cydia-10/usr/bin
+cp /usr/bin/msgfilter /work/Cydia-10/usr/bin
+cp /usr/bin/msgfmt /work/Cydia-10/usr/bin
+cp /usr/bin/msggrep /work/Cydia-10/usr/bin
+cp /usr/bin/msginit /work/Cydia-10/usr/bin
+cp /usr/bin/msgmerge /work/Cydia-10/usr/bin
+cp /usr/bin/msgunfmt /work/Cydia-10/usr/bin
+cp /usr/bin/msguniq /work/Cydia-10/usr/bin
+cp /usr/bin/ngettext /work/Cydia-10/usr/bin
+cp /usr/bin/recode-sr-latin /work/Cydia-10/usr/bin
+cp /usr/bin/xgettext /work/Cydia-10/usr/bin
+
+cp -av /usr/lib/gettext /work/Cydia-10/usr/lib
+
+cp /usr/lib/libasprintf.0.dylib /work/Cydia-10/usr/lib
+cp -R /usr/lib/libasprintf.dylib /work/Cydia-10/usr/lib
+cp -R /usr/lib/libgettextlib.dylib /work/Cydia-10/usr/lib
+cp /usr/lib/libgettextlib-0.19.8.dylib /work/Cydia-10/usr/lib
+cp /usr/lib/libgettextpo.1.dylib /work/Cydia-10/usr/lib
+cp -R /usr/lib/libgettextpo.dylib /work/Cydia-10/usr/lib
+cp -R /usr/lib/libgettextsrc.dylib /work/Cydia-10/usr/lib
+cp /usr/lib/libgettextsrc-0.19.8.dylib /work/Cydia-10/usr/lib
+cp /usr/lib/libintl.9.dylib /work/Cydia-10/usr/lib
+cp -R /usr/lib/libintl.dylib /work/Cydia-10/usr/lib
+
+//-----------------------------------------------------------------------------
+cp -av /usr/lib/engines-1.1 /work/Cydia-10/usr/lib
+
+cp /usr/lib/libcrypto.1.1.dylib /work/Cydia-10/usr/lib
+cp /usr/lib/libssl.1.1.dylib /work/Cydia-10/usr/lib
+
+//-----------------------------------------------------------------------------
+cp /usr/bin/pcre2-config /work/Cydia-10/usr/bin
+cp /usr/bin/pcre2grep /work/Cydia-10/usr/bin
+cp /usr/bin/pcre2test /work/Cydia-10/usr/bin
+
+cp /usr/lib/pkgconfig/libpcre2-8.pc /work/Cydia-10/usr/lib/pkgconfig
+cp /usr/lib/pkgconfig/libpcre2-posix.pc /work/Cydia-10/usr/lib/pkgconfig
+
+cp /usr/lib/libpcre2-8.0.dylib /work/Cydia-10/usr/lib
+cp -R /usr/lib/libpcre2-8.dylib /work/Cydia-10/usr/lib
+cp /usr/lib/libpcre2-posix.2.dylib /work/Cydia-10/usr/lib
+cp -R /usr/lib/libpcre2-posix.dylib /work/Cydia-10/usr/lib
+
+//-----------------------------------------------------------------------------
+cp /usr/bin/wget /work/Cydia-10/usr/bin
+
+mkdir /work/Cydia-10/usr/etc
+cp /usr/etc/wgetrc /work/Cydia-10/usr/etc
+
+//-----------------------------------------------------------------------------
+cp /usr/bin/zip /work/Cydia-10/usr/bin
+cp /usr/bin/zipcloak /work/Cydia-10/usr/bin
+cp /usr/bin/zipnote /work/Cydia-10/usr/bin
+cp /usr/bin/zipsplit /work/Cydia-10/usr/bin
+
+//-----------------------------------------------------------------------------
+cp /usr/bin/lz4 /work/Cydia-10/usr/bin
+cp /usr/bin/lz4c /work/Cydia-10/usr/bin
+cp -R /usr/bin/lz4cat /work/Cydia-10/usr/bin
+cp -R /usr/bin/unlz4 /work/Cydia-10/usr/bin
+
+cp /usr/lib/pkgconfig/liblz4.pc /work/Cydia-10/usr/lib/pkgconfig
+
+cp /usr/lib/liblz4.1.7.5.dylib /work/Cydia-10/usr/lib
+cp -R /usr/lib/liblz4.1.dylib /work/Cydia-10/usr/lib
+cp -R /usr/lib/liblz4.dylib /work/Cydia-10/usr/lib
+
+//-----------------------------------------------------------------------------
+cp -R /usr/bin/lzcat /work/Cydia-10/usr/bin
+cp -R /usr/bin/lzcmp /work/Cydia-10/usr/bin
+cp /usr/bin/lzdiff /work/Cydia-10/usr/bin
+cp -R /usr/bin/lzegrep /work/Cydia-10/usr/bin
+cp -R /usr/bin/lzfgrep /work/Cydia-10/usr/bin
+cp /usr/bin/lzgrep /work/Cydia-10/usr/bin
+cp -R /usr/bin/lzless /work/Cydia-10/usr/bin
+cp /usr/bin/lzma /work/Cydia-10/usr/bin
+cp /usr/bin/lzmadec /work/Cydia-10/usr/bin
+cp /usr/bin/lzmainfo /work/Cydia-10/usr/bin
+cp /usr/bin/lzmore /work/Cydia-10/usr/bin
+cp -R /usr/bin/unlzma /work/Cydia-10/usr/bin
+
+cp /usr/lib/liblzmadec.0.dylib /work/Cydia-10/usr/lib
+cp -R /usr/lib/liblzmadec.dylib /work/Cydia-10/usr/lib
+
+//-----------------------------------------------------------------------------
+cp -R /usr/bin/unxz /work/Cydia-10/usr/bin
+cp /usr/bin/xz /work/Cydia-10/usr/bin
+cp -R /usr/bin/xzcat /work/Cydia-10/usr/bin
+cp -R /usr/bin/xzcmp /work/Cydia-10/usr/bin
+cp /usr/bin/xzdec /work/Cydia-10/usr/bin
+cp /usr/bin/xzdiff /work/Cydia-10/usr/bin
+cp -R /usr/bin/xzegrep /work/Cydia-10/usr/bin
+cp -R /usr/bin/xzfgrep /work/Cydia-10/usr/bin
+cp /usr/bin/xzgrep /work/Cydia-10/usr/bin
+cp /usr/bin/xzless /work/Cydia-10/usr/bin
+cp /usr/bin/xzmore /work/Cydia-10/usr/bin
+
+mkdir /work/Cydia-10/usr/local/lib
+cp /usr/local/lib/liblzma.5.dylib /work/Cydia-10/usr/local/lib
+cp -R /usr/local/lib/liblzma.dylib /work/Cydia-10/usr/local/lib
+
+//-----------------------------------------------------------------------------
+cp /usr/bin/funzip /work/Cydia-10/usr/bin
+cp /usr/bin/unzip /work/Cydia-10/usr/bin
+cp /usr/bin/unzipsfx /work/Cydia-10/usr/bin
+cp /usr/bin/zipgrep /work/Cydia-10/usr/bin
+cp /usr/bin/zipinfo /work/Cydia-10/usr/bin
+
+cp /bin/lzfse /work/Cydia-10/bin
+cp /usr/lib/liblzfse.dylib /work/Cydia-10/usr/lib
+
+//-----------------------------------------------------------------------------
+cp /usr/bin/unrar /work/Cydia-10/usr/bin
+
+//-----------------------------------------------------------------------------
+cp /usr/bin/7z /work/Cydia-10/usr/bin
+cp /usr/bin/7za /work/Cydia-10/usr/bin
+
+cp -av /usr/lib/p7zip /work/Cydia-10/usr/lib
+
+//-----------------------------------------------------------------------------
+cp -av /Applications/Filza.app /work/Cydia-10/Applications
+
+cp /Library/LaunchDaemons/com.tigisoftware.filza.helper.plist /work/Cydia-10/Library/LaunchDaemons
+cp /Library/LaunchDaemons/com.tigisoftware.filza.webdavserver.plist /work/Cydia-10/Library/LaunchDaemons
+
+cp -av /usr/libexec/filza /work/Cydia-10/usr/libexec
+
+cp -R /usr/bin/Filza /work/Cydia-10/usr/bin
+
+cp -av /private/var/mobile/Library/Filza /work/Cydia-10/private/var/mobile/Library
+
+cp /private/var/mobile/Library/Preferences/com.tigisoftware.Filza.plist /work/Cydia-10/private/var/mobile/Library/Preferences
+
+//-----------------------------------------------------------------------------
+cp -av /private/etc/ssh /work/Cydia-10/private/etc
+
+cp /usr/bin/scp /work/Cydia-10/usr/bin
+cp /usr/bin/sftp /work/Cydia-10/usr/bin
+cp /usr/bin/ssh /work/Cydia-10/usr/bin
+cp /usr/bin/ssh-add /work/Cydia-10/usr/bin
+cp /usr/bin/ssh-agent /work/Cydia-10/usr/bin
+cp /usr/bin/ssh-keygen /work/Cydia-10/usr/bin
+cp /usr/bin/ssh-keyscan /work/Cydia-10/usr/bin
+
+cp /usr/libexec/sftp-server /work/Cydia-10/usr/libexec
+cp /usr/libexec/sshd-keygen-wrapper /work/Cydia-10/usr/libexec
+cp /usr/libexec/ssh-keysign /work/Cydia-10/usr/libexec
+cp /usr/libexec/ssh-pkcs11-helper /work/Cydia-10/usr/libexec
+cp /usr/libexec/ssh-sk-helper /work/Cydia-10/usr/libexec
+
+cp /usr/sbin/sshd /work/Cydia-10/usr/sbin
+
+//-----------------------------------------------------------------------------
+mkdir /work/Cydia-10/Library/LaunchDaemons2/
+cp /Library/LaunchDaemons2/com.apple.mDNSResponder2.plist /work/Cydia-10/Library/LaunchDaemons2/
+
+mkdir /work/Cydia-10/private/etc/rc.d
+cp /private/etc/rc.d/zzz /work/Cydia-10/private/etc/rc.d
+
+//-----------------------------------------------------------------------------
+cp /private/etc/profile /work/Cydia-10/private/etc
+
+//-----------------------------------------------------------------------------
+mkdir /work/Cydia-10/private/var/log/dpkg/
+mkdir /work/Cydia-10/private/var/cache/dpkg
+mkdir /work/Cydia-10/private/var/cache/dpkg/log
+mkdir /work/Cydia-10/work
+
+//-----------------------------------------------------------------------------
+mkdir /work/final
+cp /usr/bin/launchctl /work/final
+cp /bin/tar /work/final
+
+//----------------------------------------------------------------------------- my1
+cd /work/Cydia-10
+
+tar cfv /work/final/Cydia-10.tar .
+
+cd /work/final
+
+tar cfJv /work/DH.tar.xz .
+
+//-----------------------------------------------------------------------------
+http://192.168.0.17/work/DH.tar.xz
+
+//-----------------------------------------------------------------------------
+rm /work/DH.tar.xz
+rm /work/final/Cydia-10.tar
