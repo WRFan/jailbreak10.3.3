@@ -1,0 +1,131 @@
+//############################################################################### basic
+cmake .. -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DBUILD_SHARED_LIBS:BOOL=OFF -DCMAKE_CONFIGURATION_TYPES:STRING=Release -DCMAKE_C_FLAGS:STRING="/DWIN32 /D_WINDOWS /W0 /utf-8" -DCMAKE_CXX_FLAGS:STRING="/DWIN32 /D_WINDOWS /W3 /utf-8 /GR /EHsc" -DCMAKE_C_FLAGS_RELEASE:STRING="/MT /O2 /Oi /Gy /Ob2 /DNDEBUG /favor:blend" -DCMAKE_CXX_FLAGS_RELEASE:STRING="/MT /O2 /Oi /Gy /Ob2 /DNDEBUG /favor:blend" -DCMAKE_EXE_LINKER_FLAGS_RELEASE:STRING="/INCREMENTAL:NO /OPT:REF /OPT:ICF" -DCMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING="/INCREMENTAL:NO /OPT:REF /OPT:ICF"
+
+//###############################################################################
+cmake --build . --config Release
+
+######################################################################################### Utils
+"c:\program files\visual studio\vc\tools\msvc\14.16.27023\bin\hostx86\x86\dumpbin.exe" /exports "C:\Copy\Packs\ndisapi\build_my\Release\ndisapi.lib" > "C:\Copy\1.txt"
+
+"c:\program files\visual studio\vc\tools\msvc\14.16.27023\bin\hostx86\x86\dumpbin.exe" /symbols "C:\Copy\Packs\ndisapi\build_my\Release\ndisapi.lib" > "C:\Copy\1.txt"
+
+"c:\program files\visual studio\vc\tools\msvc\14.16.27023\bin\hostx86\x86\dumpbin.exe" /imports "C:\Copy\Packs\ndisapi\build_my\Release\ndisapi.lib" > "C:\Copy\1.txt"
+
+"c:\program files\visual studio\vc\tools\msvc\14.16.27023\bin\hostx86\x86\dumpbin.exe" /linkermember "C:\Copy\Packs\ndisapi\build_my\Release\ndisapi.lib" > "C:\Copy\1.txt"
+
+//############################################################################### echo cmake
+message(BLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: __${XXX}__)
+
+message(${XXX})
+
+######################################################################################### Comment out
+#[[
+]]
+
+//############################################################################### search
+"XXX" docs.microsoft.com/en-us/cpp
+
+//############################################################################### work
+__declspec
+
+//############################################################################### echo C
+struct stat fileStat; stat("a", &fileStat);
+
+//-----------------------------------------------------------------------------
+printf("XXX");
+printf("\n");
+
+wprintf("XXX");
+printf("\n");
+
+printf("%d", XXX);
+printf("\n");
+
+double dDouble = XXX; char myString[50]; sprintf(myString, "%lf", dDouble);
+printf(myString);
+printf("\n");
+
+//-----------------------------------------------------------------------------
+QMessageBox msgBox; msgBox.setText("XXX"); msgBox.exec();
+
+QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"), tr("User name:"), QLineEdit::Normal, QDir::home().dirName(), &ok);
+
+QString.toStdString().c_str()
+QString.toLatin1().data()
+
+//-----------------------------------------------------------------------------
+g_io_channel_new_file("a", "r", NULL);
+
+//-----------------------------------------------------------------------------
+#include <stdio.h>
+
+//ofstream myfile;
+//myfile.open ("c:\copy\1.txt");
+
+char* s = "1";
+
+int Debuggy(char *arr)
+{
+	FILE* myfile = fopen("c:/users/wrfan/desktop/debuggy.txt", "a");
+
+	fputs(arr, myfile);
+
+	fclose(myfile);
+
+	return 0;
+}
+int whatever;
+
+int whatever = Debuggy("XXX");
+
+//-----------------------------------------------------------------------------
+https://www.codeproject.com/Articles/2510/Data-Conversions
+
+char myString[50];
+strcpy(myString, "START: \n");
+strcpy(myString, _strdup(directory));
+strcpy(myString, "\n");
+Debuggy(myString);
+
+//----------------------------------------------------------------------------- std::string
+XXX.c_str()
+
+//----------------------------------------------------------------------------- c const char * to char *
+_strdup(XXX)
+
+//----------------------------------------------------------------------------- c++ int to char *
+char* p2 = reinterpret_cast<char*>(&XXX);
+
+//----------------------------------------------------------------------------- c int to char *
+int i2 = XXX; char myString[50]; sprintf(myString, "%d", i2);
+
+//----------------------------------------------------------------------------- double to char *
+double dDouble = XXX; char myString[50]; sprintf(myString, "%lf", dDouble);
+
+//----------------------------------------------------------------------------- c long to char *
+unsigned long i2 = XXX;
+printf("%lu", i2);
+
+//----------------------------------------------------------------------------- _bstr_t (BSTR) to UTF-8
+int i2 = WideCharToMultiByte(CP_UTF8, 0, XXX, -1, nullptr, 0, nullptr, nullptr);
+
+char* buffer = new char[i2];
+
+WideCharToMultiByte(CP_UTF8, 0, XXX, -1, buffer, i2, nullptr, nullptr);
+
+printf("%s", buffer);
+
+//----------------------------------------------------------------------------- c long to char * -> CRASH !
+char* p2 = (char*) XXX;
+
+//----------------------------------------------------------------------------- dword to char
+char myString[50];
+sprintf(myString, "%d", XXX);
+
+//----------------------------------------------------------------------------- ULONG64 0x
+printf("%#I64x", XXX);
+
+//----------------------------------------------------------------------------- unsigned long. same as above, dezimal ?
+printf("%lu", XXX);
+
+//############################################################################### WORK

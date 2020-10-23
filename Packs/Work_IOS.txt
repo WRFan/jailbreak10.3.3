@@ -1,0 +1,129 @@
+https://clang.llvm.org/docs/UsersManual.html
+https://clang.llvm.org/docs/ClangCommandLineReference.html
+https://clang.llvm.org/docs/CommandGuide/clang.html
+https://clang.llvm.org/docs/DiagnosticsReference.html
+
+https://github.com/llvm/llvm-project
+
+https://github.com/PureDarwin/Building-XNU-16.7-Kernel-Guide
+
+https://opensource.apple.com/source
+
+"XXX" site:clang.llvm.org
+"XXX" site:gcc.gnu.org
+"XXX" site:docs.microsoft.com/en-us/cpp
+
+"XXX" site:developer.apple.com
+
+//############################################################################# compile
+cmake .. -DCMAKE_C_COMPILER="/usr/lib/llvm-10/bin/clang-10" -DCMAKE_CXX_COMPILER="/usr/lib/llvm-10/bin/clang-10" -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT="/usr/include/iPhoneOS10.3.sdk" -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DCMAKE_C_FLAGS:STRING="-Ofast -DNDEBUG -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unused-command-line-argument -Wno-unknown-pragmas -Wno-format-security -Wno-unused-function -flto=thin -fwhole-program-vtables -funroll-loops -lto_library /usr/lib/llvm-10/lib/libLTO.dylib" -DCMAKE_CXX_FLAGS:STRING="-Ofast -DNDEBUG -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unused-command-line-argument -Wno-unknown-pragmas -Wno-format-security -Wno-unused-function -flto=thin -fwhole-program-vtables -funroll-loops -lto_library /usr/lib/llvm-10/lib/libLTO.dylib"
+
+cmake --build . --config Release
+
+//----------------------------------------------------------------------------- ???
+-DCMAKE_C_COMPILER:STRING="/usr/lib/llvm-10/bin/clang-10" -DCMAKE_EXE_LINKER_FLAGS_RELEASE:STRING="-flto=thin" -DCMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING="-flto=thin"
+
+//############################################################################# symbols
+jtool -arch arm64 -S XXX
+dyldinfo -export XXX
+nm XXX
+
+//############################################################################# dependent libraries
+jtool -L -vv -arch arm64 XXX
+otool -L XXX
+dyldinfo -dylibs XXX
+
+//############################################################################# architecture
+otool -hv -arch arm64 XXX
+vtool -arch arm64 -show XXX
+
+//############################################################################# dirs
+/usr/lib/llvm-10/
+
+//############################################################################# tools
+clang
+	/usr/lib/llvm-10/bin/clang-10
+
+linker:
+	/usr/bin/ld
+	CMAKE_LINKER
+
+randomizing tool for static libraries
+	/usr/bin/ranlib
+	CMAKE_RANLIB
+
+archiving tool for static libraries
+	/usr/bin/ar
+	CMAKE_AR
+
+//############################################################################# clang command-line
+-Wunknown-pragmas
+-Wno-unknown-pragmas
+
+-W -> -Wno-
+
+//############################################################################# ld64 (linker) + make
+/usr/include/
+/usr/gnu/include/
+/usr/local/include/
+
+ /usr/lib/clang/10.0.0 -> /usr/lib/llvm-10/lib/clang/10.0.0/include
+
+Library search paths:
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
+
+//############################################################################# ldid
+ldid -e XXX
+jtool --ent -vv -arch arm64 XXX
+jtool2 --sig --ent XXX
+
+Sign:
+jtool --sign --inplace --ent entitlements.plist XXX
+ldid -SXXX.plist XXX
+
+//############################################################################# lzfse
+cd /packs/lzfse/build
+mv /tmp/CMakeLists.txt /packs/lzfse
+
+//----------------------------------------------------------------------------- ???
+/bin/lzfse
+/usr/lib/liblzfse.dylib
+
+lzfse -encode -i 1.txt -o 1.lzfse
+lzfse -decode -i 1.lzfse -o 1
+
+-DCMAKE_SYSTEM_NAME=Darwin -DCMAKE_CROSSCOMPILING=true
+
+/usr/lib/llvm-10/lib/libLTO.dylib
+
+//############################################################################# unzip-lzfse
+cd /packs/unzip-lzfse/build
+mv /tmp/CMakeLists.txt /packs/unzip-lzfse
+
+//----------------------------------------------------------------------------- ???
+/usr/bin/unzip
+
+unzip -d /tmp/whatsapp /packs/pre-thinned13567484966014256980.thinned.signed.dpkg.ipa
+
+//############################################################################# touch
+cd /packs/touch
+mv /tmp/CMakeLists.txt /packs/touch
+
+//############################################################################# tbd
+cd /packs/airscan/build
+mv /tmp/CMakeLists.txt /packs/airscan
+
+//############################################################################# WORK my1
+mkdir /packs/XXX
+
+mv /tmp/* /work/airscan
+
+//############################################################################# CRAP
+rm -r /tmp/*
+rm -r *
+
+zip -r /tmp/1.zip /work/airscan/build
