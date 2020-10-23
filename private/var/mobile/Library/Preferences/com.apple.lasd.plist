@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	<key>gsm</key>
+	<dict>
+		<key>ContentURL</key>
+		<string>https://cl1.apple.com/1/v3/lasdgsm.db.gz</string>
+		<key>Version</key>
+		<string>0.2020.08.03</string>
+	</dict>
+	<key>lte</key>
+	<dict>
+		<key>ContentURL</key>
+		<string>https://cl1.apple.com/1/v3/lasdlte.db.gz</string>
+		<key>Version</key>
+		<string>0.2020.08.03</string>
+	</dict>
+	<key>scdma</key>
+	<dict>
+		<key>ContentURL</key>
+		<string>https://cl1.apple.com/1/v3/lasdscdma.db.gz</string>
+		<key>Version</key>
+		<string>0.2020.08.03</string>
+	</dict>
+	<key>umts</key>
+	<dict>
+		<key>ContentURL</key>
+		<string>https://cl1.apple.com/1/v3/lasdumts.db.gz</string>
+		<key>Version</key>
+		<string>0.2020.08.03</string>
+	</dict>
+	-->
+</dict>
+</plist>
