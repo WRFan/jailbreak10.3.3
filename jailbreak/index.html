@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<link rel="apple-touch-icon" href="safari.ico">
+
+<!--
+<script src = 'file:///C:/Program%20Files/Internet/Proxydomo/html/Homepage/functions.js'></script>
+
+https://totally-not.spyware.lol/manifest.appcache
+https://totally-not.spyware.lol/payload
+https://totally-not.spyware.lol/bootstrap/DH.tar.xz
+https://totally-not.spyware.lol/bootstrap/Meridian.tar.xz
+
+http://192.168.0.11/jailbreak/DH.tar.xz
+-->
+
+<script src="all.js"></script>
+<script src="pwn.js"></script>
+
+<script>
+/*
+	/jail/jail.html
+	file:///jail/jail.html
+
+	ios-lighttpdphp-mysql
+*/
+!function()
+{
+	//prompt(undefined, "START")
+
+	//prompt(undefined, Date.now())
+
+	if (!location.search)
+	{
+		location.replace(location + "?time=" + Date.now())
+
+		return
+	}
+
+	arguments[0] = new URLSearchParams(location.search)
+
+	arguments[0] = URLSearchParams.prototype.get.call(arguments[0], "time")
+
+	//prompt(undefined, Date.now() - arguments[0])
+
+	if (Date.now() - arguments[0] > 900) // ~ 24.000 - 27.000
+	{
+		//prompt(undefined, "Refresh: " + (Date.now() - arguments[0]))
+
+		return
+	}
+
+	//return
+
+	arguments[0] = new Request('payload')
+
+	fetch(arguments[0]).then(function()
+	{
+		return arguments[0].arrayBuffer()
+	}).then(function()
+	{
+		arguments[0] = new Uint8Array(arguments[0])
+
+		//var header = self.b2u32(arguments[0].slice(0, 4)) // 4277009103 == 0xfeedfacf
+
+		if (String.prototype.indexOf.call(navigator.userAgent, "iPhone") != -1)
+		{
+			//prompt(undefined, pwn)
+
+			pwn(arguments[0])
+
+			//self.close()
+
+			//self.location = "/"
+
+			//location.replace("/")
+		}
+	})
+}()
+</script>
+
+<!--
+<html lang="en" manifest="manifest.appcache">
+
+<title>&#8290;</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="css/all.css">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script src = 'file:///C:/Program%20Files/Internet/Proxydomo/html/Homepage/functions.js'></script>
+
+<script>
+window.onerror = function(ev)
+{
+    alert('Uncaught error: ' + ev);
+};
+</script>
+<body class="crazycolors">
+    <header class="block">
+        <div class="time">10<span class="colon"></span>04</div>
+        <div class="date">Reckoning Day 2</div>
+    </header>
+    <div id="main">
+        <img id="logo" src="img/amazing.png" alt="">
+        <div id="notice"></div>
+    </div>
+    <div id="slider">
+        <div id="well">
+            <div id="thumbtack">
+                <img class="arrow" src="img/arrow.svg" alt="">
+            </div>
+            <div id="hint">
+                <span>slide for spyware</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-->
