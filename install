@@ -1493,9 +1493,9 @@ plutil -key kBadgedForSoftwareUpdateJumpOnceKey -false /private/var/mobile/Libra
 		# <string>192.168/16</string>
 # </array>
 
-# myVar=`cat /private/var/preferences/SystemConfiguration/preferences.plist | sed '\/16<\/string>/a\\\t\t\t\t\t<string>192.168\/16<\/string>'`
+myVar=`cat /private/var/preferences/SystemConfiguration/preferences.plist | sed '\/16<\/string>/a\\\t\t\t\t\t<string>192.168\/16<\/string>'`
 
-# printf $myVar > /private/var/preferences/SystemConfiguration/preferences.plist
+printf $myVar > /private/var/preferences/SystemConfiguration/preferences.plist
 
 ############################################################################### my1
 # https://unix.stackexchange.com/questions/179393
