@@ -1,0 +1,494 @@
+launchctl unload -w /Library/LaunchDaemons/com.openssh.sshd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponderHelper.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.captiveagent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.timed.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.parsecd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.OTACrashCopier.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.ReportCrash.Jetsam.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.ReportCrash.SafetyNet.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.ReportCrash.SimulateCrash.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.ReportCrash.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.CrashHousekeeping.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.DumpBasebandCrash.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.DumpPanic.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.ProxiedCrashCopier.ProxyingDevice.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.crash_mover.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.crashreportcopymobile.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.OTATaskingAgent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.OTAPKIAssetTool.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.softwareupdateservicesd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.softwareupdated.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.MobileAccessoryUpdater.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobileassetd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.rtcreportingd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.idsremoteurlconnectionagent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.atc.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.afcd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.usbptpd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.backupd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.misagent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.online-auth-agent.xpc.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile_installation_proxy.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.atc.atwakeup.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.geod.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.locationd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.Maps.geocorrectiond.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.Maps.pushdaemon.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.navd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.timezoneupdates.tzd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.sharingd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.watchlistd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.hangreporter.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.hangtracerd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.gamed.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.GameController.gamecontrollerd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.SafariCloudHistoryPushAgent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.Safari.SafeBrowsing.Service.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.safarifetcherd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.cloudd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.cloudphotod.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.CloudPhotoDerivativeGenerator.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.cloudpaird.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.akd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.appstored.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.itunesstored.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.nsurlsessiond.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.DuetHeuristic-BM.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.adid.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.icloud.findmydeviced.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.icloud.fmfd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.icloud.fmflocatord.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.protectedcloudstorage.protectedcloudkeysyncing.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.security.cloudkeychainproxy3.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.followupd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.itunescloudd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.ind.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.syncdefaultsd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.EscrowSecurityAlert.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreservices.appleid.authentication.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.security.keychainsyncingoveridsproxy.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.security.CircleJoinRequested.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.passd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.diagnosticd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.iosdiagnosticsd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.sysdiagnose.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.spindump.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.tailspind.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.photoanalysisd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mediaanalysisd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.assistant_service.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.assistantd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.systemstats.microstackshot_periodic.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.CommCenterMobileHelper.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.CommCenterRootHelper.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.searchd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.cfnetwork.AuthBrokerAgent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.WebBookmarks.webbookmarksd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.nanobackupd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.tipsd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.videosubscriptionsd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.nfcd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.medialibraryd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.VideoSubscriberAccount.Bulletind.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.syslogd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.syslog_relay.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.appsupport.cplogd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.aslmanager.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.aggregated.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.aggregated.addaily.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.prdaily.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.coresymbolicationd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.powerlogd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.powerlogHelperd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.ABDatabaseDoctor.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.awdd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.fseventsd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.IMLoggingAgent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.obliteration.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.iad.limitadtrackingd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.AdminLite.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.dataaccess.dataaccessd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.iapd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.iap2d.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.iapauthd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.iaptransportd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.certui.relay.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mediastream.mstreamd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.midiserver-ios.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.MobileInternetSharing.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.printd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.biometrickitd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.racoon.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.scrod.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.voiced.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.VoiceOverTouch.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.storage_mounter.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.storage_mounter_proxy.plist
+
+//#############################################################################
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.wifi.wapic.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.keybagd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.carkitd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.assistivetouchd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.AssetCacheLocatorService.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.personad.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.screensharingserver.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.familynotificationd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.familycircled.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.CallHistorySyncHelper.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.pluginkit.pkreporter.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.suggestd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.reversetemplated.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.dprivacyd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.bird.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.homed.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.quicklook.ThumbnailsAgent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mediaremoted.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.abm-helper.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.duetexpertd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.DMHelper.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.seld.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.companion_proxy.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.symptomsd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.symptomsd-diag.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.symptomsd.helper.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.cache_delete_app_container_caches.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.languageassetd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.PurpleReverseProxy.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.nesessionmanager.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.neagent-ios.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.asd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.BTServer.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.BTServer.avrcp.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.BTServer.le.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.BTServer.map.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.BTServer.pbap.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.BlueTool.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.replayd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.calaccessd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.voicemail.vmd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.voicememod.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.assetsd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.assetsd.nebulad.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.swcd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.security.swcagent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.notification_proxy.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.insecure_notification_proxy.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.absd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.and.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.askpermissiond.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.pfd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.lskdd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.cfnetwork.cfnetworkagent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.ftp-proxy-embedded.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.corecaptured.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreservices.appleid.passwordcheck.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreservices.lsactivity.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.device-o-matic.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.recentsd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.preboardservice.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.preboardservice_v2.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.revisiond.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.rolld.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.routined.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.splashboardd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.storebookkeeperd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.streaming_zip_conduit.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.touchsetupd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.tzlinkd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.cache_delete.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.cache_delete_daily.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.cache_delete_itunes_store.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.cache_delete_mobile_backup.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.house_arrest.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.usb.networking.addNetworkInterface.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.lskdmsed.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.managedconfiguration.mdmd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.managedconfiguration.teslad.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.nand_task_scheduler.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobilestoredemod.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobilestoredemodhelper.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.NetworkLinkConditioner.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.nfsconf.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.pipelined.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.imtransferagent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.imautomatichistorydeletionagent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.webinspectord.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.wirelessproxd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.wifi.hostapd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.wifiFirmwareLoader.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.wifivelocityd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.WirelessRadioManager.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.networkserviceproxy.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.imavagent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.ctkd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.wcd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.nanoregistryd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.nanotimekitcompaniond.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.nanoregistrylaunchd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.subridged.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.GSSCred.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.bbproxy.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mdt.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mediaartworkd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobile.assertion_agent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.fdrserviced.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.mobilecheckpoint.checkpointd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.cdpd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.rtbuddyd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.sosd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.fdrhelper.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.matd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.idamd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.DataDetectorsSourceAccess.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.idscredentialsagent.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.IOAccelMemoryInfoCollector.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.filesystems.userfsd.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.filesystems.userfs_helper.plist
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.fs_task_scheduler.plist

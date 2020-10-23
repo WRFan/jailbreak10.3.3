@@ -1,0 +1,1519 @@
+#!/bin/bash
+
+cd /tmp
+
+###############################################################################
+mkdir /private/var/log/dpkg/
+
+dpkg --force-depends --purge cydia-lproj
+dpkg --purge cydia
+dpkg --purge org.thebigboss.repo.icons
+dpkg --purge darwintools
+dpkg --force-remove-essential --purge debianutils
+
+mkdir /Applications/Cydia.app
+
+rm -r /private/var/lib/cydia
+rm -r /private/var/mobile/Library/Cydia
+rm /private/var/mobile/Library/Preferences/com.saurik.Cydia.plist
+# rm -r /usr/libexec/cydia
+
+dpkg --purge apt7-key
+dpkg --force-remove-essential --purge apt7-lib
+
+rm -r /private/etc/apt
+rm -r /private/var/lib/apt
+
+############################################################################### DEBUG
+# dpkg --force-depends --purge apt1.4
+# dpkg --purge apt
+# dpkg --purge apt-key
+# dpkg --force-remove-essential --purge libapt
+# dpkg --purge libapt-pkg5.0
+# dpkg --purge berkeleydb
+
+dpkg --purge gnupg
+# dpkg --purge libssl1.0
+
+rm -r /private/etc/apt
+rm -r /private/var/lib/apt
+rm -r /usr/lib/apt
+rm -r /usr/lib/dpkg
+
+mkdir /work
+
+rm -r /tmp/*
+
+###############################################################################
+wget --no-check-certificate https://apt.bingner.com/debs/1443.00/ca-certificates_0.0.2_all.deb
+
+wget --no-check-certificate https://apt.bingner.com/debs/1443.00/gettext_0.19.8-1_iphoneos-arm.deb
+
+wget --no-check-certificate https://apt.bingner.com/debs/1443.00/libssl1.1.1_1.1.1c-1_iphoneos-arm.deb
+
+wget --no-check-certificate https://apt.bingner.com/debs/1443.00/pcre2_10.35-1_iphoneos-arm.deb
+
+wget --no-check-certificate https://apt.bingner.com/debs/1443.00/wget_1.20.3-1_iphoneos-arm.deb
+
+dpkg --force-conflicts -i ca-certificates_0.0.2_all.deb
+
+rm /private/etc/profile.d/cacerts.bootstrap.sh
+
+dpkg -i gettext_0.19.8-1_iphoneos-arm.deb
+
+# dpkg --force-depends --purge libssl1.1
+
+dpkg -i libssl1.1.1_1.1.1c-1_iphoneos-arm.deb
+
+dpkg -i pcre2_10.35-1_iphoneos-arm.deb
+
+dpkg -i wget_1.20.3-1_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/zip_2.32-1_iphoneos-arm.deb
+dpkg -i zip_2.32-1_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/lz4_1.7.5-1_iphoneos-arm.deb
+dpkg -i lz4_1.7.5-1_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/lzma_2_4.32.7-2_iphoneos-arm.deb
+dpkg -i lzma_2_4.32.7-2_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/xz_5.2.4-4_iphoneos-arm.deb
+dpkg -i xz_5.2.4-4_iphoneos-arm.deb
+
+wget http://192.168.0.15/usr/bin/xz
+mv /tmp/xz /usr/bin
+chmod 755 /usr/bin/xz
+
+###############################################################################
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/unzip_6.0-25_iphoneos-arm.deb
+dpkg -i unzip_6.0-25_iphoneos-arm.deb
+
+wget http://192.168.0.15/bin/lzfse
+mv /tmp/lzfse /bin
+chmod 755 /bin/lzfse
+
+wget http://192.168.0.15/usr/lib/liblzfse.dylib
+mv /tmp/liblzfse.dylib /usr/lib
+chmod 755 /usr/lib/liblzfse.dylib
+
+wget http://192.168.0.15/usr/bin/unzip
+mv /tmp/unzip /usr/bin
+chmod 755 /usr/bin/unzip
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/unrar_5.6.4-1_iphoneos-arm.deb
+dpkg -i unrar_5.6.4-1_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/p7zip_16.02-1_iphoneos-arm.deb
+dpkg -i p7zip_16.02-1_iphoneos-arm.deb
+
+############################################################################### filza
+# launchctl unload /Library/LaunchDaemons/com.tigisoftware.filza.helper.plist
+# launchctl unload /Library/LaunchDaemons/com.tigisoftware.filza.webdavserver.plist
+
+wget https://tigisoftware.com/cydia/com.tigisoftware.filza64bit_3.8.0-24_iphoneos-arm.deb
+dpkg -i com.tigisoftware.filza64bit_3.8.0-24_iphoneos-arm.deb
+
+# wget http://192.168.0.15/Applications/Filza.app/Filza
+# mv /tmp/Filza /Applications/Filza.app
+# chmod 755 /Applications/Filza.app/Filza
+
+# 632d52 - 632d82
+
+printf '\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' | dd of=/Applications/Filza.app/Filza bs=1 seek=6499666 count=49 conv=notrunc
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/openssh_8.3-1_iphoneos-arm.deb
+dpkg -i openssh_8.3-1_iphoneos-arm.deb
+
+wget http://192.168.0.15/private/etc/ssh/sshd_config
+mv /tmp/sshd_config /private/etc/ssh
+
+# _utimensat -> /usr/sbin/sshd
+# _utimensat -> /usr/libexec/sftp-server
+
+rm /Library/LaunchDaemons/com.openssh.sshd.plist
+
+dpkg --purge openssl
+
+###############################################################################
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/libgpg-error0_1.39-1_iphoneos-arm.deb
+dpkg -i libgpg-error0_1.39-1_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/gcrypt_1.8.3-1_iphoneos-arm.deb
+dpkg -i gcrypt_1.8.3-1_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/libgmp10_6.1.2-1_iphoneos-arm.deb
+dpkg -i libgmp10_6.1.2-1_iphoneos-arm.deb
+
+wget http://192.168.0.11/Homepage/jailbreak/Backup/Debs/libidn2_2.3.0-1_iphoneos-arm.deb
+dpkg -i libidn2_2.3.0-1_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/libunistring_0.9.10-1_iphoneos-arm.deb
+dpkg -i libunistring_0.9.10-1_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/nettle_3.4.1-1_iphoneos-arm.deb
+dpkg -i nettle_3.4.1-1_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/libtasn1_4.13-1_iphoneos-arm.deb
+dpkg -i libtasn1_4.13-1_iphoneos-arm.deb
+
+wget http://192.168.0.11/Homepage/jailbreak/Backup/Debs/p11-kit_0.23.20_iphoneos-arm.deb
+dpkg -i p11-kit_0.23.20_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/gnutls_3.5.19-1_iphoneos-arm.deb
+dpkg -i gnutls_3.5.19-1_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/coreutils_8.31-1_iphoneos-arm.deb
+dpkg -i coreutils_8.31-1_iphoneos-arm.deb
+
+wget http://192.168.0.15/usr/bin/install
+mv /tmp/install /usr/bin
+chmod 755 /usr/bin/install
+
+###############################################################################
+mkdir /private/var/cache/dpkg
+mkdir /private/var/cache/dpkg/log
+
+wget https://apt.bingner.com/debs/1443.00/coreutils-bin_8.31-1_iphoneos-arm.deb
+dpkg -i coreutils-bin_8.31-1_iphoneos-arm.deb
+
+wget http://192.168.0.15/bin/mv
+cp /tmp/mv /bin
+chmod 755 /bin/mv
+
+wget http://192.168.0.15/bin/cp
+mv /tmp/cp /bin
+chmod 755 /bin/cp
+
+wget http://192.168.0.15/bin/touch
+mv /tmp/touch /bin
+chmod 755 /bin/touch
+
+wget http://192.168.0.15/bin/cp2
+mv /tmp/cp2 /bin
+chmod 755 /bin/cp2
+
+wget http://192.168.0.15/bin/mv2
+mv /tmp/mv2 /bin
+chmod 755 /bin/mv2
+
+wget http://192.168.0.15/bin/touch2
+mv /tmp/touch2 /bin
+chmod 755 /bin/touch2
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/file_5.35-2_iphoneos-arm.deb
+dpkg -i file_5.35-2_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/libplist3_2.2.1-2_iphoneos-arm.deb
+dpkg -i libplist3_2.2.1-2_iphoneos-arm.deb
+
+###############################################################################
+cp /usr/lib/libhistory.6.0.dylib /tmp
+cp /usr/lib/libreadline.6.0.dylib /tmp
+
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/libreadline8_8.0.4-1_iphoneos-arm.deb
+dpkg --force-depends -i libreadline8_8.0.4-1_iphoneos-arm.deb
+
+ln -s libhistory.8.0.dylib /usr/lib/libhistory.dylib
+ln -s libreadline.8.0.dylib /usr/lib/libreadline.dylib
+
+# mv /usr/lib/libhistory.6.0.dylib /usr/lib/libhistory.6.0.dylib_ORG
+# mv /usr/lib/libreadline.6.0.dylib /usr/lib/libreadline.6.0.dylib_ORG
+
+mv /tmp/libhistory.6.0.dylib /usr/lib
+mv /tmp/libreadline.6.0.dylib /usr/lib
+
+wget https://apt.bingner.com/debs/1443.00/dpkg_1.19.7-1_iphoneos-arm.deb
+dpkg --force-depends -i dpkg_1.19.7-1_iphoneos-arm.deb
+
+rm /usr/lib/libhistory.6.0.dylib
+rm /usr/lib/libreadline.6.0.dylib
+
+# mv /usr/lib/libhistory.6.0.dylib_ORG /usr/lib/libhistory.6.0.dylib
+# mv /usr/lib/libreadline.6.0.dylib_ORG /usr/lib/libreadline.6.0.dylib
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/ncurses5-libs_5.9-1_iphoneos-arm.deb
+dpkg -i ncurses5-libs_5.9-1_iphoneos-arm.deb
+
+wget http://192.168.0.11/Homepage/jailbreak/Backup/Debs/bash_5.0.17-2_iphoneos-arm.deb
+dpkg --force-depends -i bash_5.0.17-2_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/ncurses_6.1+20181013-1_iphoneos-arm.deb
+dpkg -i ncurses_6.1+20181013-1_iphoneos-arm.deb
+
+dpkg -i ncurses5-libs_5.9-1_iphoneos-arm.deb
+dpkg --force-depends -i bash_5.0.17-2_iphoneos-arm.deb
+dpkg -i ncurses_6.1+20181013-1_iphoneos-arm.deb
+
+wget http://192.168.0.15/private/etc/profile
+mv /tmp/profile /private/etc
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/ldid_2_2.1.2.7+g5420cb5q-2_iphoneos-arm.deb
+dpkg -i ldid_2_2.1.2.7+g5420cb5q-2_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/uikittools_1.1.17-1_iphoneos-arm.deb
+dpkg -i uikittools_1.1.17-1_iphoneos-arm.deb
+
+# cp /usr/bin/ecidecid /tmp
+# cp /usr/bin/gssc /tmp
+# cp /usr/bin/iomfsetgamma /tmp
+# cp /usr/bin/uicache /tmp
+# cp /usr/bin/uiopen /tmp
+
+# wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/uikittools_2.0.2_iphoneos-arm.deb
+# dpkg -i uikittools_2.0.2_iphoneos-arm.deb
+
+# mv /tmp/ecidecid /usr/bin
+# mv /tmp/gssc /usr/bin
+# mv /tmp/iomfsetgamma /usr/bin
+# mv /tmp/uicache /usr/bin
+# mv /tmp/uiopen /usr/bin
+
+# ldid -S /usr/bin/uiduid
+
+###############################################################################
+# wget https://apt.bingner.com/debs/1443.00/darwintools_1.1-1_iphoneos-arm.deb
+# dpkg -i darwintools_1.1-1_iphoneos-arm.deb
+
+# wget https://apt.bingner.com/debs/1443.00/debianutils_4.8.6-1_iphoneos-arm.deb
+# dpkg -i debianutils_4.8.6-1_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/sed_4.5-1_iphoneos-arm.deb
+dpkg -i sed_4.5-1_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/system-cmds_790.30.1-2_iphoneos-arm.deb
+dpkg -i system-cmds_790.30.1-2_iphoneos-arm.deb
+
+dpkg --purge pam
+dpkg --purge pam-modules
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/tar_1.30-2_iphoneos-arm.deb
+dpkg -i tar_1.30-2_iphoneos-arm.deb
+
+# _futimens -> /bin/tar
+
+###############################################################################
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/basic-cmds_55_iphoneos-arm.deb
+dpkg -i basic-cmds_55_iphoneos-arm.deb
+
+wget http://192.168.0.15/usr/bin/uudecode
+mv uudecode /usr/bin
+chmod 755 /usr/bin/uudecode
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/bzip2_1.0.6-1_iphoneos-arm.deb
+dpkg -i bzip2_1.0.6-1_iphoneos-arm.deb
+
+###############################################################################
+# wget https://cydia.akemi.ai/webstack/com.ericasadun.utilities_0.4.2_iphoneos-arm.deb
+# dpkg -i com.ericasadun.utilities_0.4.2_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/com.bingner.plutil_0.2.1_iphoneos-arm.deb
+dpkg -i com.bingner.plutil_0.2.1_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/libplist-utils_2.2.1-1_iphoneos-arm.deb
+dpkg -i libplist-utils_2.2.1-1_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/top_125_iphoneos-arm.deb
+dpkg -i top_125_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/diffutils_3.6-1_iphoneos-arm.deb
+dpkg -i diffutils_3.6-1_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/findutils_4.6.0-2_iphoneos-arm.deb
+dpkg -i findutils_4.6.0-2_iphoneos-arm.deb
+
+###############################################################################
+# wget https://apt.bingner.com/debs/1443.00/npth_1.6-1_iphoneos-arm.deb
+# dpkg -i npth_1.6-1_iphoneos-arm.deb
+
+# wget https://apt.bingner.com/debs/1443.00/libassuan_2.5.1-1_iphoneos-arm.deb
+# dpkg -i libassuan_2.5.1-1_iphoneos-arm.deb
+
+# wget https://apt.bingner.com/debs/1443.00/libksba_1.3.5-1_iphoneos-arm.deb
+# dpkg -i libksba_1.3.5-1_iphoneos-arm.deb
+
+# wget https://apt.bingner.com/debs/1443.00/gnupg_2.2.11-2_iphoneos-arm.deb
+# dpkg -i gnupg_2.2.11-2_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/grep_3.1-1_iphoneos-arm.deb
+dpkg -i grep_3.1-1_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/gzip_1.10-1_iphoneos-arm.deb
+dpkg -i gzip_1.10-1_iphoneos-arm.deb
+
+wget http://192.168.0.15/usr/bin/gzip
+mv gzip /usr/bin
+chmod 755 /usr/bin/gzip
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/less_530-2_iphoneos-arm.deb
+dpkg -i less_530-2_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/nano_4.5-1_iphoneos-arm.deb
+dpkg -i nano_4.5-1_iphoneos-arm.deb
+
+wget http://192.168.0.15/private/etc/nanorc
+mv /tmp/nanorc /private/etc
+
+# _futimens -> /usr/bin/nano
+
+###############################################################################
+# wget https://apt.bingner.com/debs/1443.00/network-cmds_543-1_iphoneos-arm.deb
+# dpkg -i network-cmds_543-1_iphoneos-arm.deb
+
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/network-cmds_596_iphoneos-arm.deb
+dpkg -i network-cmds_596_iphoneos-arm.deb
+
+wget http://192.168.0.15/usr/libexec/kdumpd
+mv kdumpd /usr/libexec
+chmod 755 /usr/libexec/kdumpd
+
+wget http://192.168.0.15/usr/sbin/mtest
+mv mtest /usr/sbin
+chmod 755 /usr/sbin/mtest
+
+wget http://192.168.0.15/usr/sbin/netstat
+mv netstat /usr/sbin
+chmod 755 /usr/sbin/netstat
+
+wget http://192.168.0.15/usr/sbin/traceroute
+mv traceroute /usr/sbin
+chmod 755 /usr/sbin/traceroute
+
+###############################################################################
+# wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/libcrypt1_4.4.16_iphoneos-arm.deb
+# dpkg -i libcrypt1_4.4.16_iphoneos-arm.deb
+
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/libcrypt2_4.4.17_iphoneos-arm.deb
+dpkg -i libcrypt2_4.4.17_iphoneos-arm.deb
+
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/whois_5.5.7-1_iphoneos-arm.deb
+dpkg --force-depends -i whois_5.5.7-1_iphoneos-arm.deb
+
+ln -s libintl.9.dylib /usr/lib/libintl.8.dylib
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/inetutils_1.9.4-2_iphoneos-arm.deb
+dpkg -i inetutils_1.9.4-2_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/netcat_0.7.1-1_iphoneos-arm.deb
+dpkg -i netcat_0.7.1-1_iphoneos-arm.deb
+
+###############################################################################
+wget http://192.168.0.11/Homepage/jailbreak/Backup/Debs/htop_2.2.0-1_iphoneos-arm.deb
+dpkg -i htop_2.2.0-1_iphoneos-arm.deb
+
+############################################################################### launchctl
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/launchctl_23-2_iphoneos-arm.deb
+dpkg -i launchctl_23-2_iphoneos-arm.deb
+
+############################################################################### umount. fstyp conflicts with firmware-sbin pack
+wget https://apt.bingner.com/debs/1443.00/diskdev-cmds_593.221.1-1_iphoneos-arm.deb
+dpkg --force-overwrite -i diskdev-cmds_593.221.1-1_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/science.xnu.injector_0.3_iphoneos-arm.deb
+dpkg -i science.xnu.injector_0.3_iphoneos-arm.deb
+
+###############################################################################
+wget http://apt.thebigboss.org/repofiles/cydia/debs2.0/wifiutil_0.0.1-98.deb
+dpkg -i wifiutil_0.0.1-98.deb
+
+###############################################################################
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/gawk_5.1.0-1_iphoneos-arm.deb
+dpkg -i gawk_5.1.0-1_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/lsof_62_iphoneos-arm.deb
+dpkg -i lsof_62_iphoneos-arm.deb
+
+###############################################################################
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/shell-cmds_207.40.1_iphoneos-arm.deb
+dpkg -i shell-cmds_207.40.1_iphoneos-arm.deb
+
+wget http://192.168.0.15/usr/bin/script
+mv script /usr/bin/
+chmod 755 /usr/bin/script
+
+###############################################################################
+wget http://apt.thebigboss.org/repofiles/cydia/debs2.0/openforios11_1.0.0.deb
+dpkg -i openforios11_1.0.0.deb
+
+###############################################################################
+wget https://apt.bingner.com/debs/1443.00/com.saurik.substrate.safemode_0.9.6004_iphoneos-arm.deb
+dpkg --force-depends -i com.saurik.substrate.safemode_0.9.6004_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/mobilesubstrate_0.9.7111_iphoneos-arm.deb
+dpkg -i mobilesubstrate_0.9.7111_iphoneos-arm.deb
+
+wget http://apt.thebigboss.org/repofiles/cydia/debs2.0/preferenceloader_2.2.5.deb
+dpkg -i preferenceloader_2.2.5.deb
+
+###############################################################################
+wget https://github.com/nabla-c0d3/ssl-kill-switch2/releases/download/0.14/com.nablac0d3.sslkillswitch2_0.14.deb
+dpkg -i com.nablac0d3.sslkillswitch2_0.14.deb
+
+wget http://192.168.0.15/Library/MobileSubstrate/DynamicLibraries/SSLKillSwitch2.plist
+mv /tmp/SSLKillSwitch2.plist /Library/MobileSubstrate/DynamicLibraries
+chmod 644 /Library/MobileSubstrate/DynamicLibraries/SSLKillSwitch2.plist
+
+wget http://192.168.0.15/private/var/mobile/Library/Preferences/com.nablac0d3.SSLKillSwitchSettings.plist
+mv /tmp/com.nablac0d3.SSLKillSwitchSettings.plist /private/var/mobile/Library/Preferences
+
+###############################################################################
+wget https://cydia.akemi.ai/debs/nodelete-net.angelxwind.appsyncunified.deb
+dpkg -i nodelete-net.angelxwind.appsyncunified.deb
+
+###############################################################################
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/tree_1.8.0-1_iphoneos-arm.deb
+dpkg -i tree_1.8.0-1_iphoneos-arm.deb
+
+############################################################################### iNoSleep
+wget https://repo.packix.com/api/PackageVersions/5cdcbb92dca5ed001454bdfb.deb
+dpkg -i 5cdcbb92dca5ed001454bdfb.deb
+
+wget http://192.168.0.15/Library/PreferenceBundles/inosleep.bundle/Root.plist
+mv /tmp/Root.plist /Library/PreferenceBundles/inosleep.bundle
+
+rm /Library/PreferenceBundles/inosleep.bundle/twitter.png
+rm /Library/PreferenceBundles/inosleep.bundle/paypal.png
+rm /Library/PreferenceBundles/inosleep.bundle/paypal@2x.png
+rm /Library/PreferenceBundles/inosleep.bundle/twitter@2x.png
+
+###############################################################################
+# wget http://apt.thebigboss.org/repofiles/cydia/debs2.0/airscan_1.2.deb
+# dpkg -i airscan_1.2.deb
+
+wget http://192.168.0.15/usr/bin/airscan
+mv /tmp/airscan /usr/bin
+chmod 755 /usr/bin/airscan
+
+###############################################################################
+wget http://apt.thebigboss.org/repofiles/cydia/debs2.0/sysnet_1.3.0-1.deb
+dpkg -i sysnet_1.3.0-1.deb
+
+###############################################################################
+# wget https://if0x.github.io/io.github.awesomebing1.sbutils_2.1.1_iphoneos-arm.deb
+# dpkg -i io.github.awesomebing1.sbutils_2.1.1_iphoneos-arm.deb
+
+# rm /usr/bin/sburlschemes
+# rm /usr/bin/sbquit
+# rm /usr/bin/sblock
+
+# wget http://192.168.0.15/usr/bin/sbdevice
+# mv /tmp/sbdevice /usr/bin
+# chmod 755 /usr/bin/sbdevice
+
+wget http://192.168.0.15/usr/bin/sblaunch
+mv /tmp/sblaunch /usr/bin
+chmod 755 /usr/bin/sblaunch
+
+wget http://192.168.0.15/usr/bin/sbopenurl
+mv /tmp/sbopenurl /usr/bin
+chmod 755 /usr/bin/sbopenurl
+
+###############################################################################
+# wget https://apt.bingner.com/debs/1443.00/libssl1.0_1.0.2s-1_iphoneos-arm.deb
+# dpkg -i libssl1.0_1.0.2s-1_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/bind_9.11.5-1_iphoneos-arm.deb
+dpkg --force-depends -i bind_9.11.5-1_iphoneos-arm.deb
+
+wget http://192.168.0.15/usr/lib/libcrypto.1.0.0.dylib
+mv /tmp/libcrypto.1.0.0.dylib /usr/lib
+chmod 755 /usr/lib/libcrypto.1.0.0.dylib
+
+wget http://192.168.0.15/private/etc/resolv.conf
+mv /tmp/resolv.conf /private/etc
+
+###############################################################################
+wget https://github.com/Sticktron/batterydata/releases/download/v0.1.0/com.sticktron.batterydata_0.1.0_iphoneos-arm.deb
+dpkg -i com.sticktron.batterydata_0.1.0_iphoneos-arm.deb
+
+###############################################################################
+wget http://tateu.net/repo/files/net.tateu.bstat_1.0.1_iphoneos-arm.deb
+dpkg -i net.tateu.bstat_1.0.1_iphoneos-arm.deb
+
+###############################################################################
+wget https://julioverne.github.io/debfiles/com.julioverne.cmdsapp_0.1_iphoneos-arm.deb
+dpkg -i com.julioverne.cmdsapp_0.1_iphoneos-arm.deb
+
+###############################################################################
+wget https://poomsmart.github.io/repo/debs/com.ps.letmeblock_0.0.7.5_iphoneos-arm.deb
+dpkg -i com.ps.letmeblock_0.0.7.5_iphoneos-arm.deb
+
+wget http://192.168.0.15/private/etc/hosts
+mv /tmp/hosts /private/etc
+
+############################################################################### no_sim Sabina ONLY BELOW !!!
+wget https://sparkdev.me/download/com.spark.nosimalert/1.0.0.deb
+dpkg -i 1.0.0.deb
+
+############################################################################### compile_1
+# wget https://github.com/Siguza/ios-kern-utils/releases/download/1.4.1/net.siguza.ios-kern-utils_1.4.1_iphoneos-arm.deb
+# dpkg -i net.siguza.ios-kern-utils_1.4.1_iphoneos-arm.deb
+
+############################################################################### compile_1
+wget https://apt.bingner.com/debs/1443.00/cmake_3.14.2-1_iphoneos-arm.deb
+dpkg --force-depends -i cmake_3.14.2-1_iphoneos-arm.deb
+
+############################################################################### compile_2
+wget https://apt.bingner.com/debs/1443.00/make_4.2.1-2_iphoneos-arm.deb
+dpkg -i make_4.2.1-2_iphoneos-arm.deb
+
+############################################################################### compile_3
+wget https://apt.bingner.com/debs/1443.00/libffi_3.2.1-1_iphoneos-arm.deb
+dpkg -i libffi_3.2.1-1_iphoneos-arm.deb
+
+############################################################################### compile_3
+wget https://apt.bingner.com/debs/1443.00/libllvm10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
+dpkg -i libllvm10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
+
+# _futimens -> /usr/lib/llvm-10/lib/libLLVM.dylib
+
+############################################################################### compile_3
+wget https://apt.bingner.com/debs/1443.00/libclang-cpp10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
+dpkg -i libclang-cpp10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
+
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/libuuid16_1.6.2-3_iphoneos-arm.deb
+dpkg -i libuuid16_1.6.2-3_iphoneos-arm.deb
+
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/uuid_1.6.2-3_iphoneos-arm.deb
+dpkg -i uuid_1.6.2-3_iphoneos-arm.deb
+
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/xar_1.8.0.420+fc-6_iphoneos-arm.deb
+dpkg --force-depends -i xar_1.8.0.420+fc-6_iphoneos-arm.deb
+
+# xar_1.6.1-2_iphoneos-arm.deb
+wget http://192.168.0.11/Homepage/jailbreak/Backup/usr/lib/libxar.1.dylib
+mv /tmp/libxar.1.dylib /usr/lib
+chmod 755 /usr/lib/libxar.1.dylib
+
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/liblto10_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
+dpkg -i liblto10_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
+
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/libtapi_1100.0.11_iphoneos-arm.deb
+dpkg --force-depends -i libtapi_1100.0.11_iphoneos-arm.deb
+
+wget http://192.168.0.11/Homepage/jailbreak/Backup/Debs/ld64_530-2_iphoneos-arm.deb
+dpkg -i ld64_530-2_iphoneos-arm.deb
+
+wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/libclang-common-10-dev_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
+dpkg -i libclang-common-10-dev_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
+
+wget https://apt.bingner.com/debs/1443.00/clang-10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
+dpkg -i clang-10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
+
+# wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/clang_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
+# dpkg -i clang_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
+
+ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/clang
+ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/clang++
+ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/clang-cpp
+ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/clang-cc
+ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/cc
+ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/c++
+
+############################################################################### compile_4 otool
+# https://github.com/tpoechtrager/cctools-port
+
+wget http://192.168.0.11/Homepage/jailbreak/Backup/Debs/odcctools_949.0.1-1_iphoneos-arm.deb
+dpkg -i odcctools_949.0.1-1_iphoneos-arm.deb
+
+############################################################################### compile_5 tbd
+wget http://192.168.0.11/Homepage/jailbreak/Backup/bin/tbd
+mv /tmp/tbd /bin
+chmod 755 /bin/tbd
+
+############################################################################### compile_6 headers
+# wget https://github.com/okanon/iPhoneOS.sdk/releases/download/v0.0.1/iPhoneOS10.3.sdk.tar.gz
+# tar xvzf /tmp/iPhoneOS10.3.sdk.tar.gz
+
+# upload iPhoneOS10.3.sdk + iPhoneOS10.3_headers
+unzip /tmp/iPhoneOS10.3.sdk
+mv /tmp/iPhoneOS10.3.sdk /usr/include
+
+unzip /tmp/iPhoneOS10.3_headers
+mv /tmp/iPhoneOS10.3_headers /usr/include/iPhoneOS10.3.sdk/usr/local/include
+
+rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libSystem.tbd
+ln -s libSystem.B.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libSystem.tbd
+
+rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libobjc.tbd
+ln -s libobjc.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libobjc.tbd
+
+rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libicucore.tbd
+ln -s libicucore.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libicucore.tbd
+
+rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libtidy.tbd
+ln -s libtidy.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libtidy.tbd
+
+rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libDHCPServer.tbd
+ln -s libDHCPServer.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libDHCPServer.tbd
+
+rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libipsec.tbd
+ln -s libipsec.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libipsec.tbd
+
+# wget https://codeload.github.com/theos/headers/zip/master
+# unzip master
+# mv headers-master /usr/include/iPhoneOS10.3.sdk/
+
+# rm -r /usr/include/iPhoneOS10.3.sdk/Developer
+# rm -r /usr/include/iPhoneOS10.3.sdk/Library
+# rm -r /usr/include/iPhoneOS10.3.sdk/System
+# rm -r /usr/include/iPhoneOS10.3.sdk/usr/share
+
+###############################################################################
+wget http://192.168.0.15/bin/jtool
+mv /tmp/jtool /bin
+chmod 755 /bin/jtool
+
+wget http://192.168.0.15/bin/jtool2
+mv /tmp/jtool2 /bin
+chmod 755 /bin/jtool2
+
+wget http://192.168.0.15/bin/shutdown
+mv /tmp/shutdown /bin
+chmod 755 /bin/shutdown
+
+wget http://192.168.0.15/bin/w
+mv /tmp/w /bin
+chmod 755 /bin/w
+
+wget http://192.168.0.15/bin/plconvert
+mv /tmp/plconvert /bin
+chmod 755 /bin/plconvert
+
+wget http://192.168.0.15/bin/jlutil
+mv /tmp/jlutil /bin
+chmod 755 /bin/jlutil
+
+wget http://192.168.0.15/bin/lsdtrip
+mv /tmp/lsdtrip /bin
+chmod 755 /bin/lsdtrip
+
+wget http://192.168.0.15/bin/netbottom
+mv /tmp/netbottom /bin
+chmod 755 /bin/netbottom
+
+wget http://192.168.0.15/bin/procexp
+mv /tmp/procexp /bin
+chmod 755 /bin/procexp
+
+wget http://192.168.0.15/bin/ltop
+mv /tmp/ltop /bin
+chmod 755 /bin/ltop
+
+# fs_usage + lsmp + sc_usage (Segmentation fault !!!) + screen + sqlite3 + taskpolicy
+
+###############################################################################
+wget http://192.168.0.15/bin/pbcopy
+mv /tmp/pbcopy /bin
+chmod 755 /bin/pbcopy
+
+wget http://192.168.0.15/bin/pbpaste
+mv /tmp/pbpaste /bin
+chmod 755 /bin/pbpaste
+
+############################################################################### jailbreaks crap
+# find /private/var/containers/Bundle/Application/ \( -iname "*.tar" -o -iname "launchctl" -o -iname "tar" -o -iname "grief.m4v" -o -iname "y0nkers.m4v" \) -type f -exec rm -rv {} \;
+
+wget http://192.168.0.11/Homepage/jailbreak/Backup/jailbreaks.zip
+unzip /tmp/jailbreaks.zip
+
+mv /tmp/doubleH3lix.app /Applications
+mv /tmp/Meridian.app /Applications
+mv /tmp/g0blin.app /Applications
+mv /tmp/sockH3lix.app /Applications
+
+############################################################################### FINAL
+rm -r /private/var/MobileDevice/ProvisioningProfiles/*
+
+# wget http://192.168.0.15/System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+# mv /tmp/com.apple.mDNSResponder.plist /System/Library/LaunchDaemons
+
+wget http://192.168.0.15/private/var/preferences/com.apple.mDNSResponder.plist
+mv /tmp/com.apple.mDNSResponder.plist /private/var/preferences
+
+wget http://192.168.0.15/System/Library/PrivateFrameworks/PreferencesUI.framework/Settings.plist
+mv /tmp/Settings.plist /System/Library/PrivateFrameworks/PreferencesUI.framework
+
+wget http://192.168.0.15/System/Library/PrivateFrameworks/PreferencesUI.framework/Privacy.plist
+mv /tmp/Privacy.plist /System/Library/PrivateFrameworks/PreferencesUI.framework
+
+wget http://192.168.0.15/System/Library/PrivateFrameworks/PreferencesUI.framework/General.plist
+mv /tmp/General.plist /System/Library/PrivateFrameworks/PreferencesUI.framework/
+
+wget http://192.168.0.15/System/Library/PreferenceBundles/MobileSafariSettings.bundle/Safari.plist
+mv /tmp/Safari.plist /System/Library/PreferenceBundles/MobileSafariSettings.bundle
+
+wget http://192.168.0.15/private/var/MobileAsset/Assets/AssetTypeDescriptors.plist
+mv /tmp/AssetTypeDescriptors.plist /private/var/MobileAsset/Assets
+
+wget http://192.168.0.15/private/var/mobile/Library/Preferences/com.apple.lasd.plist
+mv /tmp/com.apple.lasd.plist /private/var/mobile/Library/Preferences
+
+###############################################################################
+mkdir /Library/LaunchDaemons2/
+wget http://192.168.0.15/Library/LaunchDaemons2/com.apple.mDNSResponder2.plist
+mv /tmp/com.apple.mDNSResponder2.plist /Library/LaunchDaemons2/
+
+mkdir /private/etc/rc.d
+wget http://192.168.0.15/private/etc/rc.d/zzz
+mv /tmp/zzz /private/etc/rc.d
+chmod 755 /private/etc/rc.d/zzz
+
+############################################################################### my2
+launchctl unload /System/Library/LaunchDaemons/com.apple.appstored.plist
+launchctl unload /System/Library/LaunchDaemons/com.apple.itunesstored.plist
+
+rm -r /private/var/mobile/Library/Caches/*
+rm -r /private/var/root/Library/Caches/*
+rm -r /private/var/root/Library/Logs/*
+rm -r /private/var/mobile/Library/com.apple.itunesstored/*
+rm -r /private/var/log/*
+rm -r /private/var/logs/*
+rm -r /private/var/db/systemstats/*
+rm -r /private/var/preferences/Logging/*
+rm -r /private/var/installd/Library/Logs/MobileInstallation/*
+rm -r /private/var/mobile/Library/Logs/*
+rm -r /private/var/wireless/Library/Logs/*
+rm -r /private/var/mobile/Library/com.apple.nsurlsessiond/*
+rm -r /.fseventsd/*
+rm -r /private/var/.fseventsd/*
+rm -r /private/var/.DocumentRevisions-V100/*
+rm -r /System/Library/CacheDelete/*
+rm -r /private/var/mobile/Media/Downloads/*
+
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_VoiceServices_CustomVoice
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_VoiceServices_VoiceResources
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_VoiceTriggerAssets
+
+rm /System/Library/PreinstalledAssets/com_apple_MobileAsset_VoiceServices_CustomVoice.cpio
+rm /System/Library/PreinstalledAssets/com_apple_MobileAsset_VoiceServices_VoiceResources.cpio
+rm /System/Library/PreinstalledAssets/com_apple_MobileAsset_VoiceServices_VoiceResources.xml
+rm /System/Library/PreinstalledAssets/com_apple_MobileAsset_VoiceTriggerAssets.cpio
+rm /System/Library/PreinstalledAssets/com_apple_MobileAsset_VoiceTriggerAssets.xml
+
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_TimeZoneUpdate
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_LinguisticData
+
+rm -r /private/var/mobile/Media/DCIM/100APPLE
+rm -r /private/var/mobile/Media/DCIM/.MISC/Incoming/*
+rm -r /private/var/mobile/Media/PhotoData/Caches/*
+
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_Activity_Achievements
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_CarPlayAppBlacklist
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_Duet
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_DuetExpertCenterAsset
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_EmbeddedSpeech
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_Health
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_HomeKit
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_IOAccessoryManager
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_MacinTalkVoiceAssets
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_MediaSupport
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_PKITrustServices_PKITrustData
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_SafariCloudHistoryConfiguration
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_SharingAssets
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_SoftwareUpdate
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_SoftwareUpdateDocumentation
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_VoiceServicesVocalizerVoice
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_VoiceServices_CombinedVocalizerVoices
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_VoiceServices_GryphonVoice
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_routined_defaults
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_MobileSoftwareUpdate_UpdateBrain
+
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_CoreSuggestions
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_CoreSuggestionsQPAssets
+
+rm -r /private/var/vm/*
+
+find /private/var/MobileAsset/Assets/ -iname "*.xml" -type f -exec rm -rv {} \;
+
+# Carrier:
+# rm -r /private/var/mobile/Library/LASD
+
+launchctl unload /System/Library/LaunchDaemons/com.apple.logd.plist
+rm -r /private/var/db/diagnostics
+ln -s /dev/null /private/var/db/diagnostics
+
+rm -r /private/var/db/uuidtext
+ln -s /dev/null /private/var/db/uuidtext
+
+###############################################################################
+# find / \( -iname '*.lproj' -not -iname 'Base.lproj' -not -iname 'en.lproj' -not -iname 'de.lproj' -not -iname 'English.lproj' -not -iname 'German.lproj' \) -type d -prune -exec rm -rv {} \;
+
+find / \( -iname "ar_SA.lproj" -o -iname "ar.lproj" -o -iname "ar_AE.lproj" -o -iname "da_DK.lproj" -o -iname "de_AT.lproj" -o -iname "de_CH.lproj" -o -iname "en_AU.lproj" -o -iname "en_CA.lproj" -o -iname "en_GB.lproj" -o -iname "en_ID.lproj" -o -iname "en_IN.lproj" -o -iname "en_MY.lproj" -o -iname "en_NZ.lproj" -o -iname "en_SG.lproj" -o -iname "es.lproj" -o -iname "es_MX.lproj" -o -iname "es_US.lproj" -o -iname "fi_FI.lproj" -o -iname "fr.lproj" -o -iname "fr_BE.lproj" -o -iname "fr_CA.lproj" -o -iname "fr_CH.lproj" -o -iname "he_IL.lproj" -o -iname "it.lproj" -o -iname "it_CH.lproj" -o -iname "ja.lproj" -o -iname "ko.lproj" -o -iname "ms_MY.lproj" -o -iname "nb_NO.lproj" -o -iname "nl_BE.lproj" -o -iname "nl_NL.lproj" -o -iname "pt_BR.lproj" -o -iname "ru_RU.lproj" -o -iname "sv_SE.lproj" -o -iname "th_TH.lproj" -o -iname "tr_TR.lproj" -o -iname "zh_CN.lproj" -o -iname "zh_HK.lproj" -o -iname "zh_TW.lproj" -o -iname "ca.lproj" -o -iname "cs.lproj" -o -iname "da.lproj" -o -iname "el.lproj" -o -iname "es_419.lproj" -o -iname "es_AR.lproj" -o -iname "es_CL.lproj" -o -iname "es_CO.lproj" -o -iname "es_CR.lproj" -o -iname "es_GT.lproj" -o -iname "es_PA.lproj" -o -iname "es_PE.lproj" -o -iname "fi.lproj" -o -iname "he.lproj" -o -iname "hi.lproj" -o -iname "hr.lproj" -o -iname "hu.lproj" -o -iname "id.lproj" -o -iname "ms.lproj" -o -iname "nl.lproj" -o -iname "no.lproj" -o -iname "pl.lproj" -o -iname "pt.lproj" -o -iname "pt_PT.lproj" -o -iname "ro.lproj" -o -iname "ru.lproj" -o -iname "sk.lproj" -o -iname "sv.lproj" -o -iname "th.lproj" -o -iname "tr.lproj" -o -iname "uk.lproj" -o -iname "vi.lproj" -o -iname "zh_CN.lproj" -o -iname "zh_HK.lproj" -o -iname "yue_CN.lproj" -o -iname "Dutch.lproj" -o -iname "French.lproj" -o -iname "Italian.lproj" -o -iname "Japanese.lproj" -o -iname "Spanish.lproj" -o -iname "pt-br.lproj" -o -iname "zh-Hans.lproj" -o -iname "zh-Hant.lproj" -o -iname "bg.lproj" -o -iname "cy.lproj" -o -iname "eu.lproj" -o -iname "gre.lproj" -o -iname "lv.lproj" -o -iname "nb.lproj" -o -iname "pt-PT.lproj" -o -iname "is.lproj" -o -iname "bn.lproj" -o -iname "fa.lproj" -o -iname "ga.lproj" -o -iname "gu.lproj" -o -iname "mr.lproj" -o -iname "mr.lproj" -o -iname "ur.lproj" -o -iname "bo.lproj" -o -iname "chr.lproj" -o -iname "pa.lproj" -o -iname "Danish.lproj" -o -iname "Polish.lproj" -o -iname "Portuguese.lproj" -o -iname "Russian.lproj" -o -iname "Swedish.lproj" -o -iname "en_CN.lproj" -o -iname "en_JP.lproj" \) -type d -prune -exec rm -rv {} \;
+
+find /System/Library/PrivateFrameworks/Preferences.framework \( -iname "License-*.html" \) -type f -exec rm -rv {} \;
+
+find /Applications/MobileSafari.app \( -iname "BuiltInBookmark*.plist" \) -type f -exec rm -rv {} \;
+
+find /Library/MusicUISupport/resources/localization/ \( -iname "en-ua.json" -o -iname "hr-hr.json" -o -iname "ko-kr.json" -o -iname "zh-hans.json" -o -iname "zh-hant.json" -o -iname "en-uk.json" -o -iname "1922262b9f9372e1a33e3f8a093f8795" -o -iname "2994af5eda95984c9dbadaeca509596c" -o -iname "31954df270ee9a4fad68bf4464c36fd2" -o -iname "3a79eed2e7a6a149f0ed5b36bc9cb9ef" -o -iname "3b7b2fde2e7ff6ba02d64709a3c953a8" -o -iname "3bdb6a0bafc977521e5b132056c90268" -o -iname "470df3a53cbff9e2c40752e27252ac04" -o -iname "4d517946a381ca6023e101707ec3eb4f" -o -iname "5044c01d6d3f68cdf9f471bee7a699c5" -o -iname "54afe94f424f3df0641fc0c14c510c04" -o -iname "597c1b4e3c8bdb0c33fb30f89533a9d5" -o -iname "612284235bbea0785e4a0924b5626d79" -o -iname "6da000bec2c8a13141fb0252bbcc81e0" -o -iname "74198936a16664c0c735863b9ed2b82d" -o -iname "75f91a9a8a191d5fd22b52971a3be51e" -o -iname "7a29116c51211517adb759ceccd398dc" -o -iname "887bb6a3b44458e070f776ba8f1c19d2" -o -iname "9388bdb2d108c928056e8829c105f0e2" -o -iname "9818e60b8f3273f197f372650f50e111" -o -iname "9a2f912977c4c06297e32541b52b45c1" -o -iname "9f24221875500f87a7b9f4e3cb345090" -o -iname "ab37ca6e87b6ffb2105447c757b6e9cc" -o -iname "b0cc88236d8dc0e78a81a150d86777f3" -o -iname "b43f7b3896092a66a2848b4fa4a35900" -o -iname "c1560649f8a4f0faa0d24bc8de850d44" -o -iname "c42d4620f138745bf3daf31b24806d4b" -o -iname "da5d827354ecefdd6b2af9d9d731f8e9" -o -iname "eecacc32bcff7f373f1fb19e73c10e7e" -o -iname "fd13acade853b91fc013c22d27371134" -o -iname "fe59b35ade418fd4b805cd726969929f" -o -iname "ff962f749da1b09603275fa73a8b88c5" -o -iname "fff00421faec70c83f043d7e5e6f4831" \) -prune -exec rm -rv {} \;
+
+find /System/Library/PrivateFrameworks/Preferences.framework/ \( -iname "Multiterms-ar.strings" -o -iname "Multiterms-ca.strings" -o -iname "Multiterms-cs.strings" -o -iname "Multiterms-da.strings" -o -iname "Multiterms-el.strings" -o -iname "Multiterms-en-gb.strings" -o -iname "Multiterms-es.strings" -o -iname "Multiterms-fi.strings" -o -iname "Multiterms-fr.strings" -o -iname "Multiterms-he.strings" -o -iname "Multiterms-hr.strings" -o -iname "Multiterms-hu.strings" -o -iname "Multiterms-id.strings" -o -iname "Multiterms-it.strings" -o -iname "Multiterms-ja.strings" -o -iname "Multiterms-ko.strings" -o -iname "Multiterms-ms.strings" -o -iname "Multiterms-nb.strings" -o -iname "Multiterms-nl.strings" -o -iname "Multiterms-pl.strings" -o -iname "Multiterms-pt-pt.strings" -o -iname "Multiterms-pt.strings" -o -iname "Multiterms-ro.strings" -o -iname "Multiterms-ru.strings" -o -iname "Multiterms-sk.strings" -o -iname "Multiterms-sv.strings" -o -iname "Multiterms-th.strings" -o -iname "Multiterms-tr.strings" -o -iname "Multiterms-uk.strings" -o -iname "Multiterms-vi.strings" -o -iname "Multiterms-zh-hans.strings" -o -iname "Multiterms-zh-hant.strings" \) -type f -exec rm -rv {} \;
+
+find /System/Library/LinguisticData/ \( -iname "RequiredAssets_ar.bundle" -o -iname "RequiredAssets_bg.bundle" -o -iname "RequiredAssets_bn.bundle" -o -iname "RequiredAssets_ca.bundle" -o -iname "RequiredAssets_chr.bundle" -o -iname "RequiredAssets_cs.bundle" -o -iname "RequiredAssets_cy.bundle" -o -iname "RequiredAssets_da.bundle" -o -iname "RequiredAssets_el.bundle" -o -iname "RequiredAssets_es.bundle" -o -iname "RequiredAssets_et.bundle" -o -iname "RequiredAssets_fa.bundle" -o -iname "RequiredAssets_fi.bundle" -o -iname "RequiredAssets_fr.bundle" -o -iname "RequiredAssets_gu.bundle" -o -iname "RequiredAssets_haw.bundle" -o -iname "RequiredAssets_he.bundle" -o -iname "RequiredAssets_hi.bundle" -o -iname "RequiredAssets_hr.bundle" -o -iname "RequiredAssets_hu.bundle" -o -iname "RequiredAssets_id.bundle" -o -iname "RequiredAssets_is.bundle" -o -iname "RequiredAssets_it.bundle" -o -iname "RequiredAssets_ja.bundle" -o -iname "RequiredAssets_ka.bundle" -o -iname "RequiredAssets_ko.bundle" -o -iname "RequiredAssets_lt.bundle" -o -iname "RequiredAssets_lv.bundle" -o -iname "RequiredAssets_mk.bundle" -o -iname "RequiredAssets_mr.bundle" -o -iname "RequiredAssets_ms.bundle" -o -iname "RequiredAssets_nb.bundle" -o -iname "RequiredAssets_nl.bundle" -o -iname "RequiredAssets_pl.bundle" -o -iname "RequiredAssets_pa.bundle" -o -iname "RequiredAssets_pt.bundle" -o -iname "RequiredAssets_ro.bundle" -o -iname "RequiredAssets_ru.bundle" -o -iname "RequiredAssets_sk.bundle" -o -iname "RequiredAssets_sl.bundle" -o -iname "RequiredAssets_sr.bundle" -o -iname "RequiredAssets_sv.bundle" -o -iname "RequiredAssets_ta.bundle" -o -iname "RequiredAssets_te.bundle" -o -iname "RequiredAssets_th.bundle" -o -iname "RequiredAssets_tl.bundle" -o -iname "RequiredAssets_tr.bundle" -o -iname "RequiredAssets_uk.bundle" -o -iname "RequiredAssets_ur.bundle" -o -iname "RequiredAssets_vi.bundle" -o -iname "RequiredAssets_zh-Hans.bundle" -o -iname "RequiredAssets_zh-Hant.bundle" -o -iname "RequiredAssets_zh.bundle" -o -iname "ca" -o -iname "cs" -o -iname "da" -o -iname "el" -o -iname "es" -o -iname "fi" -o -iname "fr" -o -iname "hr" -o -iname "hu" -o -iname "it" -o -iname "nb" -o -iname "nl" -o -iname "pl" -o -iname "pt" -o -iname "ro" -o -iname "ru" -o -iname "sk" -o -iname "sv" -o -iname "th" -o -iname "tr" -o -iname "uk" -o -iname "zh" -o -iname "Multilingual-de-es.model" -o -iname "Multilingual-de-fr.model" -o -iname "Multilingual-de-it.model" -o -iname "Multilingual-de-pt.model" -o -iname "Delta-en_AU.dat" -o -iname "Delta-en_AU.idx" -o -iname "Delta-en_CA.dat" -o -iname "Delta-en_CA.idx" -o -iname "Delta-en_GB.dat" -o -iname "Delta-en_GB.idx" -o -iname "Delta-en_IN.dat" -o -iname "Delta-en_IN.idx" -o -iname "Delta-en_JP.dat" -o -iname "Delta-en_JP.idx" -o -iname "Delta-en_SG.dat" -o -iname "Delta-en_SG.idx" -o -iname "Multilingual-en-es.model" -o -iname "Multilingual-en-fr.model" -o -iname "Multilingual-en-it.model" -o -iname "Multilingual-en-pt.model" -o -iname "Phrases-en_AU.dat" -o -iname "Phrases-en_AU.idx" -o -iname "Phrases-en_CA.dat" -o -iname "Phrases-en_CA.idx" -o -iname "Phrases-en_GB.dat" -o -iname "Phrases-en_GB.idx" -o -iname "Phrases-en_IN.dat" -o -iname "Phrases-en_IN.idx" -o -iname "Phrases-en_JP.dat" -o -iname "Phrases-en_JP.idx" -o -iname "Phrases-en_SG.dat" -o -iname "Phrases-en_SG.idx" -o -iname "en_CA.lm" -o -iname "en_GB.lm" \) -prune -exec rm -rv {} \;
+
+find /System/Library/TextInput/ \( -iname '*.bundle' -not -iname 'MessagesDataKeyboardPlugin.bundle' -not -iname 'TextInput_intl.bundle' -not -iname 'TextInput_en.bundle' -not -iname 'TextInput_de.bundle' -not -iname 'TextInput_ru.bundle' \) -type d -prune -exec rm -rv {} \;
+
+find /System/Library/PrivateFrameworks/VoiceServices.framework/ \( -iname "ar-SA" -o -iname "cs-CZ" -o -iname "da-DK" -o -iname "el-GR" -o -iname "en-AU" -o -iname "en-GB" -o -iname "en-IE" -o -iname "en-ZA" -o -iname "es-ES" -o -iname "es-MX" -o -iname "fi-FI" -o -iname "fr-CA" -o -iname "fr-FR" -o -iname "he-IL" -o -iname "hi-IN" -o -iname "hu-HU" -o -iname "id-ID" -o -iname "it-IT" -o -iname "ja-JP" -o -iname "ko-KR" -o -iname "nl-BE" -o -iname "nl-NL" -o -iname "no-NO" -o -iname "pl-PL" -o -iname "pt-BR" -o -iname "pt-PT" -o -iname "ro-RO" -o -iname "ru-RU" -o -iname "sk-SK" -o -iname "sv-SE" -o -iname "th-TH" -o -iname "tr-TR" -o -iname "zh-CN" -o -iname "zh-HK" -o -iname "zh-TW" -o -iname "ar-SA.cbm" -o -iname "cs-CZ.cbm" -o -iname "da-DK.*" -o -iname "el-GR.*" -o -iname "en-AU.*" -o -iname "en-GB.*" -o -iname "en-IE.cbm" -o -iname "fi-FI.*" -o -iname "fr-CA.*" -o -iname "fr-FR.*" -o -iname "he-IL.cbm" -o -iname "hi-IN.cbm" -o -iname "hu-HU.cbm" -o -iname "ja-JP.*" -o -iname "ko-KR.*" -o -iname "nl-BE.cbm" -o -iname "no-NO.*" -o -iname "pl-PL.*" -o -iname "pt-BR.*" -o -iname "ro-RO.cbm" -o -iname "ru-RU.*" -o -iname "sk-SK.cbm" -o -iname "th-TH.cbm" -o -iname "tr-TR.cbm" -o -iname "zh-CN.*" -o -iname "zh-HK.cbm" -o -iname "zh-TW.*" -o -iname "en-AU_Female.caf" -o -iname "en-AU_Male.caf" -o -iname "en-GB_Female.caf" -o -iname "en-GB_Male.caf" -o -iname "es-ES_Female.caf" -o -iname "es-MX_Female.caf" -o -iname "fr-FR_Female.caf" -o -iname "fr-FR_Male.caf" -o -iname "ja-JP_Female.caf" -o -iname "ja-JP_Male.caf" -o -iname "nl-BE_Female.caf" -o -iname "nl-NL_Male.caf" -o -iname "zh-CN_Female.caf" -o -iname "zh-CN_Male.caf" -o -iname "es-ES.*" -o -iname "es-MX.*" -o -iname "it-IT.*" -o -iname "nl-NL.*" -o -iname "pt-PT.*" -o -iname "sv-SE.*" \) -prune -exec rm -rv {} \;
+
+###############################################################################
+rm -r /System/Library/NetworkServiceProxy/*
+
+rm /System/Library/Preferences/Logging/Subsystems/com.apple.parsecd.plist
+rm /private/var/mobile/Library/Preferences/com.apple.parsecd.plist
+
+rm -r /System/Library/PrivateFrameworks/CoreParsec.framework
+
+rm /System/Library/LocationBundles/CoreParsec.framework
+
+###############################################################################
+rm -r /Applications/FacebookAccountMigrationDialog.app
+
+rm -r /System/Library/AccessibilityBundles/FacebookSettings.axbundle
+
+rm -r /System/Library/Accounts/Access/FacebookAccessPlugin.bundle
+
+rm -r /System/Library/Accounts/Authentication/FacebookAuthenticationPlugin.bundle
+
+rm -r /System/Library/PreferenceBundles/FacebookSettings.bundle
+
+rm -r /System/Library/Accounts/Notification/SocialAccountNotificationPlugin.bundle
+
+rm -r /System/Library/BulletinBoardPlugins/SocialBulletinBoardProvider.bundle
+
+rm /System/Library/PrivateFrameworks/Preferences.framework/FacebookSettings@2x.png
+
+###############################################################################
+rm -r /Applications/SocialUIService.app
+
+rm -r /System/Library/AccessibilityBundles/SocialUIService.axbundle
+
+###############################################################################
+rm -r /System/Library/Frameworks/Social.framework
+
+rm -r /System/Library/AccessibilityBundles/SocialFramework.axbundle
+
+# rm -r /System/Library/Assistant/Plugins/Social.assistantBundle
+
+###############################################################################
+rm -r /System/Library/AccessibilityBundles/Microblog-Assistant.axbundle
+
+rm -r /System/Library/AccessibilityBundles/SocialWeeApp.axbundle
+
+###############################################################################
+rm -r /Applications/News.app
+
+rm -r /System/Library/Accounts/DataclassOwners/News.bundle
+
+rm -r /System/Library/Accounts/Notification/NewsNotificationPlugin.bundle
+
+rm -r /private/var/mobile/Library/News
+
+rm -r /System/Library/PreferenceBundles/NewsSettings.bundle
+
+rm -r /System/Library/PrivateFrameworks/NewsServices.framework
+
+###############################################################################
+rm -r /System/Library/AccessibilityBundles/TwitterFramework.axbundle
+
+rm -r /System/Library/Accounts/Authentication/TwitterAuthenticationPlugin.bundle
+
+rm -r /System/Library/Frameworks/Twitter.framework
+
+rm -r /System/Library/PreferenceBundles/TwitterSettings.bundle
+
+rm /System/Library/PrivateFrameworks/Preferences.framework/Twitter@2x.png
+
+###############################################################################
+rm -r /System/Library/Accounts/Authentication/VimeoAuthenticationPlugin.bundle
+rm -r /System/Library/PreferenceBundles/VimeoSettings.bundle
+rm -r /System/Library/PrivateFrameworks/VUSocialUpload.framework
+
+rm /System/Library/PrivateFrameworks/Preferences.framework/VimeoSettings@2x.png
+
+###############################################################################
+rm -r /System/Library/Accounts/Authentication/FlickrAuthenticationPlugin.bundle
+rm -r /System/Library/PreferenceBundles/FlickrSettings.bundle
+
+rm /System/Library/PrivateFrameworks/Preferences.framework/FlickrSettings@2x.png
+
+###############################################################################
+rm -r /Applications/SLYahooAuth.app
+rm -r /System/Library/Accounts/Authentication/YahooAuthenticationPlugin.bundle
+
+###############################################################################
+rm -r /Applications/FindMyFriends.app
+
+# REQUIRED FOR MESSAGES. empty dir is enough
+rm -r /System/Library/PrivateFrameworks/FMF.framework/*
+
+rm -r /System/Library/AccessibilityBundles/FindMyFriends.axbundle
+rm -r /System/Library/AccessibilityBundles/FMF-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/FMFTodayWidget.axbundle
+rm -r /System/Library/PreferencesSyncBundles/FindMyFriendsPreferencesSync.bundle
+rm -r /System/Library/Accounts/Notification/FMFLocatorAccountNotificationPlugin.bundle
+rm -r /System/Library/PrivateFrameworks/FMFUI.framework
+rm -r /System/Library/Accounts/AppleIDLoginPlugins/FMFAppleIDLoginPlugin.bundle
+rm -r /System/Library/Messages/iMessageBalloons/FMFBalloonProvider.bundle
+# rm -r /System/Library/Assistant/Plugins/FMF.assistantBundle
+
+rm /System/Library/LocationBundles/FMF.framework
+rm /System/Library/IdentityServices/ServiceDefinitions/com.apple.private.alloy.fmf.plist
+rm /System/Library/PrivateFrameworks/Preferences.framework/5.0~fmf.plist
+rm /System/Library/PrivateFrameworks/AppleAccountUI.framework/FMFIcon@2x.png
+rm /System/Library/PrivateFrameworks/Preferences.framework/English.lproj/5.0~fmf.strings
+rm /System/Library/PrivateFrameworks/Preferences.framework/German.lproj/5.0~fmf.strings
+
+###############################################################################
+rm -r /Applications/SLGoogleAuth.app
+rm -r /System/Library/Accounts/Authentication/GoogleAuthenticationPlugin.bundle
+
+###############################################################################
+rm -r "/Applications/Feedback Assistant iOS.app"
+
+rm /usr/libexec/feedbackarchiverd
+
+###############################################################################
+rm -r /Applications/Fitness.app
+rm -r /System/Library/PrivateFrameworks/FitnessUI.framework
+rm -r /System/Library/AccessibilityBundles/FitnessUI.axbundle
+rm -r /System/Library/AccessibilityBundles/Fitness.axbundle
+rm -r /System/Library/PrivateFrameworks/FitnessFriends.framework
+rm -r /System/Library/DataClassMigrators/FitnessMigrator.migrator
+# rm -r /System/Library/Health/Assets/FitnessUIAssets.bundle
+# rm -r /System/Library/NanoPreferenceBundles/General/FitnessPrivacySettings.bundle
+
+rm /System/Library/IdentityServices/ServiceDefinitions/com.apple.private.alloy.fitnessfriends.icloud.plist
+rm /System/Library/IdentityServices/ServiceDefinitions/com.apple.private.alloy.fitnessfriends.imessage.plist
+
+###############################################################################
+rm -r /Applications/Health.app
+rm -r /Applications/HealthPrivacyService.app
+
+rm -r /System/Library/AccessibilityBundles/Health.axbundle
+rm -r /System/Library/AccessibilityBundles/HealthKitUI.axbundle
+rm -r /System/Library/AccessibilityBundles/HealthUI.axbundle
+
+# REQUIRED FOR MESSAGES. empty dir is enough
+rm -r /System/Library/Frameworks/HealthKit.framework/*
+
+rm -r /System/Library/Frameworks/HealthKitUI.framework
+
+rm -r /System/Library/PrivateFrameworks/HealthDaemon.framework
+rm -r /System/Library/PrivateFrameworks/HealthKitUI.framework
+rm -r /System/Library/PrivateFrameworks/HealthUI.framework
+
+rm -r /System/Library/Health
+
+rm -r /System/Library/PreferenceBundles/Privacy/HealthPrivacySettings.bundle
+rm -r /System/Library/PreferencesSyncBundles/HealthSettingsPrefs.bundle
+
+rm -r /private/var/mobile/Library/Health
+
+rm -r /System/Library/DataClassMigrators/HealthMigrator.migrator
+
+# rm -r /System/Library/NanoPreferenceBundles/Applications/HealthAppsSettings.bundle
+# rm -r /System/Library/NanoPreferenceBundles/Applications/HealthSettings.bundle
+
+rm /System/Library/IdentityServices/ServiceDefinitions/com.apple.private.alloy.health.sync.classc.plist
+
+rm /System/Library/Preferences/Logging/Subsystems/com.apple.HealthKit.plist
+
+rm /private/var/mobile/Library/Preferences/com.apple.healthd.plist
+rm /System/Library/PairedSyncServices/com.apple.pairedsync.healthd.plist
+
+rm /System/Library/PrivateFrameworks/Preferences.framework/Health@2x.png
+rm /System/Library/PrivateFrameworks/Preferences.framework/HealthApp@2x.png
+
+# rm /System/Library/IdentityServices/ServiceDefinitions/com.apple.private.alloy.madrid.healthcheck.plist
+
+# rm /System/Library/PrivateFrameworks/IMDPersistence.framework/IMAutomaticHistoryDeletionAgent.app/com.apple.private.alloy.madrid.healthcheck.plist
+
+###############################################################################
+rm -r /Applications/TencentWeiboAccountMigrationDialog.app
+rm -r /System/Library/Accounts/Access/TencentWeiboAccessPlugin.bundle
+rm -r /System/Library/Accounts/Authentication/TencentWeiboAuthenticationPlugin.bundle
+rm -r /System/Library/Accounts/Authentication/WeiboAuthenticationPlugin.bundle
+rm -r /System/Library/PreferenceBundles/TencentWeiboSettings.bundle
+rm -r /System/Library/PreferenceBundles/WeiboSettings.bundle
+
+rm /System/Library/PrivateFrameworks/Preferences.framework/TencentWeiboSettings@2x.png
+rm /System/Library/PrivateFrameworks/Preferences.framework/Weibo@2x.png
+
+###############################################################################
+rm -r /Applications/Tips.app
+rm -r /System/Library/AccessibilityBundles/Tips.axbundle
+rm -r /System/Library/AccessibilityBundles/TipsNotificationExtension.axbundle
+rm -r /System/Library/AccessibilityBundles/TipsWidgetExtension.axbundle
+rm -r /System/Library/PrivateFrameworks/Tips.framework
+
+rm /private/var/mobile/Library/Preferences/com.apple.tipsd.plist
+rm /private/var/mobile/Library/Preferences/group.com.apple.tips.plist
+
+# rm /usr/libexec/tipsd
+
+###############################################################################
+# rm -r /Applications/AdSheet.app
+
+find /Applications/AdSheet.app/ \( -not -iname 'AdSheet.app' -not -iname 'AdSheet' -not -iname 'Info.plist' \) -prune -exec rm -rv {} \;
+
+# rm -r /System/Library/PrivateFrameworks/iAdCore.framework
+
+find /System/Library/PrivateFrameworks/iAdCore.framework/ \( -not -iname 'iAdCore.framework' -not -iname 'Info.plist' \) -prune -exec rm -rv {} \;
+
+rm -r /Applications/iAdOptOut.app
+rm -r "/Library/Application Support/AdSheet"
+rm -r /System/Library/AccessibilityBundles/AdSheet.axbundle
+rm -r /System/Library/AccessibilityBundles/iAdFramework.axbundle
+rm -r /System/Library/Frameworks/iAd.framework
+
+rm -r /System/Library/PrivateFrameworks/iAdDeveloper.framework
+rm -r /System/Library/PrivateFrameworks/iAdServices.framework
+rm -r /System/Library/DataClassMigrators/iAd.migrator
+
+rm /System/Library/LocationBundles/iAdCore.framework
+rm /private/etc/asl/com.apple.iad.logging
+rm /private/var/mobile/Library/Preferences/com.apple.adtracking.plist
+
+###############################################################################
+rm -r /Applications/Weather.app
+rm -r /System/Library/PrivateFrameworks/Weather.framework
+rm -r /System/Library/PrivateFrameworks/WeatherFoundation.framework
+rm -r /System/Library/PrivateFrameworks/WeatherUI.framework
+rm -r /System/Library/AccessibilityBundles/Weather.axbundle
+rm -r /System/Library/AccessibilityBundles/WeatherAppTodayWidget.axbundle
+rm -r /System/Library/AccessibilityBundles/WeatherAssistantUI-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/WeatherFoundation.axbundle
+rm -r /System/Library/AccessibilityBundles/WeatherFramework.axbundle
+rm -r /System/Library/AccessibilityBundles/WeatherNotifications.axbundle
+rm -r /System/Library/PreferencesSyncBundles/CompanionNanoWeatherPrefsSync.bundle
+rm -r /System/Library/DataClassMigrators/Weather.migrator
+# rm -r /System/Library/NanoPreferenceBundles/Applications/WeatherExtensionBridgeSettings.bundle
+
+rm /System/Library/LocationBundles/Weather.framework
+rm /System/Library/PairedSyncServices/com.apple.pairedsync.nanoweatherprefssync.plist
+rm /System/Library/PrivateFrameworks/NanoTimeKitCompanion.framework/WeatherIcon@2x.png
+
+###############################################################################
+rm -r /Applications/VideoSubscriberAccountViewService.app
+rm -r /System/Library/Frameworks/VideoSubscriberAccount.framework
+rm -r /System/Library/PrivateFrameworks/VideoSubscriberAccountUI.framework
+rm -r /System/Library/PreferenceBundles/VideoSubscriberAccountDeveloperSettings.bundle
+rm -r /System/Library/PreferenceBundles/VideoSubscriberAccountSettings.bundle
+rm -r /private/var/mobile/Documents/com.apple.VideoSubscriberAccount.DeveloperService
+rm -r "/private/var/mobile/Library/Application Support/videosubscriptionsd"
+
+rm -r /System/Library/PrivateFrameworks/Preferences.framework/VideoSubscriber@2x.png
+
+############################################################################### siri
+# https://www.theiphonewiki.com/wiki/Siri
+
+rm -r /Applications/SiriViewService.app
+rm -r /System/Library/Assistant
+rm -r /System/Library/PrivateFrameworks/AssistantServices.framework
+rm -r /System/Library/PrivateFrameworks/AssistantUI.framework
+rm -r /System/Library/PrivateFrameworks/SiriClientFlow.framework
+rm -r /System/Library/PrivateFrameworks/SiriCore.framework
+rm -r /System/Library/PrivateFrameworks/SiriTasks.framework
+rm -r /System/Library/PrivateFrameworks/SiriUI.framework
+rm -r /System/Library/PrivateFrameworks/SiriUICore.framework
+rm -r /System/Library/AccessibilityBundles/SiriUICore.axbundle
+rm -r /System/Library/AccessibilityBundles/Siriland.axbundle
+rm -r /System/Library/AccessibilityBundles/SiriViewService.axbundle
+rm -r /System/Library/AccessibilityBundles/SiriUI.axbundle
+rm -r /System/Library/AccessibilityBundles/GeneralKnowledge-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/Settings-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/System-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/AssistantUI.axbundle
+rm -r /System/Library/AccessibilityBundles/Assistant-SBPlugin.axbundle
+rm -r /System/Library/AccessibilityBundles/AcousticId-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/AddressBook-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/Calendar-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/ChatKitAssistantUI-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/Mail-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/Maps-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/MobileTimer-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/Movies-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/Reminders-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/Restaurants-Assistant.axbundle
+
+# rm -r /System/Library/AccessibilityBundles/SetupAssistantUI.axbundle
+
+rm -r /System/Library/AccessibilityBundles/Sports-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/WAAnswer-Assistant.axbundle
+rm -r /System/Library/PreferenceBundles/Assistant.bundle
+rm -r /System/Library/PrivateFrameworks/DistributedEvaluation.framework/XPCServices/com.apple.siri-distributed-evaluation.xpc
+rm -r /System/Library/PrivateFrameworks/DiagnosticExtensions.framework/PlugIns/com.apple.DiagnosticExtensions.Siri.appex
+rm -r /System/Library/UserEventPlugins/AssistantUEA.plugin
+rm -r /System/Library/PrivateFrameworks/SAObjects.framework
+rm -r /System/Library/PrivateFrameworks/VoiceTriggerUI.framework
+rm -r /System/Library/SpringBoardPlugins/Assistant.uibundle
+rm -r /System/Library/DataClassMigrators/Siri.migrator
+rm -r /private/var/mobile/Library/Assistant
+rm -r /Library/Audio/Plug-Ins/RemoteInput/AudioAppleSiriRemoteInput.bundle
+
+rm -r /System/Library/PrivateFrameworks/AppPredictionWidget.framework
+
+rm /System/Library/IdentityServices/ServiceDefinitions/com.apple.private.alloy.siri.device.plist
+rm /System/Library/IdentityServices/ServiceDefinitions/com.apple.private.alloy.siri.location.plist
+rm /System/Library/IdentityServices/ServiceDefinitions/com.apple.private.alloy.siri.phasespotter.plist
+rm /System/Library/IdentityServices/ServiceDefinitions/com.apple.private.alloy.siri.proxy.plist
+rm /System/Library/PairedSyncServices/com.apple.pairedsync.siri.plist
+rm /System/Library/Preferences/Logging/Subsystems/com.apple.siri.plist
+rm /private/var/mobile/Library/Preferences/com.apple.assistant.plist
+rm /System/Library/Sandbox/Profiles/com.apple.siri.ClientFlow.ClientScripter.sb
+rm /Applications/Setup.app/siri@2x~iphone.png
+rm /Applications/Setup.app/English.lproj/AssistantOptIn.strings
+rm /Applications/Setup.app/German.lproj/AssistantOptIn.strings
+
+# rm /System/Library/PrivateFrameworks/HelpKit.framework/img/ask-siri.svg
+# rm /System/Library/PrivateFrameworks/StoreKitUI.framework/ProductViewSiriBadge@2x.png
+
+# rm /Library/Audio/Tunings/Generic/AU/aufx-epv3-siri-appl.plist
+# rm /System/Library/Audio/UISounds/nano/SiriAutoSend_Haptic.caf
+# rm /System/Library/Audio/UISounds/nano/SiriStart_Haptic.caf
+# rm /System/Library/Audio/UISounds/nano/SiriStopFailure_Haptic.caf
+# rm /System/Library/Audio/UISounds/nano/SiriStopSuccess_Haptic.caf
+# rm /System/Library/Frameworks/CoreMotion.framework/Support/EarGesture_Prototypes_Siri_0.dat
+# rm /System/Library/Frameworks/CoreMotion.framework/Support/EarGesture_Prototypes_Siri_1.dat
+
+rm /System/Library/PrivateFrameworks/Preferences.framework/Siri@2x.png
+
+############################################################################### FindMyiPhone
+rm -r /Applications/FindMyiPhone.app
+
+rm -r /System/Library/AccessibilityBundles/FindMyiPhone.axbundle
+
+rm /System/Library/PrivateFrameworks/PreferencesUI.framework/FindMyiPhone@2x.png
+
+############################################################################### iTunes
+rm -r /Applications/MobileStore.app
+
+rm -r /System/Library/AccessibilityBundles/MobileStore.axbundle
+
+rm -r /System/Library/SetupAssistantBundles/iTunesStoreSetupAssistant.bundle
+
+# rm -r /System/Library/PrivateFrameworks/iTunesStore.framework # itunesstored service !!!
+
+rm -r /System/Library/PrivateFrameworks/iTunesStoreUI.framework
+
+rm -r /System/Library/AccessibilityBundles/iTunesStoreFramework.axbundle
+
+rm -r /System/Library/AccessibilityBundles/iTunesStoreUIFramework.axbundle
+
+rm -r /System/Library/DataClassMigrators/iTunesStore.migrator
+
+# rm -r /System/Library/CoreServices/CacheDeleteITunesStore
+
+# rm -r /System/Library/PreferenceBundles/MobileStoreSettings.bundle # iTunes & App Stores settings !!!
+
+rm -r /Applications/StoreKitUIService.app
+rm -r /System/Library/Frameworks/StoreKit.framework
+rm -r /System/Library/AccessibilityBundles/StoreKitFramework.axbundle
+rm -r /System/Library/AccessibilityBundles/StoreKitUI.axbundle
+
+# rm -r /System/Library/PrivateFrameworks/StoreKitUI.framework # used by /Applications/AppStore.app/AppStore !!!
+
+rm -r /System/Library/PrivateFrameworks/MusicStoreUI.framework
+
+############################################################################### game
+rm -r /Applications/GameCenterUIService.app
+rm -r /System/Library/Frameworks/GameKit.framework
+rm -r /System/Library/PrivateFrameworks/LegacyGameKit.framework
+rm -r /System/Library/PrivateFrameworks/GameKitServices.framework
+rm -r /System/Library/PrivateFrameworks/GameCenter.framework
+rm -r /System/Library/PrivateFrameworks/GameCenterFoundation.framework
+rm -r /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework
+rm -r /System/Library/PrivateFrameworks/GameCenterUI.framework
+rm -r "/System/Library/AccessibilityBundles/Game Center.axbundle"
+rm -r /System/Library/AccessibilityBundles/GameCenterPrivateUIFramework.axbundle
+rm -r /System/Library/AccessibilityBundles/GameCenterUIFramework.axbundle
+rm -r /System/Library/AccessibilityBundles/GameCenterUIService.axbundle
+rm -r /System/Library/AccessibilityBundles/GameKitFramework.axbundle
+rm -r /System/Library/PreferenceBundles/GameCenterSettings.bundle
+rm -r /System/Library/SetupAssistantBundles/GameCenterSetupAssistant.bundle
+rm -r /System/Library/Accounts/AppleIDLoginPlugins/GameCenterAppleIDLoginPlugin.bundle
+rm -r /System/Library/Accounts/Authentication/AppleIDAuthenticationDelegates/GameCenterAppleIDAuthenticationDelegate.bundle
+rm -r /System/Library/Accounts/Notification/GameCenterAccountNotificationPlugin.bundle
+
+rm /private/var/mobile/Library/Preferences/com.apple.gamecenter.plist
+rm /System/Library/IdentityServices/ServiceDefinitions/com.apple.private.alloy.gamecenter.plist
+rm /System/Library/PreferenceBundles/AccountSettings/AppleAccountSettings.bundle/gamecenter@2x.png
+rm /System/Library/PrivateFrameworks/Preferences.framework/GameCenter@2x.png
+rm /System/Library/PrivateFrameworks/StoreKitUI.framework/ProductViewGameCenterBadge@2x.png
+
+# /private/var/mobile/Library/Preferences/com.apple.gamed.plist
+
+############################################################################### Watch
+rm -r /Applications/Bridge.app
+rm -r /System/Library/Frameworks/WatchKit.framework
+rm -r /System/Library/Frameworks/WatchConnectivity.framework
+rm -r /System/Library/PrivateFrameworks/BridgePreferences.framework
+rm -r /System/Library/PrivateFrameworks/PBBridgeSupport.framework
+rm -r /System/Library/PrivateFrameworks/PairingProximity.framework
+rm -r /System/Library/PrivateFrameworks/NanoGlanceSettings.framework
+rm -r /System/Library/PrivateFrameworks/NanoTimeKitCompanion.framework
+rm -r /System/Library/PrivateFrameworks/NanoAppRegistry.framework
+rm -r /System/Library/PrivateFrameworks/NanoAudioControl.framework
+rm -r /System/Library/PrivateFrameworks/NanoComplicationSettings.framework
+rm -r /System/Library/PrivateFrameworks/NanoBackup.framework
+rm -r /System/Library/PrivateFrameworks/NanoLeash.framework
+rm -r /System/Library/PrivateFrameworks/NanoMailKitServer.framework
+rm -r /System/Library/PrivateFrameworks/NanoMediaRemote.framework
+rm -r /System/Library/PrivateFrameworks/NanoMusicSync.framework
+rm -r /System/Library/PrivateFrameworks/NanoPassKit.framework
+rm -r /System/Library/PrivateFrameworks/NanoPhonePerfTesting.framework
+rm -r /System/Library/PrivateFrameworks/NanoPhotosUICompanion.framework
+rm -r /System/Library/PrivateFrameworks/NanoPreferencesSync.framework
+rm -r /System/Library/PrivateFrameworks/NanoRegistry.framework
+rm -r /System/Library/PrivateFrameworks/NanoResourceGrabber.framework
+rm -r /System/Library/PrivateFrameworks/NanoSystemSettings.framework
+rm -r /System/Library/PrivateFrameworks/NanoTimeKitAssetsCompanion.bundle
+rm -r /System/Library/PrivateFrameworks/NanoUniverse.framework
+rm -r /System/Library/PrivateFrameworks/SoftwareUpdateBridge.framework
+rm -r /System/Library/AccessibilityBundles/Bridge.axbundle
+rm -r /System/Library/AccessibilityBundles/WatchKit.axbundle
+rm -r /System/Library/AccessibilityBundles/NanoPeopleBridgeSettings.axbundle
+rm -r /System/Library/AccessibilityBundles/NanoTimeKitCompanion.axbundle
+rm -r /System/Library/LocationBundles/AppleWatchFaces.bundle
+rm -r /System/Library/LocationBundles/AppleWatchWorkout.bundle
+rm -r /System/Library/PreferencesSyncBundles/NanoClockBridgeSettingsPreferencesSyncCompanion.bundle
+rm -r /System/Library/PreferencesSyncBundles/NanoCalendarPreferencesSyncCompanion.bundle
+rm -r /System/Library/PreferencesSyncBundles/NanoMailPreferencesSyncServer.bundle
+rm -r /System/Library/PreferencesSyncBundles/NanoMapsPreferencesSyncCompanion.bundle
+rm -r /System/Library/PreferencesSyncBundles/NanoPassbookPreferencesSyncCompanion.bundle
+rm -r /System/Library/PreferencesSyncBundles/NanoPeoplePreferencesSyncCompanion.bundle
+rm -r /System/Library/PreferencesSyncBundles/NanoPhonePreferencesSyncCompanion.bundle
+rm -r /System/Library/NanoPreferenceBundles
+rm -r /System/Library/Accounts/Notification/NanoPassbookAccountNotificationPlugin.bundle
+rm -r /System/Library/Accounts/Notification/AAAccountNotificationPlugin.bundle
+rm -r /System/Library/DataClassMigrators/NanoAudioControlMigrator.migrator
+rm -r /System/Library/DataClassMigrators/NanoPeopleDataMigrator.bundle
+rm -r /System/Library/UsageBundles/NanoBackupUsage.bundle
+rm -r /private/var/mobile/Library/NanoTimeKit
+
+# /System/Library/NanoLaunchDaemons
+
+rm /System/Library/IdentityServices/ServiceDefinitions/com.apple.private.alloy.pbbridge.plist
+rm /System/Library/Preferences/Logging/Subsystems/NanoTimeKit.plist
+
+############################################################################### stocks
+rm -r /Applications/Stocks.app
+rm -r /System/Library/PrivateFrameworks/Stocks.framework
+rm -r "/System/Library/AccessibilityBundles/Stocks WatchKit Extension.axbundle"
+rm -r /System/Library/AccessibilityBundles/Stocks.axbundle
+rm -r /System/Library/AccessibilityBundles/Stocks-Assistant.axbundle
+rm -r /System/Library/AccessibilityBundles/StocksFramework.axbundle
+rm -r /System/Library/AccessibilityBundles/StocksWidget.axbundle
+rm -r /System/Library/DataClassMigrators/StocksMigrator.migrator
+rm -r /System/Library/PreferencesSyncBundles/StocksBridgePreferencesSync.bundle
+
+rm /System/Library/Preferences/Logging/Subsystems/com.apple.stocks.plist
+
+############################################################################### reminders
+rm -r /Applications/Reminders.app
+rm -r /System/Library/PrivateFrameworks/RemindersUI.framework
+rm -r /System/Library/AccessibilityBundles/Reminders.axbundle
+rm -r /System/Library/AccessibilityBundles/RemindersWidget.axbundle
+rm -r /System/Library/PreferenceBundles/RemindersSettings.bundle
+rm -r /System/Library/LocationBundles/RemindersAlerts.bundle
+
+rm /private/var/mobile/Library/Preferences/com.apple.reminders.plist
+rm /System/Library/PrivateFrameworks/Preferences.framework/Reminders@2x.png
+
+############################################################################### video tv
+# find /Applications/TV.app/ \( -iname "ca-es.json" -o -iname "cs-cz.json" -o -iname "da-dk.json" -o -iname "de-ch.json" -o -iname "el-gr.json" -o -iname "en-au.json" -o -iname "en-ca.json" -o -iname "en-gb.json" -o -iname "en-ua.json" -o -iname "en-uk.json" -o -iname "es-es.json" -o -iname "es-mx.json" -o -iname "fi-fi.json" -o -iname "fr-ca.json" -o -iname "fr-ch.json" -o -iname "fr-fr.json" -o -iname "hr-hr.json" -o -iname "hu-hu.json" -o -iname "id-id.json" -o -iname "it-it.json" -o -iname "ja-jp.json" -o -iname "ko-kr.json" -o -iname "ms-my.json" -o -iname "nl-nl.json" -o -iname "no-no.json" -o -iname "pl-pl.json" -o -iname "pt-br.json" -o -iname "pt-pt.json" -o -iname "ro-ro.json" -o -iname "ru-ru.json" -o -iname "sk-sk.json" -o -iname "sv-se.json" -o -iname "th-th.json" -o -iname "tr-tr.json" -o -iname "uk-ua.json" -o -iname "vi-vi.json" -o -iname "zh-cn.json" -o -iname "zh-hans.json" -o -iname "zh-hant.json" -o -iname "zh-tw.json" \) -type f -exec rm -rv {} \;
+
+rm -r /Applications/Videos.app
+rm -r /Applications/TV.app
+rm -r /System/Library/Frameworks/VideoToolbox.framework
+rm -r /System/Library/AccessibilityBundles/Videos.axbundle
+rm -r /System/Library/PreferenceBundles/VideoSettings.bundle
+rm -r /System/Library/DataClassMigrators/VideosMigrator.migrator
+rm -r /System/Library/UsageBundles/VideosUsage.bundle
+rm -r "/private/var/mobile/Library/Application Support/videosubscriptionsd"
+
+rm /System/Library/PrivateFrameworks/Preferences.framework/Video@2x.png
+
+############################################################################### WatchList
+# wget http://192.168.0.15/System/Library/PrivateFrameworks/WatchListKitUI.framework/TVWatchList.js
+# mv /tmp/TVWatchList.js /System/Library/PrivateFrameworks/WatchListKitUI.framework
+
+rm -r /Applications/WatchListViewService.app
+rm -r /System/Library/PrivateFrameworks/WatchListKit.framework
+rm -r /System/Library/PrivateFrameworks/WatchListKitUI.framework
+rm -r /System/Library/AccessibilityBundles/WatchListKitUI.axbundle
+rm -r /private/var/mobile/Library/com.apple.WatchListKit
+
+############################################################################### podcasts my3
+rm -r /Applications/Podcasts.app
+
+rm -r /System/Library/AccessibilityBundles/Podcasts.axbundle
+
+rm -r /System/Library/AccessibilityBundles/PodcastsPodcastsTodayExtension.axbundle
+
+############################################################################### wallpaper
+find /Library/Wallpaper/iPhone/ \( -iname "060*" -o -iname "070*" -o -iname "109*" -o -iname "11*" -o -iname "20*" \) -type f -exec rm -rv {} \;
+
+###############################################################################
+launchctl remove com.apple.accessibility.AccessibilityUIServer
+launchctl remove com.apple.accessibility.heard
+launchctl remove com.apple.accessibility.mediaaccessibilityd
+
+mv /System/Library/PrivateFrameworks/Accessibility.framework/Frameworks/AccessibilityUI.framework/XPCServices/com.apple.accessibility.AccessibilityUIServer.xpc/com.apple.accessibility.AccessibilityUIServer /System/Library/PrivateFrameworks/Accessibility.framework/Frameworks/AccessibilityUI.framework/XPCServices/com.apple.accessibility.AccessibilityUIServer.xpc/com.apple.accessibility.AccessibilityUIServer_ORG
+
+mv /System/Library/PrivateFrameworks/Accessibility.framework/Frameworks/AXHearingSupport.framework/XPCServices/heard.xpc/heard /System/Library/PrivateFrameworks/Accessibility.framework/Frameworks/AXHearingSupport.framework/XPCServices/heard.xpc/heard_ORG
+
+mv /System/Library/Frameworks/MediaAccessibility.framework/XPCServices/com.apple.accessibility.mediaaccessibilityd.xpc/com.apple.accessibility.mediaaccessibilityd /System/Library/Frameworks/MediaAccessibility.framework/XPCServices/com.apple.accessibility.mediaaccessibilityd.xpc/com.apple.accessibility.mediaaccessibilityd_ORG
+
+###############################################################################
+launchctl unload /System/Library/LaunchDaemons/com.apple.telephonyutilities.callservicesd.plist
+
+mv /System/Library/Frameworks/CallKit.framework/XPCServices/com.apple.CallKit.CallDirectoryMaintenance.xpc/com.apple.CallKit.CallDirectoryMaintenance /System/Library/Frameworks/CallKit.framework/XPCServices/com.apple.CallKit.CallDirectoryMaintenance.xpc/com.apple.CallKit.CallDirectoryMaintenance_ORG
+
+# launchctl load /System/Library/LaunchDaemons/com.apple.telephonyutilities.callservicesd.plist
+
+############################################################################### plugz
+launchctl unload /System/Library/LaunchDaemons/com.apple.UserEventAgent-System.plist
+
+rm -r /System/Library/UserEventPlugins/BonjourEvents.plugin
+rm -r /System/Library/UserEventPlugins/com.apple.bonjour.plugin
+# rm -r /System/Library/UserEventPlugins/AssistantUEA.plugin
+rm -r /System/Library/UserEventPlugins/com.apple.tailspin.plugin
+rm -r /System/Library/UserEventPlugins/USBEthernetSharing.plugin
+rm -r /System/Library/UserEventPlugins/MobileMailUEA.plugin
+rm -r /System/Library/UserEventPlugins/com.apple.ExternalAccessory.matching.plugin
+rm -r /System/Library/UserEventPlugins/com.apple.fsevents.matching.plugin
+rm -r /System/Library/UserEventPlugins/PairingProximityEventAgent.plugin
+
+# launchctl load /System/Library/LaunchDaemons/com.apple.UserEventAgent-System.plist
+
+# rm -r /System/Library/SpringBoardPlugins/Assistant.uibundle
+rm -r /System/Library/SpringBoardPlugins/SoftwareUpdateServicesUIPlugin.servicebundle
+rm -r /System/Library/SpringBoardPlugins/Sharing.servicebundle
+rm -r /System/Library/SpringBoardPlugins/FindMyiPhoneLockScreen.lockbundle
+rm -r /System/Library/SpringBoardPlugins/VoiceMemosLockScreen.lockbundle
+rm -r /System/Library/SpringBoardPlugins/PassesLockScreenPlugin.lockbundle
+rm -r /System/Library/SpringBoardPlugins/StoreServicesPlugin.servicebundle
+
+rm -r /System/Library/HIDPlugins/CompassBacklightCompensation.plugin
+rm -r /System/Library/HIDPlugins/CompassPlugIn.plugin
+
+###############################################################################
+rm -r /System/Library/PrivateFrameworks/UpNextWidget.framework
+
+rm -r /Applications/MobileSlideShow.app/PlugIns/PhotosWidget.appex
+
+############################################################################### Sabina only !!!
+# causes probs with whatsapp and other apps in non-jailbroken mode!
+# /private/var/installd/Library/Logs/MobileInstallation/mobile_installation.log.0
+
+# find / \( -iname "*.plist" -o -iname "*.strings" \) -type f -exec plutil -convert xml1 {} \;
+
+find / \( -iname "*.plist" -o -iname "*.strings" \) \( -not -iname 'Info.plist' \) -type f -exec plutil -convert xml1 {} \;
+
+############################################################################### manual -> Regenerate PhotoData my3
+launchctl load -w /System/Library/LaunchDaemons/com.apple.assetsd.plist
+
+rm -r /private/var/mobile/Media/PhotoData/*
+
+# lsdtrip launch net.whatsapp.WhatsApp
+# sblaunch com.apple.camera
+open com.apple.camera
+sleep 3
+killall Camera
+
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.assetsd.plist
+
+###############################################################################
+IFS=
+
+# com.apple.camera
+# com.apple.mobileslideshow
+
+# find /private/var/mobile/Containers/Data/Application/ \( -iname "Incoming" \) -type d -prune -exec bash -c 'rm -rv {} && ln -s /private/var/mobile/Media/DCIM/.MISC/Incoming {}' \;
+
+var1=`lsdtrip app com.apple.camera | grep 'Container URL'` && var2=`expr length $var1` && var1="`expr substr $var1 25 $var2`" && mkdir $var1/Media && mkdir $var1/Media/DCIM && mkdir $var1/Media/DCIM/.MISC && ln -s /private/var/mobile/Media/DCIM/.MISC/Incoming $var1/Media/DCIM/.MISC/Incoming
+
+var1=`lsdtrip app com.apple.mobileslideshow | grep 'Container URL'` && var2=`expr length $var1` && var1="`expr substr $var1 25 $var2`" && mkdir $var1/Media && mkdir $var1/Media/DCIM && mkdir $var1/Media/DCIM/.MISC && ln -s /private/var/mobile/Media/DCIM/.MISC/Incoming $var1/Media/DCIM/.MISC/Incoming
+
+############################################################################### whatsapp
+# find /private/var/containers/Bundle/Application/ \( -iname "domain_fronting_providers.tsv" -o -iname "TodayExtension.appex" \) -prune -exec rm -rv {} \;
+
+var1=`getappdir net.whatsapp.WhatsApp` && find $var1/ \( -iname "domain_fronting_providers.tsv" -o -iname "TodayExtension.appex" \) -prune -exec rm -rv {} \;
+
+# find /private/var/mobile/Containers/Data/Application/ \( -iname "Logs" \) -type d -prune -exec bash -c 'rm -rv {} && ln -s /dev/null {}' \;
+
+# find /private/var/mobile/Containers/Data/Application/ \( -iname "Logs" \) -type d -prune -exec bash -c 'rm -rv {} && ln -s /tmp {}' \;
+
+var1=`lsdtrip app net.whatsapp.WhatsApp | grep 'Container URL'` && var2=`expr length $var1` && var1="`expr substr $var1 25 $var2`" && rm -rfv $var1/Library/Logs && ln -s /tmp $var1/Library/Logs
+
+############################################################################### update badge
+# <string>Set up iCloud, the App Store, and more.</string>
+# <key>kBadgedForSoftwareUpdateKey</key>
+# <false/>
+
+# myVar=`cat /private/var/mobile/Library/Preferences/com.apple.Preferences.plist | sed '/more.<\/string>/a\\\t<key>kBadgedForSoftwareUpdateKey<\/key>\n\t<false\/>'`
+
+# printf $myVar > /private/var/mobile/Library/Preferences/com.apple.Preferences.plist
+
+plutil -key kBadgedForSoftwareUpdateKey -false /private/var/mobile/Library/Preferences/com.apple.Preferences.plist
+plutil -key kBadgedForSoftwareUpdateJumpOnceKey -false /private/var/mobile/Library/Preferences/com.apple.Preferences.plist
+
+############################################################################### proxy settings (exceptions). itunes already restored?
+# nano /private/var/preferences/SystemConfiguration/preferences.plist
+
+# <key>ExceptionsList</key>
+# <array>
+		# <string>192.168/16</string>
+# </array>
+
+# myVar=`cat /private/var/preferences/SystemConfiguration/preferences.plist | sed '\/16<\/string>/a\\\t\t\t\t\t<string>192.168\/16<\/string>'`
+
+# printf $myVar > /private/var/preferences/SystemConfiguration/preferences.plist
+
+############################################################################### my1
+# https://unix.stackexchange.com/questions/179393
+
+find /private/var/containers/ \( -iname "Caches" -o -iname "tmp" -o -iname "BatteryLife" \) -type d -prune -exec bash -c 'rm -rv "{}"/*' \;
+
+find /private/var/mobile/Containers/ \( -iname "Caches" -o -iname "tmp" -o -iname "WebsiteData" \) -type d -prune -exec bash -c 'rm -rv "{}"/*' \;
+
+###############################################################################
+uicache mobile
+
+###############################################################################
+wget http://192.168.0.15/private/var/db/com.apple.xpc.launchd/disabled.plist
+mv /tmp/disabled.plist /private/var/db/com.apple.xpc.launchd
+
+###############################################################################
+printf '\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' | dd of=/System/Library/Caches/com.apple.dyld/dyld_shared_cache_arm64 bs=1 seek=391719313 count=61 conv=notrunc
+
+printf '\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' | dd of=/System/Library/Caches/com.apple.dyld/dyld_shared_cache_armv7s bs=1 seek=333192417 count=61 conv=notrunc
+
+# reboot
