@@ -1,0 +1,158 @@
+https://ipsw.me/iPhone6,2
+http://appldnld.apple.com/ios10.3.3/091-23133-20170719-CA8E78E6-6977-11E7-968B-2B9100BA0AE3/iPhone_4.0_64bit_10.3.3_14G60_Restore.ipsw
+
+//#############################################################################
+./ipwndfu -p
+
+./vieux
+./vieux -i /Users/sabinakatatschkowa/Desktop/iPhone_4.0_64bit_10.3.3_14G60_Restore.ipsw
+
+//############################################################################# CRAP
+cp /Users/sabinakatatschkowa/Desktop/PWN\ backup/IPSW/._058-74917-062.dmg /Users/sabinakatatschkowa/Desktop/PWN/IPSW
+
+//-----------------------------------------------------------------------------
+./tsschecker -e 0x6740bd6c550 --boardconfig n53ap -i 10.3.3 -s
+
+//-----------------------------------------------------------------------------
+sudo -i
+
+cp -R /Users/sabinakatatschkowa/Desktop/PWN\ backup /Users/sabinakatatschkowa/Desktop/PWN
+cp /Users/sabinakatatschkowa/Desktop/PWN\ backup/IPSW/._058-74917-062.dmg /Users/sabinakatatschkowa/Desktop/PWN/IPSW
+
+chmod -R 777 /System/Library/LaunchDaemons
+chmod 666 sudoers
+
+nano sudoers
+
+open -a textedit ../../etc/sudoers
+
+open -a textedit /users/sabinakatatschkowa/.profile
+
+//----------------------------------------------------------------------------- Bonjour
+<!-- -->
+grep -ir Bonjour /system/library/launchdaemons
+grep -ir Bonjour /system/Library/LaunchAgents
+
+/system/library/launchdaemons
+/system/Library/LaunchAgents
+
+com.apple.mDNSResponder.plist
+com.apple.mDNSResponderHelper.plist
+
+com.apple.mDNSResponder.reloaded
+com.apple.mDNSResponderHelper.reloaded
+
+plutil -convert xml1 /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+plutil -convert xml1 /Library/Preferences/com.apple.mDNSResponder.plist
+
+ls -la
+
+launchctl unload /system/library/launchdaemons/com.apple.mDNSResponder.plist
+launchctl load /system/library/launchdaemons/com.apple.mDNSResponder.plist
+
+launchctl load -w /system/library/launchdaemons/com.apple.mDNSResponder.plist
+launchctl unload -w /system/library/launchdaemons/com.apple.mDNSResponder.plist
+
+defaults write /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist ProgramArguments -array-add "-NoMulticastAdvertisements"
+
+defaults write /System/Library/LaunchDaemons/com.apple.mDNSResponder ProgramArguments -array-add "-NoMulticastAdvertisements"
+
+defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMulticastAdvertisements -bool true
+
+Bonjour smb:
+
+com.apple.afpfs_afpLoad.plist
+com.apple.afpfs_checkafp.plist
+
+/system/library/launchdaemons/com.apple.msrpc.netlogon.plist:			<key>Bonjour</key>
+/system/library/launchdaemons/com.apple.msrpc.lsarpc.plist:			<key>Bonjour</key>
+/system/library/launchdaemons/com.apple.msrpc.mdssvc.plist:			<key>Bonjour</key>
+/system/library/launchdaemons/com.apple.msrpc.wkssvc.plist:			<key>Bonjour</key>
+/system/library/launchdaemons/com.apple.msrpc.srvsvc.plist:			<key>Bonjour</key>
+
+/system/library/launchdaemons/com.apple.AppleFileServer.plist
+/system/library/launchdaemons/ssh.plist:			<key>Bonjour</key>
+/system/library/launchdaemons/com.apple.eppc.plist:			<key>Bonjour</key>
+/system/library/launchdaemons/com.apple.odproxyd.plist:			<key>Bonjour</key>
+/system/library/launchdaemons/com.apple.screensharing.plist:			<key>Bonjour</key>
+/system/library/launchdaemons/com.apple.smbd.plist:			<key>Bonjour</key>
+/system/library/launchdaemons/com.apple.msrpc.lsarpc.plist:			<key>Bonjour</key>
+/system/library/launchdaemons/com.apple.msrpc.wkssvc.plist:			<key>Bonjour</key>
+/system/library/launchdaemons/com.apple.msrpc.echosvc.plist:			<key>Bonjour</key>
+/system/library/launchdaemons/com.apple.msrpc.echosvc.plist:			<key>Bonjour</key>
+
+/system/library/launchdaemons/com.apple.airport.wps.plist
+/system/library/launchdaemons/com.apple.airportd.plist
+/system/Library/LaunchAgents/com.apple.AirPortBaseStationAgent.plist
+
+//-----------------------------------------------------------------------------
+https://www.stevenrombauts.be/2018/01/use-dnsmasq-instead-of-etc-hosts
+
+scutil --dns
+netstat -r
+nc -vnzu 127.0.0.1 53
+
+launchctl load /usr/local/Cellar/dnsmasq/2.81/homebrew.mxcl.dnsmasq.plist
+launchctl load /system/library/launchdaemons/homebrew.mxcl.dnsmasq.plist
+
+/usr/local/opt/dnsmasq/sbin/dnsmasq
+/usr/local/etc/dnsmasq.conf
+/etc/resolv.conf
+
+/usr/local/opt/dnsmasq
+/usr/local/opt/dnsmasq/sbin
+/usr/local/var/homebrew/linked/dnsmasq
+
+brew services restart dnsmasq
+brew services start dnsmasq
+brew services stop dnsmasq
+
+//-----------------------------------------------------------------------------
+homebrew brew
+
+/usr/local/homebrew/library/homebrew/brew.sh
+cd /usr/local/Homebrew
+
+open -a textedit brew.sh
+
+//-----------------------------------------------------------------------------
+./ipwndfu -p
+
+Found: CPID:8960 CPRV:11 CPFM:03 SCEP:01 BDID:02 ECID:000006740BD6C550 IBFL:1C SRTG:[iBoot-1704.10]
+Device is now in pwned DFU Mode.
+(11.96 seconds)
+
+//-----------------------------------------------------------------------------
+./igetnonce
+
+Identified device as n53ap, iPhone6,2 in DFU mode...
+ecid=6740bd6c550
+ApNonce=93e92b68d2816b309fe4cb3cba0175de65ed398e
+SepNonce=db36e665714a6a8c49f6f3c506d10fc3fbdd263f
+
+ApNonce=1e296b466c8053d920adc5f4149b8b16aa0d9798
+SepNonce=96ef9a76ce3ca7c821b6d9c14089f54577e2470f
+
+//-----------------------------------------------------------------------------
+./tsschecker -d iPhone6,2 -i 10.3.3 -o -m BuildManifest_iPhone6,2.plist -e 0x6740bd6c550 --apnonce 93e92b68d2816b309fe4cb3cba0175de65ed398e -s
+
+./tsschecker -d iPhone6,2 -i 10.3.3 -o --boardconfig n53ap -e 0x6740bd6c550 --apnonce 93e92b68d2816b309fe4cb3cba0175de65ed398e -s
+
+./tsschecker -d iPhone6,2 --buildid 14G60 --boardconfig n53ap -i 10.3.3 -o -m BuildManifest_iPhone6,2.plist -e 0x6740bd6c550 --apnonce 93e92b68d2816b309fe4cb3cba0175de65ed398e -s
+
+Version: b9d193aa6e6d24421094873c830692d02d8b32f5 - 304
+libfragmentzip version: 0.59-542a470d7be248681dba71d0f04e7dc8c2718b73
+[TSSC] manually specified ECID to use, parsed "0x6740bd6c550" to dec:7095484597584 hex:6740bd6c550
+[TSSC] manually specified apnonce to use, parsed "93e92b68d2816b309fe4cb3cba0175de65ed398e" to hex:93e92b68d2816b309fe4cb3cba0175de65ed398e
+[TSSC] opening BuildManifest_iPhone6,2.plist
+[TSSR] Request URL set to https://gs.apple.com/TSS/controller?action=2
+[TSSR] Sending TSS request attempt 1... success
+also requesting APTicket for installType=Update
+[Error] [TSSR] Error: could not get id0 for installType=Update
+[WARNING] [TSSR] failed to build tssrequest for alternative installType
+[TSSR] User specified doesn't to request a baseband ticket.
+[TSSR] Request URL set to https://gs.apple.com/TSS/controller?action=2
+[TSSR] Sending TSS request attempt 1... failure
+[Error] ERROR: TSS request failed (status=128, message=An internal error occurred.)
+Saved shsh blobs!
+iOS 10.3.3 for device iPhone6,2 IS being signed!
