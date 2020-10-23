@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# nano /private/etc/rc.d/zzz
+
+killall MobileSafari
+
+launchctl unload /System/Library/LaunchDaemons/com.apple.nsurlstoraged.plist
+launchctl load /System/Library/LaunchDaemons/com.apple.nsurlstoraged.plist
+
+# launchctl bootout system/com.apple.flickr.xpc
+
+# launchctl remove com.apple.flickr.xpc
+# launchctl remove com.apple.twitter.xpc
+# launchctl remove com.apple.tencentweibo.xpc
+# launchctl remove com.apple.weibo.xpc
+# launchctl remove com.apple.weibo.xpc
+# launchctl remove com.apple.facebook.xpc
+# launchctl remove com.apple.vimeo.xpc
+# launchctl remove com.apple.VideoSubscriberAccount.DeveloperService
+# launchctl remove com.apple.VideoSubscriberAccount.PrivacyService
+# launchctl remove com.apple.siri.ClientFlow.ClientScripter
+# launchctl remove com.apple.siri.acousticsignature
+# launchctl remove com.apple.accessibility.AccessibilityUIServer
+# launchctl remove com.apple.accessibility.heard
+# launchctl remove com.apple.accessibility.mediaaccessibilityd
+# launchctl remove com.apple.sbd
+# launchctl remove com.apple.MobileSoftwareUpdate.CleanupPreparePathService
+# launchctl remove com.apple.MobileInstallationHelperService
+# launchctl remove com.apple.accounts.dom
+# launchctl remove com.apple.tsloader
+# launchctl remove com.apple.icloud.FindMyDevice.FindMyDeviceHelperXPCService
+# launchctl remove com.apple.migrationpluginwrapper
+# launchctl remove com.apple.tonelibraryd
+# launchctl remove com.apple.datamigrator
+# launchctl remove com.apple.MapKit.SnapshotService
+
+# rm -r /tmp/*
+
+sysctl -w net.inet6.ip6.use_tempaddr=0
+sysctl -w net.inet6.send.opmode=0
+
+launchctl unload /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+launchctl load /Library/LaunchDaemons2/com.apple.mDNSResponder2.plist
+
+# ifconfig en0 down
+wifiutil disable-wifi
+wifiutil enable-wifi
+
+sbreload
