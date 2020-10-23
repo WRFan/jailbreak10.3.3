@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Filter</key>
+	<dict>
+		<key>Bundles</key>
+		<array>
+			<!--
+			<string>com.apple.AuthKit</string>
+			<string>com.apple.UIKit</string>
+			-->
+			<string>com.apple.itunesstored</string>
+			<string>com.apple.akd</string>
+			<string>com.apple.appstored</string>
+			<string>com.apple.AppStore</string>
+			<string>com.apple.AdSheetPhone</string>
+
+			<string>com.apple.Preferences</string>
+			<string>com.apple.MobileSMS</string>
+			<string>com.apple.iBooks</string>
+			<string>com.apple.Maps</string>
+
+			<!--
+			<string>com.apple.OTACrashCopier</string>
+			<string>com.apple.mobileassetd</string>
+			<string>com.apple.captiveagent</string>
+			<string>com.apple.SystemConfiguration.CaptiveNetworkSupport</string>
+			<string>com.apple.locationd</string>
+			<string>com.apple.geod</string>
+			<string>com.apple.locationd</string>
+			<string>com.apple.identityservicesd</string>
+			<string>com.apple.sharingd</string>
+			<string>com.apple.mobileactivationd</string>
+			<string>com.apple.rtcreportingd</string>
+			<string>com.apple.atc</string>
+			<string>com.apple.watchlistd</string>
+			<string>com.apple.ind</string>
+			<string>com.apple.passd</string>
+			<string>com.apple.DiagnosticsSessionAvailibility</string>
+			<string>com.apple.securityd</string>
+			<string>com.apple.parsecd</string>
+
+			<string>com.apple.mobilenotes</string>
+			<string>com.apple.Music</string>
+			<string>com.apple.purplebuddy</string>
+			<string>com.apple.CloudKit.ShareBear</string>
+			<string>com.apple.AppleIDAuthentication</string>
+			<string>com.apple.AppleIDSSOAuthenticationPlugin</string>
+			<string>com.apple.authkit.AKAccountNotificationPlugin</string>
+			<string>com.apple.SecureBackupAuth</string>
+			<string>com.apple.coreservices.appleid.authentication</string>
+			<string>com.apple.coreservices.appleid.passwordcheck</string>
+			<string>com.apple.castlesettings</string>
+			<string>com.apple.InternationalSettings</string>
+			<string>com.apple.MusicSettings</string>
+			<string>com.apple.NotesSettings</string>
+			<string>com.apple.tvsettings</string>
+			<string>com.apple.AskPermission</string>
+			<string>com.apple.followup-extension</string>
+			<string>com.apple.internal.springboard.cfusernotification</string>
+			<string>com.apple.AuthKitUI.AKSecondFactorAlert</string>
+			<string>com.apple.AuthKitUI.AKSecondFactorEntryAlert</string>
+			<string>com.apple.sbd</string>
+			<string>com.apple.MobileBackup.framework</string>
+			<string>com.apple.PersonaKit</string>
+			<string>com.apple.syncdefaultsd</string>
+			<string>com.apple.mobilestoredemod</string>
+			<string>com.apple.icloud.findmydeviced</string>
+			<string>com.apple.icloud.fmfd</string>
+			<string>com.apple.icloud.fmflocatord</string>
+			<string>com.apple.gamed</string>
+			<string>com.apple.sharingd</string>
+			<string>com.apple.fairplayd.H2</string>
+
+			<string>com.apple.appleaccount.AACredentialRecoveryDialog</string>
+			<string>com.apple.AccountAuthenticationDialog</string>
+			<string>com.apple.AskPermissionUI</string>
+			<string>com.apple.calculator</string>
+			<string>com.apple.camera</string>
+			<string>com.apple.CheckerBoard</string>
+			<string>com.apple.compass</string>
+			<string>com.apple.CompassCalibrationViewService</string>
+			<string>com.apple.MobileAddressBook</string>
+			<string>com.apple.MobileAddressBook.ContactViewViewService</string>
+			<string>com.apple.MobileAddressBook.ContactsViewService</string>
+			<string>com.apple.CoreAuthUI</string>
+			<string>com.apple.datadetectors.DDActionsService</string>
+			<string>com.apple.DataActivation</string>
+			<string>com.apple.DemoApp</string>
+			<string>com.apple.Diagnostics</string>
+			<string>com.apple.DiagnosticsService</string>
+			<string>com.apple.DiagnosticsService.Diagnostic-3903</string>
+			<string>com.apple.DiagnosticsService.Diagnostic-3904</string>
+
+			<string>com.apple.managedconfiguration.profiled</string>
+			<string>com.apple.TextInput.kbd</string>
+
+			<string>com.apple.mobilesafari</string>
+			<string>com.apple.WebKit.WebContent</string>
+			<string>com.apple.WebKit.Networking</string>
+			-->
+		</array>
+		<!--
+		<key>Executables</key>
+		<array>
+		<string>akd</string>
+		</array>
+		-->
+	</dict>
+</dict>
+</plist>
