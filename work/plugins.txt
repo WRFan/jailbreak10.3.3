@@ -1,0 +1,263 @@
+lsdtrip plugins
+
+ICQFollowup (com.apple.iCloudQuotaDaemon.ICQFollowup) - 9876DBFC-6A68-2CBA-0000-000000000000
+
+Intents (net.whatsapp.WhatsApp.Intents) - 800ABBD7-7595-F1F2-0000-000000000000
+
+IntentsUI (net.whatsapp.WhatsApp.IntentsUI) - B319D2CE-E064-7DF1-0000-000000000000
+
+NotificationExtension (net.whatsapp.WhatsApp.NotificationExtension) - 8A77F5C2-B74E-09FE-0000-000000000000
+
+ServiceExtension (net.whatsapp.WhatsApp.ServiceExtension) - B558144B-692C-F5E2-0000-000000000000
+
+\u200eWhatsApp (net.whatsapp.WhatsApp.ShareExtension) - 8381A933-17C4-6A31-0000-000000000000
+
+ContactViewViewService (com.apple.MobileAddressBook.ContactViewViewService) - 9C675DF9-E096-EC33-0000-000000000000
+
+ContactsCoreSpotlightExtension (com.apple.MobileAddressBook.ContactsCoreSpotlightExtension) - A9CFB475-2CBF-6BF8-0000-000000000000
+
+ContactsViewService (com.apple.MobileAddressBook.ContactsViewService) - 8156D3D6-36D1-25BB-0000-000000000000
+
+UncleanShutdownHistory (com.apple.DiagnosticsService.Diagnostic-2386) - BF767A14-0B12-65B2-0000-000000000000
+
+Diagnostic-2532 (com.apple.DiagnosticsService.Diagnostic-2532) - A5592049-0062-7827-0000-000000000000
+
+UsageProfile (com.apple.DiagnosticsService.Diagnostic-3732) - A2DAC33B-5F6A-E71A-0000-000000000000
+
+Diagnostic-3734 (com.apple.DiagnosticsService.Diagnostic-3734) - A7625594-8228-3DD4-0000-000000000000
+
+Diagnostic-3737 (com.apple.DiagnosticsService.Diagnostic-3737) - A6858DFD-2B6C-6F98-0000-000000000000
+
+Diagnostic-3738 (com.apple.DiagnosticsService.Diagnostic-3738) - 8B541EEA-A5A9-AF20-0000-000000000000
+
+Diagnostic-3741 (com.apple.DiagnosticsService.Diagnostic-3741) - 85192AE3-EA0E-6B60-0000-000000000000
+
+Diagnostic-3743 (com.apple.DiagnosticsService.Diagnostic-3743) - 9DB4A3AB-E830-C3C6-0000-000000000000
+
+Diagnostic-3744 (com.apple.DiagnosticsService.Diagnostic-3744) - 83C1EAE8-5796-760B-0000-000000000000
+
+Diagnostic-3745 (com.apple.DiagnosticsService.Diagnostic-3745) - 8F15112A-1586-C3E2-0000-000000000000
+
+Diagnostic-3903 (com.apple.DiagnosticsService.Diagnostic-3903) - A70CFAA1-D9BE-2E86-0000-000000000000
+
+Diagnostic-3904 (com.apple.DiagnosticsService.Diagnostic-3904) - BD8B121A-489F-F5E3-0000-000000000000
+
+Diagnostic-3905 (com.apple.DiagnosticsService.Diagnostic-3905) - B5A5BD46-7ED0-B517-0000-000000000000
+
+Diagnostic-3906 (com.apple.DiagnosticsService.Diagnostic-3906) - BD713462-44E0-AD2D-0000-000000000000
+
+Diagnostic-3907 (com.apple.DiagnosticsService.Diagnostic-3907) - B2F77CDE-F05B-63E4-0000-000000000000
+
+Diagnostic-3909 (com.apple.DiagnosticsService.Diagnostic-3909) - AA85482B-D7E2-990B-0000-000000000000
+
+Diagnostic-3939 (com.apple.DiagnosticsService.Diagnostic-3939) - 9449178B-27D2-7E79-0000-000000000000
+
+Diagnostic-3940 (com.apple.DiagnosticsService.Diagnostic-3940) - A3405BFB-AA47-3F35-0000-000000000000
+
+Diagnostic-3942 (com.apple.DiagnosticsService.Diagnostic-3942) - 89599FBD-8687-7D45-0000-000000000000
+
+Diagnostic-3985 (com.apple.DiagnosticsService.Diagnostic-3985) - 9748DCD8-0722-ACC2-0000-000000000000
+
+Diagnostic-4002 (com.apple.DiagnosticsService.Diagnostic-4002) - 9C4F51A3-FF5A-3356-0000-000000000000
+
+Diagnostic-4003 (com.apple.DiagnosticsService.Diagnostic-4003) - BCD216BD-202B-8149-0000-000000000000
+
+Diagnostic-4004 (com.apple.DiagnosticsService.Diagnostic-4004) - 81410B04-F5CF-10A6-0000-000000000000
+
+Diagnostic-4005 (com.apple.DiagnosticsService.Diagnostic-4005) - B8B89819-0A41-0B96-0000-000000000000
+
+Diagnostic-4006 (com.apple.DiagnosticsService.Diagnostic-4006) - A24CDACA-E9D8-507D-0000-000000000000
+
+Diagnostic-4007 (com.apple.DiagnosticsService.Diagnostic-4007) - A6F57B6E-29D0-C20A-0000-000000000000
+
+Diagnostic-4008 (com.apple.DiagnosticsService.Diagnostic-4008) - 9DE5D26E-45F6-5E62-0000-000000000000
+
+Diagnostic-4009 (com.apple.DiagnosticsService.Diagnostic-4009) - A858E1D3-6E9D-23FC-0000-000000000000
+
+Diagnostic-4154 (com.apple.DiagnosticsService.Diagnostic-4154) - BB1787C8-DDA9-E9B2-0000-000000000000
+
+Diagnostic-4180 (com.apple.DiagnosticsService.Diagnostic-4180) - B30BF5B6-12C7-CEFA-0000-000000000000
+
+Diagnostic-4181 (com.apple.DiagnosticsService.Diagnostic-4181) - B1A06FD6-CA83-DA6A-0000-000000000000
+
+Diagnostic-4182 (com.apple.DiagnosticsService.Diagnostic-4182) - 8544D95B-2197-7178-0000-000000000000
+
+Diagnostic-4183 (com.apple.DiagnosticsService.Diagnostic-4183) - A8C84A78-5F25-C76F-0000-000000000000
+
+Diagnostic-4184 (com.apple.DiagnosticsService.Diagnostic-4184) - B3EE871A-7B0F-6E18-0000-000000000000
+
+Diagnostic-4276 (com.apple.DiagnosticsService.Diagnostic-4276) - 87FD9D26-841B-1DEC-0000-000000000000
+
+Diagnostic-4282 (com.apple.DiagnosticsService.Diagnostic-4282) - 9F958107-D723-DEFE-0000-000000000000
+
+Diagnostic-4351 (com.apple.DiagnosticsService.Diagnostic-4351) - BA70D4FC-1FA3-EB51-0000-000000000000
+
+Diagnostic-4359 (com.apple.DiagnosticsService.Diagnostic-4359) - BAB4E46A-5BBB-C39A-0000-000000000000
+
+Diagnostic-4446 (com.apple.DiagnosticsService.Diagnostic-4446) - A1B8B92C-DE5E-7E34-0000-000000000000
+
+Diagnostic-4492 (com.apple.DiagnosticsService.Diagnostic-4492) - BF0368DC-C359-0E6B-0000-000000000000
+
+Diagnostic-4534 (com.apple.DiagnosticsService.Diagnostic-4534) - A35E097D-6B9F-BB28-0000-000000000000
+
+Diagnostic-4579 (com.apple.DiagnosticsService.Diagnostic-4579) - 9EE4F87E-AAC8-5075-0000-000000000000
+
+Diagnostic-4615 (com.apple.DiagnosticsService.Diagnostic-4615) - AFB94169-DA2F-938A-0000-000000000000
+
+Save to Filza (com.tigisoftware.Filza.Sharing) - 861CA6D7-BCD8-E01E-0000-000000000000
+
+#images (com.apple.siri.parsec.HashtagImagesApp.HashtagImagesExtension) - BBC72256-8811-084D-0000-000000000000
+
+Maps Destinations (com.apple.Maps.Widget) - A32EA501-45F2-B241-0000-000000000000
+
+Maps Nearby (com.apple.Maps.Nearby) - 9592B9AB-7E08-97D6-0000-000000000000
+
+Maps Transit (com.apple.Maps.TransitWidget) - B76A0A2C-94F6-76AB-0000-000000000000
+
+VoicemailMessageNotificationExtension (com.apple.mobilephone.extension.VoicemailMessageNotificationExtension) - 82240495-EF63-0272-0000-000000000000
+
+MessagesNotificationExtension (com.apple.MobileSMS.MessagesNotificationExtension) - B12D2894-155C-9669-0000-000000000000
+
+MobileSMSSpotlightImporter (com.apple.MobileSMS.spotlight) - ADF7CE51-D513-561D-0000-000000000000
+
+Safari (com.apple.mobilesafari.SafariDiagnosticExtension) - 9A93107B-2CCB-847E-0000-000000000000
+
+PhotosDiagnostics (com.apple.mobileslideshow.PhotosDiagnostics) - 93E54DC8-3A97-E1D9-0000-000000000000
+
+PhotosNotificationsUpdates (com.apple.mobileslideshow.photosnotifications-updates) - AB975ABD-E9C5-DB1D-0000-000000000000
+
+iCloud Photo Sharing (com.apple.mobileslideshow.StreamShareService) - B7932E72-6032-B418-0000-000000000000
+
+MobileTimerNotificationExtension (com.apple.mobiletimer.MobileTimerNotificationExtension) - A71B4E34-29CA-23EB-0000-000000000000
+
+OS X Server (com.apple.ServerDocuments.ServerDocumentProvider) - B64B8D0B-EEAC-51DB-0000-000000000000
+
+FileProvider (com.apple.ServerDocuments.ServerFileProvider) - 99903D28-37FD-5F27-0000-000000000000
+
+Audio (com.apple.audio.toolbox.AudioToolbox.DiagnosticExtensions) - 8D4CD9BE-BE44-7912-0000-000000000000
+
+WAC UI Plugin (com.apple.ExternalAccessory.WACUI) - B06DA797-D948-69DC-0000-000000000000
+
+Diagnostic Extension (com.apple.HomeKit.diagnosticextension) - B69117CD-6B6A-9012-0000-000000000000
+
+MediaPlayerDiagnosticExtension (com.apple.MediaPlayer.DiagnosticExtension) - 9A0F5F8A-9CDC-7465-0000-000000000000
+
+NEIKEv2Provider (com.apple.NetworkExtension.IKEv2Provider) - 8E025C90-7143-E6F3-0000-000000000000
+
+ApplePayDiagnostics (com.apple.PassKit.applepay.diagnosticextension) - A9570AEA-2A3D-93DA-0000-000000000000
+
+com.apple.quicklook.extension.previewUI (com.apple.quicklook.extension.previewUI) - A3D0AD25-ADE7-B5E4-0000-000000000000
+
+RPBroadcastActivityExtension (com.apple.ReplayKit.RPBroadcastActivityViewControllerExtension) - 85AE2709-79B7-37B1-0000-000000000000
+
+RPVideoEditorExtension (com.apple.ReplayKit.RPVideoEditorExtension) - 8391FC99-7EB7-41C6-0000-000000000000
+
+ScreenPicker (com.apple.UIKit.screenpicker) - ABDDD2B5-837C-1010-0000-000000000000
+
+AGXCompilerCrashLogs (com.apple.AGXCompilerCore.CrashLogs) - B937EC8C-0418-84D3-0000-000000000000
+
+AAUIFollowUpExtension (com.apple.AppleAccountUI.AAUIFollowUpExtension) - A2914D74-2571-A59E-0000-000000000000
+
+AKFollowUpServerUIExtension (com.apple.AuthKitUI.AKFollowUpServerUIExtension) - BBE32566-B73F-342C-0000-000000000000
+
+AKLocationSignInAlert (com.apple.AuthKitUI.AKLocationSignInAlert) - 81CCA6EA-E75A-2000-0000-000000000000
+
+AKSecondFactorAlert (com.apple.AuthKitUI.AKSecondFactorAlert) - 8FD88015-15D3-1D19-0000-000000000000
+
+AKSecondFactorEntryAlert (com.apple.AuthKitUI.AKSecondFactorEntryAlert) - B779BF01-E00A-B5F1-0000-000000000000
+
+Batteries (com.apple.BatteryCenter.BatteryWidget) - 920EBE08-68F3-BF6E-0000-000000000000
+
+BioLogDiagnostic (com.apple.BiometricKit.BioLogDiagnostic) - A33942F7-C41A-72EA-0000-000000000000
+
+CarPlayDiagnostics (com.apple.CarKit.CarPlayDiagnosticsExtension) - AF8A6F41-6E17-4323-0000-000000000000
+
+CloudDocsDiagnostic (com.apple.CloudDocsDaemon.diagnostic) - 91BCF229-863C-1AD7-0000-000000000000
+
+Add To iCloud Drive (com.apple.CloudDocsUI.AddToiCloudDrive) - 87544F59-D98A-56F7-0000-000000000000
+
+iCloud Sharing (com.apple.CloudDocsUI.CloudSharing) - 8DAC803F-3353-5C97-0000-000000000000
+
+iCloud Drive (com.apple.CloudDocsUI.DocumentPicker) - AE6002F3-6529-3F36-0000-000000000000
+
+CDPFollowUpExtension (com.apple.CoreCDPUI.CDPFollowUpExtension) - 8CDD6E0F-7C2A-9004-0000-000000000000
+
+CoreCDPUIService (com.apple.CoreCDPUI.localSecretPrompt) - 838A0AC9-2E72-2162-0000-000000000000
+
+FollowUpSampleExtension (com.apple.CoreFollowUpUI.FollowUpSampleExtension) - ACB93CB6-23F1-21AC-0000-000000000000
+
+Secure Enclave Private Key Storage (com.apple.CryptoTokenKit.setoken) - 818F688F-BF33-DE94-0000-000000000000
+
+EASOAuthService (com.apple.dataaccess.dataaccessexpress.framework.EASOAuthService) - B3755C89-05C4-43D8-0000-000000000000
+
+com.apple.DataDetectorsUI.ActionsExtension (com.apple.DataDetectorsUI.ActionsExtension) - AC8D4F1D-33B1-6153-0000-000000000000
+
+BluetoothHeadset (com.apple.DiagnosticExtensions.BluetoothHeadset) - BF40F2EF-BF25-91B7-0000-000000000000
+
+com.apple.DiagnosticExtensions.BackgroundAppRefresh (com.apple.DiagnosticExtensions.BackgroundAppRefresh) - A78A8095-F571-6407-0000-000000000000
+
+com.apple.DiagnosticExtensions.Baseband (com.apple.DiagnosticExtensions.Baseband) - 9E945738-EF82-75AB-0000-000000000000
+
+com.apple.DiagnosticExtensions.Bluetooth (com.apple.DiagnosticExtensions.Bluetooth) - AB29B1DC-0EF8-15C1-0000-000000000000
+
+com.apple.DiagnosticExtensions.Contacts (com.apple.DiagnosticExtensions.Contacts) - A6FB2008-AD6C-197D-0000-000000000000
+
+com.apple.DiagnosticExtensions.CrashLogs (com.apple.DiagnosticExtensions.CrashLogs) - B8245C47-3F5D-D4FA-0000-000000000000
+
+com.apple.DiagnosticExtensions.DataAccess (com.apple.DiagnosticExtensions.DataAccess) - A66EA376-118A-F157-0000-000000000000
+
+com.apple.DiagnosticExtensions.FaceTime (com.apple.DiagnosticExtensions.FaceTime) - B5B684D9-FC72-E61E-0000-000000000000
+
+com.apple.DiagnosticExtensions.HangTracer (com.apple.DiagnosticExtensions.HangTracer) - B7836169-0865-4481-0000-000000000000
+
+com.apple.DiagnosticExtensions.Keyboard (com.apple.DiagnosticExtensions.Keyboard) - A493C121-F46A-1EBD-0000-000000000000
+
+com.apple.DiagnosticExtensions.LowMemory (com.apple.DiagnosticExtensions.LowMemory) - 96C51885-43D6-7C0D-0000-000000000000
+
+com.apple.DiagnosticExtensions.Messages (com.apple.DiagnosticExtensions.Messages) - 82940948-C8AE-F41A-0000-000000000000
+
+com.apple.DiagnosticExtensions.Panic (com.apple.DiagnosticExtensions.Panic) - B19ADE25-568C-2319-0000-000000000000
+
+com.apple.DiagnosticExtensions.Phone (com.apple.DiagnosticExtensions.Phone) - 94AC5783-2E17-71EB-0000-000000000000
+
+com.apple.DiagnosticExtensions.Sandbox (com.apple.DiagnosticExtensions.Sandbox) - A84812B5-4D2D-2027-0000-000000000000
+
+com.apple.DiagnosticExtensions.StackShot (com.apple.DiagnosticExtensions.StackShot) - A95952DF-6F4B-3C42-0000-000000000000
+
+com.apple.DiagnosticExtensions.Syslog (com.apple.DiagnosticExtensions.Syslog) - 8AE993F3-FA34-2233-0000-000000000000
+
+com.apple.DiagnosticExtensions.VPN (com.apple.DiagnosticExtensions.VPN) - A5FCCDF6-1ADC-4D12-0000-000000000000
+
+com.apple.DiagnosticExtensions.VisualVoiceMail (com.apple.DiagnosticExtensions.VisualVoiceMail) - 8DE69EB7-8208-FFFC-0000-000000000000
+
+WiFiDiagnosticsExtension (com.apple.DiagnosticExtensions.WiFi) - A57B896C-6C86-1033-0000-000000000000
+
+sysdiagnose (com.apple.DiagnosticExtensions.sysdiagnose) - BCC5A433-D18D-9045-0000-000000000000
+
+DiagnosticExtension (com.apple.DiagnosticExtensions.tailspin) - 872A9C39-0602-F549-0000-000000000000
+
+diagnosticextension (com.apple.duet.expertcenter.diagnosticextension) - BAAC3153-3055-7138-0000-000000000000
+
+WetNotification (com.apple.IOAccessoryManagerFramework.WetNotification) - BDABFD93-DDCC-DDB7-0000-000000000000
+
+Markup (com.apple.MarkupUI.MarkupPhotoExtension) - 962BD41F-DC6A-F20F-0000-000000000000
+
+Markup (com.apple.MarkupUI.MarkupPrivateExtension) - 86F6C744-E7A5-F344-0000-000000000000
+
+MBDiagnosticExtension (com.apple.MobileBackup.framework.DiagnosticExtension) - AC3B16BB-E4B1-5162-0000-000000000000
+
+com.apple.PowerlogCore.diagnosticextension (com.apple.PowerlogCore.diagnosticextension) - 974993E0-5537-7D77-0000-000000000000
+
+SpotlightDiagnostic (com.apple.Search.framework.SpotlightDiagnostic) - 840C390D-051B-E5DE-0000-000000000000
+
+AirDropDiagnostic (com.apple.Sharing.AirDropDiagnostic) - BCD3B0DB-1A39-5D59-0000-000000000000
+
+ContinuityRemote (com.apple.Sharing.continuityRemote) - A4432C05-7B8F-BB62-0000-000000000000
+
+SFDiagnosticExtension (com.apple.Symptoms.SFDiagnosticExtension.appex) - 9E3E5483-8B22-676C-0000-000000000000
+
+Favorites (com.apple.TelephonyUI.FavoritesWidget) - B7CCEECE-F318-542C-0000-000000000000
+
+UASharedPasteboardiOSUI (com.apple.UserActivity.UASharedPasteboardiOSUI) - AF41C667-FC10-1AF3-0000-000000000000
+
+AWDDiagnosticExtension (com.apple.awd.AWDDiagnosticExtension) - BD312B9F-095F-3C82-0000-000000000000

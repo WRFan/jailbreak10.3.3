@@ -1,0 +1,137 @@
+lsdtrip apps
+
+        PhotosViewService (com.apple.PhotosViewService)
+
+        PreBoard (com.apple.PreBoard)
+
+        Settings (com.apple.Preferences)
+
+        Print Center (com.apple.PrintKit.Print-Center)
+
+        SafariViewService (com.apple.SafariViewService)
+
+        ScreenSharingViewService (com.apple.ScreenSharingViewService)
+
+        Server Drive (com.apple.ServerDocuments)
+
+        Setup (com.apple.purplebuddy)
+
+        \u200eWhatsApp (net.whatsapp.WhatsApp)
+
+        SharedWebCredentialViewService (com.apple.SharedWebCredentialViewService)
+
+        AACredentialRecoveryDialog (com.apple.appleaccount.AACredentialRecoveryDialog)
+
+        SharingViewService (com.apple.SharingViewService)
+
+        AccountAuthenticationDialog (com.apple.AccountAuthenticationDialog)
+
+        SoftwareUpdateUIService (com.apple.susuiservice)
+
+        TrustMe (com.apple.TrustMe)
+
+        StoreDemoViewService (com.apple.StoreDemoViewService)
+
+        Voice Memos (com.apple.VoiceMemos)
+
+        Web (com.apple.webapp)
+
+        WebApp1 (com.apple.webapp1)
+
+        WebContentAnalysisUI (com.apple.WebContentFilter.remoteUI.WebContentAnalysisUI)
+
+        WebSheet (com.apple.WebSheet)
+
+        iBooks (com.apple.iBooks)
+
+        iCloud (com.apple.CloudKit.ShareBear)
+
+        sockH3lix (com.sxx.sockH3lix)
+
+        Filza (com.tigisoftware.Filza)
+
+        Family (com.apple.family)
+
+        Meridian (zone.sparkes.MeridianJB2)
+
+        doubleH3lix (org.tihmstar.doubleH3lix)
+
+        g0blin (net.sticktron.g0blin)
+
+        iCloud Drive (com.apple.iCloudDriveApp)
+
+        iAd (com.apple.AdSheetPhone)
+
+        App Store (com.apple.AppStore)
+
+        AskPermissionUI (com.apple.AskPermissionUI)
+
+        Calculator (com.apple.calculator)
+
+        Camera (com.apple.camera)
+
+        CheckerBoard (com.apple.CheckerBoard)
+
+        Compass (com.apple.compass)
+
+        CompassCalibrationViewService (com.apple.CompassCalibrationViewService)
+
+        Contacts (com.apple.MobileAddressBook)
+
+        User Authentication (com.apple.CoreAuthUI)
+
+        DDActionsService (com.apple.datadetectors.DDActionsService)
+
+        DataActivation (com.apple.DataActivation)
+
+        DemoApp (com.apple.DemoApp)
+
+        Diagnostics (com.apple.Diagnostics)
+
+        DiagnosticsService (com.apple.DiagnosticsService)
+
+        FaceTime (com.apple.facetime)
+
+        FieldTest (com.apple.fieldtest)
+
+        HashtagImages (com.apple.siri.parsec.HashtagImagesApp)
+
+        Home (com.apple.Home)
+
+        HomeUIService (com.apple.Home.HomeUIService)
+
+        InCallService (com.apple.InCallService)
+
+        Magnifier (com.apple.Magnifier)
+
+        MailCompositionService (com.apple.MailCompositionService)
+
+        Maps (com.apple.Maps)
+
+        MessagesNotificationViewService (com.apple.mobilesms.notification)
+
+        MessagesViewService (com.apple.mobilesms.compose)
+
+        Calendar (com.apple.mobilecal)
+
+        Mail (com.apple.mobilemail)
+
+        Notes (com.apple.mobilenotes)
+
+        Phone (com.apple.mobilephone)
+
+        Messages (com.apple.MobileSMS)
+
+        Safari (com.apple.mobilesafari)
+
+        Photos (com.apple.mobileslideshow)
+
+        Clock (com.apple.mobiletimer)
+
+        Music (com.apple.Music)
+
+        MusicUIService (com.apple.MusicUIService)
+
+        Wallet (com.apple.Passbook)
+
+        PassbookUIService (com.apple.PassbookUIService)
