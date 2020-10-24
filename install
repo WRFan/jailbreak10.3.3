@@ -483,8 +483,8 @@ wget http://192.168.0.15/private/var/mobile/Library/Preferences/com.nablac0d3.SS
 mv /tmp/com.nablac0d3.SSLKillSwitchSettings.plist /private/var/mobile/Library/Preferences
 
 ###############################################################################
-wget https://cydia.akemi.ai/debs/nodelete-net.angelxwind.appsyncunified.deb
-dpkg -i nodelete-net.angelxwind.appsyncunified.deb
+# wget https://cydia.akemi.ai/debs/nodelete-net.angelxwind.appsyncunified.deb
+# dpkg -i nodelete-net.angelxwind.appsyncunified.deb
 
 ###############################################################################
 wget https://apt.procurs.us/pool/main/iphoneos-arm64/1600/tree_1.8.0-1_iphoneos-arm.deb
@@ -1429,7 +1429,7 @@ rm -r /System/Library/PrivateFrameworks/UpNextWidget.framework
 
 rm -r /Applications/MobileSlideShow.app/PlugIns/PhotosWidget.appex
 
-############################################################################### Sabina only !!!
+############################################################################### test phone only !!!
 # causes probs with whatsapp and other apps in non-jailbroken mode!
 # /private/var/installd/Library/Logs/MobileInstallation/mobile_installation.log.0
 
@@ -1493,9 +1493,9 @@ plutil -key kBadgedForSoftwareUpdateJumpOnceKey -false /private/var/mobile/Libra
 		# <string>192.168/16</string>
 # </array>
 
-myVar=`cat /private/var/preferences/SystemConfiguration/preferences.plist | sed '\/16<\/string>/a\\\t\t\t\t\t<string>192.168\/16<\/string>'`
+# myVar=`cat /private/var/preferences/SystemConfiguration/preferences.plist | sed '\/16<\/string>/a\\\t\t\t\t\t<string>192.168\/16<\/string>'`
 
-printf $myVar > /private/var/preferences/SystemConfiguration/preferences.plist
+# printf $myVar > /private/var/preferences/SystemConfiguration/preferences.plist
 
 ############################################################################### my1
 # https://unix.stackexchange.com/questions/179393
