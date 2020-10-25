@@ -110,11 +110,11 @@ Now, I'm not going to explain what the checkm8 exploit does, it's been all over 
 
 This damn programme is the very reason why I downgraded in the first place, because at that time unc0ver hasn't yet released an exploit for iOS 12.4.7 I had installed, so I was stuck with checkra1n. Now, I don't know the current state of development, nor do I give a damn about it any longer. The developer used to say "linux and mac supported", but that's a lie, linux was not supported, and probably still isn't. I tried to jailbreak through VMWare virtual machine, the app just crashed. Well, the developer will tell you not to use a virtual machine. So I cloned the virtual machine to an usb stick, booted from it, executed the programme, and it crashed again on the same step! So I checked github, the developer says, linux is not supported, but on his webpage he states, it's supported. Are we going to trust a guy who's lying in our faces?!
 
+Yet another silliness: I've got a 32-bit linux OS. So I was looking for an "i386" version on the checkra page. Nada. Instead, he lists "i486". Now, what's that? I know! it's the 486 pre-Pentium intel CPU! So no "i386"? Turns out, "i486" is his double-talk for "i386".
+
 So, on Mac Sierra this jailbreak was running without problems... or so I thought, because after some time you'll notice the app will crash on a Mac very often too.
 
 So since the jailbreak was working on Mac (well, sometimes), and since I don't own a Mac (the Mac I used belongs to a friend), I was thinking about creating a Hackintosh to run the app on PC. Now creating a Hackintosh is a science for itself, so it took me ages to create an usb stick with a Mac on it, there are also some github repos that provide such usb images, but then I actually booted the system, and you know, how long it takes for it to boot? 8 fuc*ing minutes! That's every time you need to jailbreak! Plus you need to plug the device into your computer, extremely inconvenient. Plus I never got the damn mouse working, and I use a standard Microsoft wired mouse.
-
-I've got a 32-bit linux OS. So I was looking for an "i386" version on the checkra page. Nada. Instead, he lists "i486". Now, what's that? I know! it's the 486 pre-Pentium intel CPU! So no "i386"? Turns out, "i486" is his double-talk for "i386".
 
 Also, the press gets all euphoric, telling you how this exploit cannot be fixed, because it's iBoot magic, so not dependent on software. Really? Try to jailbreak an iPhone 5s (hardware supported by checkra1n) running iOS 10.3.3. checkra1n will say "unsupported". How interesting! So it IS dependent on software! So there's the super-duper checkm8 exploit for you. Enough said. Back to business.
 
@@ -982,7 +982,7 @@ Someone also suggested to rip out Wifi firmware from iOS 12.x and load it into m
 
 	Resolved to TxCap file path: ""
 
-Well, this sure as hell isn't work on iOS 10.x. I got firmware from iOS 12.4.7, but no go:
+Well, this sure as hell isn't working on iOS 10.x. I got firmware from iOS 12.4.7, but no go:
 
 	/usr/libexec/wifiFirmwareLoaderLegacy -r -F /usr/share/firmware/wifi/43342a0_NEW/cabernet.trx -N /usr/share/firmware/wifi/43342a0_NEW/cabernet-m-mt.txt
 
@@ -1145,7 +1145,7 @@ iMessage related? NOT required for real SMS:
 
 	/System/Library/LaunchDaemons/com.apple.imtransferagent.plist
 
-any services called "com.apple.nano..." as well as anything at:
+any services called "com.apple.nano..." as well as anything in:
 
 	/System/Library/NanoLaunchDaemons
 
