@@ -4,7 +4,7 @@ The "install" script in this repo lists all post-jailbreak steps, so use that on
 
 This repo provides sources only. The full package can be downloaded from the cloud:
 
-https://cloud.mail.ru/public/RC9C/3hzpcTVcG
+	https://cloud.mail.ru/public/RC9C/3hzpcTVcG
 
 It contains everything from this repo, as well as anything else mentioned in the "install" script (debian install packages, iPhoneOS10.3.sdk, iPhoneOS10.3_headers, compiled files etc.)
 
@@ -24,13 +24,13 @@ The files needed to downgrade are inside the "downgrade" directory on this repo.
 
 You will need that repo to downgrade. However, this Vieux guy has some annoying errors in his python scripts. First, this guy seems to be unaware of the fact that an iPhone (at least, this particular model) will NOT stay in DFU mode forever. It will auto-exit this mode in like 10 minutes, so you have a limited window to install new firmware. This weird behaviour is not downgrade specific. The official Apple forums are full of complaints about this issue - people try to upgrade the iOS system, iTunes takes some time to download the firmware, then it attempts to install the downloaded firmware - too late! iPhone exits DFU mode. Apple specifically suggests to DOWNLOAD the system to your hard disk first to reduce the installation duration. Now look at what this guy is doing - his script will first put the device into pwned DFU Mode (which is a pain in the ars*, because it takes like 35 times average to succeed), THEN he creates the custom ipsw ("createCustomIPSW64" function inside "ipsw.py"). He thinks iPhone will patiently wait until his script is done! Of course, by the time his script is done, iPhone exits DFU, which means you have to start all over!
 
-Not only that, he removes all created files on each attempt, meaning he re-creates the "custom.ipsw" all over again every time, and iPhone exits DFU right before the downgrade, again and again! Now, why is he deleting the custom ipsw?!! This file needs to be created only ONCE, it can be used for any iPhone 5s, so the entire "createCustomIPSW64" function needs to be executed only once, and BEFORE the iPhone is put into DFU mode.
+Furthermore, he removes all created files on each attempt, meaning he re-creates the "custom.ipsw" all over again every time, and iPhone exits DFU right before or during the downgrade, all over! Now, why is he deleting the custom ipsw?!! This file needs to be created only ONCE, it can be used for any iPhone 5s, so the entire "createCustomIPSW64" function needs to be executed only once, and BEFORE the iPhone is put into DFU mode.
 
 The "createCustomIPSW64" also zips "._058-74917-062.dmg" file from the original ipsw at:
 
-https://ipsw.me/download/iPhone6,2/14G60
+	https://ipsw.me/download/iPhone6,2/14G60
 
-Be careful about files containing a dot at the start of the name. If you create a backup of the downgrade folder by copying the folder through Mac Finder (that's the equivalent of Windows Explorer for us Winnies, lol), this file will NOT be copied, so this may cause the downgrade scripts to fail. I don't even think this file is necessary for the downgrade. I think you can comment out that line inside "createCustomIPSW64" function. If you insist on copying it, you need to copy the folder through the Mac terminal (== cmd)
+Be careful about files containing a dot at the start of the name. If you create a backup of the downgrade folder by copying the folder through Mac Finder (that's the equivalent of Windows Explorer for us Winnies, lol), this file will NOT be copied, so this may cause the downgrade scripts to fail. I don't even think this file is necessary for the downgrade. You can probably comment out that line inside the "createCustomIPSW64" function. If you insist on copying it, you need to copy the folder through the Mac terminal (== cmd)
 
 Overall, it's best to create custom.ipsw once and be done with it.
 
@@ -38,7 +38,7 @@ After putting my iPhone like 1 trillion times into pwned DFU mode and failing to
 
 	https://github.com/MatthewPierson/Vieux/tree/master/resources/bin
 
-got
+threw:
 
 	Killed: 9
 
@@ -50,7 +50,7 @@ Oh. My. God. This. Is. NOT. Happening! This guy actually forgot to add the damn 
 
 If you want to edit linux or darwin scripts on Windows, do NOT forget the damn carriage return problem! "\r\n" is the standard Windows way of line breaking, but some programmes (yes, radvd and python, I'm looking at you!) will complain about improper syntax, because darwin expects "\r" and unix "\n" (if I remember correctly), so make sure you format your plain text files properly before uploading them to non-windows systems. Again, some files downloaded off the Mac will look extremely weird in most Windows text editors, Winword is the only programme that can format the darwin stuff properly. The carriage return is also a constant source of trouble when dealing with regex in ANY language. Will there EVER be an end to this relict of the past or are you going to drag it with us forever?!!
 
-If you are going to edit the python scripts, be aware that this insane language uses indents (tabs and spaces) for statements following conditionals whereas sane languages use {} and that tabs and spaces are NOT interchangeable. You don't want to go through the pain of setting the device in pwned DFU mode just to find out there's an error in your script, because you mixed tabs and spaces or something.
+If you are going to edit the python scripts, be aware that this insane language uses indents (tabs and spaces) for statements following conditionals where sane languages use {} and that tabs and spaces are NOT interchangeable. You don't want to go through the pain of setting the device in pwned DFU mode just to find out there's an error in your script, because you mixed tabs and spaces or something.
 
 Now let us go over the downgrade process step by step.
 
@@ -82,7 +82,7 @@ The python scripts require, surprise! python + some additional python modules:
 
 	https://github.com/MatthewPierson/Vieux/blob/master/requirements.txt
 
-+ you need ldid as well, so most people will tell you to use homebrew to install this stuff on Mac. Don't. This programme is extremely annoying. It will refuse to run as root, took me like an hour to kill that stupid useless check. Most people say it's extremely important not to run homebrew as root. Important my ass! Plus it puts installed files in non-standard folders, like services usually go to
+plus you need ldid as well, so most people will tell you to use homebrew to install this stuff on Mac. Don't. This programme is extremely annoying. It will refuse to run as root, took me like an hour to kill that stupid useless check. Most people say it's extremely important not to run homebrew as root. Important my ass! Plus it puts installed files in non-standard folders, like services usually go to
 
 	/System/Library/LaunchDaemons
 
@@ -92,7 +92,7 @@ Second, put the device into DFU mode, google it, also check the specs if you are
 
 	https://usb.org/sites/default/files/DFU_1.1.pdf
 
-Third, run the checkm8 exploit. I actually run that exploit separately:
+Third, run the checkm8 exploit. I actually run this exploit separately:
 
 1st terminal window:
 
@@ -114,9 +114,9 @@ So, on Mac Sierra this jailbreak was running without problems... or so I thought
 
 So since the jailbreak was working on Mac (well, sometimes), and since I don't own a Mac (the Mac I used belongs to a friend), I was thinking about creating a Hackintosh to run the app on PC. Now creating a Hackintosh is a science for itself, so it took me ages to create an usb stick with a Mac on it, there are also some github repos that provide such usb images, but then I actually booted the system, and you know, how long it takes for it to boot? 8 fuc*ing minutes! That's every time you need to jailbreak! Plus you need to plug the device into your computer, extremely inconvenient. Plus I never got the damn mouse working, and I use a standard Microsoft wired mouse.
 
-Also, the press gets all euphoric, telling you how this exploit cannot be fixed, because it's iBoot magic, so not dependent on software. Really? Try to jailbreak an iPhone 5s (hardware supported by checkra1n) running iOS 10.3.3. checkra1n will say "unsupported". How interesting! So it IS dependent on software! So there's the super-duper checkm8 exploit for you. Back to business.
+I've got a 32-bit linux OS. So I was looking for an "i386" version on the checkra page. Nada. Instead, he lists "i486". Now, what's that? I know! it's the 486 pre-Pentium intel CPU! So no "i386"? Turns out, "i486" is his double-talk for "i386".
 
-Also, I've got a 32-bit linux OS, so that . So I was looking for an "i386" version on his page. Nada. Instead, he lists "i486". Now, what's that? I know! it's the 486 pre-Pentium intel CPU! So no "i386"? Turns out, "i486" is his double-talk for "i386". Enough said.
+Also, the press gets all euphoric, telling you how this exploit cannot be fixed, because it's iBoot magic, so not dependent on software. Really? Try to jailbreak an iPhone 5s (hardware supported by checkra1n) running iOS 10.3.3. checkra1n will say "unsupported". How interesting! So it IS dependent on software! So there's the super-duper checkm8 exploit for you. Enough said. Back to business.
 
 Running ipwndfu separately from the actual downgrade process has the advantage that you can choose the ipwndfu repo you wanna use:
 
@@ -130,7 +130,7 @@ the geohot fork is based on python 3 and is more verbose. It was running fine fi
 
 	failed to enter pwned dfu mode
 
-or something like that, that's ok, keep trying. But if it constantly complains that it can't detect a device in DFU mode (and your device is actually in DFU mode and connected to the computer), then you can stop trying, because there's something wrong with your setup. I heard of a guy who tried 200 times and failed. He's insane, you are guaranteed to succeed within 40 tries at most. For example, I created an Ubuntu usb stick, installed everything that is required by ipwndfu, but it still failed to pwn the device (the system itself was recognizing it). It always said "can't detect a device in DFU mode". So stop trying, fix your setup first:
+or something like that, that's ok, keep trying. But if it constantly complains that it cannot detect a device in DFU mode (and your device is actually in DFU mode and connected to the computer), then you can stop trying, because there's something wrong with your setup. I heard of a guy who tried 200 times and failed. He's insane, you are guaranteed to succeed within 40 tries at most. For example, I created an Ubuntu usb stick, installed everything that is required by ipwndfu, but it still failed to pwn the device (the system itself was recognizing it). It always said "can't detect a device in DFU mode". So stop trying, fix your setup first:
 
 - Use a Mac
 
@@ -140,11 +140,11 @@ or something like that, that's ok, keep trying. But if it constantly complains t
 
 Another quirk of the iPhone 5s: ipwndfu will run ONCE, if it fails and you try again, the device will exit the DFU mode and you get the "cannot detect device in DFU" mode error. So this whole process is very annoying: DFU, try once, fail, get the device out of DFU, put it back into DFU mode, try again, now imagine doing this 40 times in a row!
 
-So much for the downgrade process. Btw, the advantage you have with iPhone 5s, you don't need to have shsh blobs to restore. "What's shsh?" Exactly. If you just asked yourself this question, this downgrade is for you. You lucky guy!
+So much for the downgrade process. Btw, the advantage you have with iPhone 5s, shsh blobs are not required to restore. "What's shsh?" Exactly. If you just asked yourself this question, this downgrade is for you. You lucky guy!
 
 2. Jailbreak:
 
-I just downgraded my device and wanna jailbreak! What are gonna use? That's the 1 mio $ question. I suggest you take a peek into the "jailbreak" and "Docs" folders in this repo, primarily read the provided pdf files to get an idea about KPP bypass and the KPP-less jailbreak variants. There are actually two bugs that are exploitable on iOS 10.3.3:
+I just downgraded my device and wanna jailbreak! What are we gonna use? That's the 1 mio $ question. I suggest you take a peek into the "jailbreak" and "Docs" folders in this repo, primarily read the provided pdf files to get an idea about KPP bypass and the KPP-less jailbreak variants. There are actually two bugs that are exploitable on iOS 10.3.3:
 
 V0rtex:
 
@@ -186,7 +186,7 @@ sock_port KPP bypass:
 
 	https://github.com/SongXiaoXi/sockH3lix
 
-All these jailbreak apps are completely useless for us, however, because, in case you haven't figured it out yet, only native Apple apps and those certified by Apple are allowed to run on iOS, and Apple will obviously not sign a jailbreak, lol. Naughty Apple. So this is a vicious circle - you need an app to jailbreak, but precisely this particular app will not run on a non-jailbroken system. Now we could now consider provisioning:
+All these jailbreak apps are completely useless for us, however, because, in case you haven't figured it out yet, only native Apple apps and those certified by Apple are allowed to run on iOS, and Apple will obviously not sign a jailbreak, lol. Naughty Apple. So this is a vicious circle - you need an app to jailbreak, but precisely this particular app will not run on a non-jailbroken system. Now we could consider provisioning:
 
 	/private/var/MobileDevice/ProvisioningProfiles/
 
@@ -242,7 +242,7 @@ The binaries used by the jailbreak are in the 7z file (cloud.mail.ru link above)
 
 	https://totally-not.spyware.lol/bootstrap/Meridian.tar.xz
 
-However, I adjusted the DH.tar.xz file (cloud link above) by adding some apps to be independent from Cydia (PATHETIC!) and Apt (CRAP!) right from the start:
+However, I adjusted the DH.tar.xz file (cloud link above) by adding some apps, to be independent from Cydia (PATHETIC!) and Apt (CRAP!) right from the start:
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/jailbreak/jailbreaker
 
@@ -290,7 +290,7 @@ All right, so we jailbroke the device, for better or worse. Now what? Well, we i
 
 	https://apt.bingner.com/debs/1443.00
 
-don't really care about us poor shmoks still running 10.x iOS. They compile for later versions of iOS, means the apps rely on symbols not present on 10.x iOS. That's why I uploaded the 10.x iOS compatible apps to icloud, the files that work on iOS 10.x are very difficult to find, plus you need to check the symbols used by executables and dylibs (libraries) to determine if a programme is compatible. In particular, the following symbols are causing problems most problems:
+don't really care about us poor shmoks still running 10.x iOS. They compile for later versions of iOS, which means the apps rely on symbols not present on 10.x iOS. That's why I uploaded the 10.x iOS compatible apps to cloud (above), the files that work on iOS 10.x are very difficult to find, plus you need to check the symbols used by executables and dylibs (libraries) to determine if a programme is compatible. In particular, the following symbols are causing most problems:
 
 	_chkstk_darwin
 
@@ -300,7 +300,7 @@ don't really care about us poor shmoks still running 10.x iOS. They compile for 
 
 	_futimens
 
-Plus, some apps compiled for later iOS versions try to access system directories not present on 10.x (check "uicache" provided by the uikittools, the procurs.us version, for an example), which makes such programmes useless.
+Plus, some apps compiled for later iOS versions try to access system directories not present on 10.x (check "uicache" provided by the uikittools, the procurs.us version, for an example), which makes such programmes useless for us.
 
 Now you may argue, why not use the Saurik repo?
 
@@ -330,13 +330,13 @@ The binaries are in the cloud (link above). I compile right on the phone, but he
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/install
 
-As you can see, I'm using cmake to compile. Now I may be stupid, but what's the purpose using Theos if you already have a cross-syntax compilation wrapper, which uses the same syntax across all systems, so if you ever used cmake on Windows to control MSVC, you'll be able to compile darwin apps on iOS within seconds? Theos is large and obscure, the code is obfuscated, so code looks like it's been edited by a madman:
+As you can see, I'm using cmake to compile. Now I may be stupid, but what's the purpose using Theos if you already have a cross-system compilation wrapper, which uses the same syntax across all systems, so if you ever used cmake on Windows to control MSVC, you'll be able to compile darwin apps on iOS within seconds? Theos is large and obscure, the code is obfuscated, so it looks like it's been written by a madman:
 
 	https://github.com/pNre/NoAnnoyance/blob/master/SpringBoard.xm
 
 	%ctor
 
-What's a "%ctor"? A new jailbreak? No, really it's ridiculous. I'm staying with cmake.
+What's a "%ctor"? A new jailbreak? No, really this is ridiculous. I'm staying with cmake.
 
 Now if you take a look at the "Packs" directory, you'll notice a folder called "unzip-lzfse". You can get the compiled version from the cloud. I haven't found an lzfse capable iOS unzip binary anywhere, so I compiled it myself. What's lzfse? Well, you see, Apple used to package their Appstore apps using standard zip format, but they now switched to this new type of compression (by facebook?), so most programmes fail to extract the Appstore archives. 7z can do it, but you need the newest version. Plus, no 7z on iOS (I think?). That's where this repo comes into play:
 
@@ -386,9 +386,9 @@ Call your cellular provider using /Applications/MobilePhone.app/MobilePhone:
 
 	*#31#
 
-Input the number, hit the green button, nothing happens. Now, this cost me some nerves and time to find out what was causing this. There are only so many programmes using SSL pinning, and only those programmes need to be targeted!
+Input the number, hit the green button, nothing happens. Now, this cost me some nerves and time to find out what was causing this! There are only so many programmes using SSL pinning, and only those programmes need to be targeted!
 
-Also, I've never been able to actually install whatsapp over Appstore + proxy, even with SSL pinning disabled. I was able to sniff out the entire traffic, get the .ipa link, everything was downloaded properly, but during the actual installation I got some error, don't remember what it was. That's irrelevant, however, since once you got the traffic log, you can disable the proxy.
+Also, I've never been able to actually install Whatsapp over Appstore + proxy, even with SSL pinning disabled. I was able to sniff out the entire traffic, get the .ipa link, everything was downloaded properly, but during the actual installation I got some error, don't remember what it was. That's irrelevant, however, since once you got the traffic log, you can disable the proxy.
 
 To actually disable SSL Pinning, the plugin must be injected into all apps/daemons used during the Appstore download process, and since Mobile Substrate is loaded AFTER boot, you need to restart the daemons:
 
@@ -406,21 +406,21 @@ Personally, I'm using Fiddler to sniff out http(s) access. Obviously, requires a
 
 where "accessKey" is obviously a string generated by the server to allow you to download the programme, short-lived so as to prevent people from posting direct download links on the internet.
 
-This ipa is properly signed, can be also copied to other phones and whatsapp (or whatever you download) will work in an unjailbroken state. Get the whatsapp install dir:
+This ipa is properly signed, can be also copied to other phones, the downloaded app will work in an unjailbroken state. Get the Whatsapp install dir:
 
 	getappdir net.whatsapp.WhatsApp
 
 	/private/var/containers/Bundle/Application/XXX/WhatsApp.app
 
-delete WhatsApp.app folder, unzip .ipa, there's a "WhatsApp.app" folder inside, copy it to the original location, reboot (!!!) Reboot is important (even if Whatsapp wasn't running when you replaced the files!), otherwise you'll get tons of errors and Whatsapp will crash.
+delete WhatsApp.app folder, unzip .ipa, there's a "WhatsApp.app" folder inside, move it to the original location, reboot (!!!) Reboot is important (even if Whatsapp wasn't running when you replaced the files!), otherwise you'll get tons of errors and Whatsapp will crash.
 
 Talking about certificates, we still need a certificate for Safari. There's no SSL Pinning on Safari, but it still requires a valid certificate for https connections thru a proxy, as any other browser out there does. This poses a problem, which is not iPhone related. A HUGE problem. Every single browser out there (and every single browser version) has different requirements concerning security. So creating a certificate for your proxy that works across all browsers is nearly impossible. You have to consider IE 8 (WinXP), IE 11 (Win 10), Firefox, Chrome, and Safari. It took me some time to create a certificate that was working in all versions of IE + Firefox. Then I get this damn phone, Safari doesn't like the certificate. Apple and their damn security...
 
 So first, how do you install a certificate on an iPhone? Just put it onto your local web server, navigate with Safari to it and click on it. It will be added, but it still needs to be enabled in the iPhone settings (Settings -> General -> About -> Certificate Trust Settings). Stupid iTunes does not backup this properly, so you restore iPhone, you may have to redownload the certificate.
 
-So Safari was refusing to use my cert, while IE and Firefox had no problems with it. Generally speaking, IE requires least security, FF is annoying, but Safari is insane. Can't talk about Chrome.
+So Safari was refusing to use my cert, while IE and Firefox had no problems with it. Generally speaking, IE requires least security, FF is annoying, but Safari is insane. Can't talk about Chrome. Isn't Chrome just a Safari rip-off for Windows?
 
-So I messed around and got Safari to accept the cert by changing the md5 digest to sha1 and "basicConstraints" to "CA:true", but I think, it was md5 that was causing the problem. Newer iPhones have even tighter security, there's an Apple page that talks about this.
+So I messed around and got Safari to accept the cert by changing md5 digest to sha1 and "basicConstraints" to "CA:true", but I think, the problem was md5. Newer iPhones have even tighter security, there's an Apple page that talks about this.
 
 While checking the net on this issue I stumbled across this page:
 
@@ -440,15 +440,15 @@ setting "extendedKeyUsage" to "anyExtendedKeyUsage" only. "Any" means "any", rig
 
 Really, I can't decide, which browser is more annoying, Safari or FF. They both suck.
 
-So I added any extended key usages I could find (tons of them!) SPECIFICALLY to "config.cfg"... behold! FF is finally accepting the cert. Stupid FF! Ok, so IE 11 is working, FF is working, Safari's working. What about IE 8 on WinXP? So I boot WinXP, test it... not working. WTF? Seems not to like the "basicConstraints = CA:true". Fu*k that, I was sick and tired of this old system, so I ripped out the hard disk containing WinXP out of my PC, problem solved, lol.
+So I SPECIFICALLY added any extended key usages I could find (tons of them!) to "config.cfg" ... behold! FF is finally accepting the cert. Stupid FF! Ok, so IE 11 is working, FF is working, Safari's working. What about IE 8 on WinXP? So I boot WinXP, test it... not working. WTF? Seems not to like the "basicConstraints = CA:true". Fu*k that, I was sick and tired of this old system, so I ripped out the hard disk containing WinXP out of my PC, problem solved, lol.
 
 So let's go over the
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/install
 
-script:
+script a little:
 
-First, we kill Cydia. Oh no, we killed Cydia! What are we gonna do? Well, I've said everything that needed to be said about Cydia above, and I am not going to repeat myself. You may wonder, why I added this:
+First, we kill Cydia. Oh no, we killed Cydia! What are we gonna do? Well, I've said everything that needed to be said above, and I am not going to repeat myself. You may wonder, why I added this:
 
 	mkdir /Applications/Cydia.app
 
@@ -488,7 +488,7 @@ There was a guy on reddit, who deleted /.cydia_no_stash , then suddenly, his jai
 
 Next, we delete all Apt crap.
 
-Install basic programmes like wget and ssh (I added them to my DH.tar.xz available on the cloud - see above, but you still need to install them to add them to dpkg properly). Concerning the binaries, some links in the "install" script still point to the original locations, others, which are not available online any longer, point to my local servers (Apache on linux + filza WebDav on my other phone). You obviously need to adjust them. Download my 7z archive from the cloud and put it on your local apache or something to wget the files onto the iPhone.
+Install basic programmes like wget and ssh (I added them to my DH.tar.xz available in the cloud - see above, but you still need to install them to add them to dpkg properly). Concerning the binaries, some links in the "install" script still point to the original locations, others, which are not available online any longer, point to my local servers (Apache on linux + filza WebDav on my other phone). You obviously need to adjust them. Download my 7z archive from the cloud and put it on your local apache or something to wget the files onto the iPhone.
 
 Again, be careful what files you install, always check the symbols (see above)! The files I provide are working, although there are still some incompatible symbols in some apps/libraries, but I haven't run into any problems.
 
@@ -568,7 +568,7 @@ which for example, loads the mobile substrate:
 
 	/private/etc/rc.d/substrate -> /usr/libexec/substrate -> /usr/libexec/substrated
 
-I am using this folder too to run:
+I am also using this folder to run:
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/private/etc/rc.d/zzz
 
@@ -576,7 +576,7 @@ The "install" script (this repo) changes some stuff in the
 
 	/System/Library/Caches/com.apple.dyld/
 
-cache. This is tested and working, but that doesn't mean it's safe to mess around with it - some changes will result in a permanent white apple on boot. This is true for any file whose integrity is checked on boot! Even if a file is not generally required to boot the iOS! So, e.g.:
+cache. This is tested and working, but that doesn't mean it's safe to mess around with dyld cache - some changes will result in a permanent white apple on boot. This is true for any file whose integrity is checked on boot! Even if a file is not generally required to boot the iOS! So, e.g.:
 
 	/usr/libexec/locationd
 
@@ -627,13 +627,20 @@ Services disabled by launchctl are saved to:
 	/private/var/db/com.apple.xpc.launchd/disabled.plist
 
 Check:
+
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/private/var/db/com.apple.xpc.launchd/disabled.plist
 
 you must reboot the system right after changing this file to make changes permanent, because preferences are cached by:
 
 	/System/Library/LaunchDaemons/com.apple.cfprefsd.xpc.daemon.plist
 
-so your changes will simply be overwritten, or you need to kill "cfprefsd". Check for an example:
+so your changes will simply be overwritten at some point. Also, when I say "reboot" I mean type:
+
+	reboot
+
+into ssh, don't use the iPhone buttons to switch the iPhone off/on, because iOS will write cached settings to disk before turning itself on, and we want to prevent that.
+
+Alternatively, you can also kill "cfprefsd". Check for an example:
 
 	https://github.com/SongXiaoXi/sockH3lix/blob/master/sockH3lix/jailbreak.mm
 
@@ -741,7 +748,7 @@ Required for Recents view in MobilePhone:
 
 	/System/Library/LaunchDaemons/com.apple.geod.plist
 
-You disable this, there will be a slight delay when you scroll the "Recents" list. I strongly recommend disabling this crap service nevetheless, since it aggresively hammers the Apple servers, steals your bandwidth and increases the load on your router.
+You disable this, there will be a slight delay when you scroll the "Recents" list in the MobilePhone. I strongly recommend disabling this crap service nevetheless, since it aggresively hammers the Apple servers, steals your bandwidth and increases the load on your router.
 
 Now this is a difficult one, Appstore. First, the service needed to actually sign-in:
 
@@ -793,7 +800,7 @@ Note that iOS versions of nslookup, host, dig, and delv are actually using
 
 since they are a linux-ripoff. And while talking about resolv.conf, the resolv package is the most useless annoying package ever released for Linux. Kill it immediately and create a resolv.conf manually. In fact, the file above is a direct copy from my Ubuntu, I just copied it to iOS and it's working for nslookup etc.
 
-This crap is required for for Cloud Sign-Out (NOT Appstore!), and only if service was running when signed-in:
+This crap is required for iCloud Sign-Out (NOT Appstore!), and only if service was running when signed-in:
 
 	/System/Library/LaunchDaemons/com.apple.icloud.findmydeviced.plist
 
@@ -809,7 +816,7 @@ Only ever use the second one! If you don't want to type your username/password e
 
 	pbpaste && echo
 
-where XXX is the stuff to inject into iPhone clipboard (like your password for Appstore sign-in) and pbpaste will output the clipboard to your ssh app (putty, whatever), then you can simply copy it to the system clipboard where putty is running.
+where XXX is the stuff to inject into iPhone clipboard (like your password for Appstore sign-in) and pbpaste will output the iOS clipboard to your ssh app (putty, whatever), then you can simply copy it to the system clipboard where putty is running.
 
 Required to make calls:
 
@@ -945,7 +952,7 @@ REQUIRED FOR WiFi:
 
 	/System/Library/LaunchDaemons/com.apple.SCHelper-embedded.plist
 
-if com.apple.wifid unloaded, wifi will be disabled in settings.
+if com.apple.wifid is unloaded, wifi will be disabled in settings.
 
 com.apple.SCHelper-embedded is loaded when WiFi settings are opened. if unloaded, all net settings will be empty!
 
@@ -953,13 +960,13 @@ This one is NOT required though on iOS 10.x:
 
 	/System/Library/LaunchDaemons/com.apple.wifiFirmwareLoader.plist
 
-While talking about Wifi, iOS 10.x exhibits an extremely weird behaviour - when you switch off the screen (dark), wifi will enter sleep mode. It's still on, though, you will receive your push notifications, but if you try to use SSH, the reaction will be very sluggish, so you type a letter, and it takes like 10 seconds to pass it to iPhone. This is not the case with iPhone 12.x. Apple obviously doesn't give a damn about SSH or our jailbroken phones. So I was first keeping the display lighted, but this eats up the battery. I searched the entire net trying to find a solution, nothing. Then I accidentally just stumbled upon it:
+While talking about Wifi, iOS 10.x exhibits an extremely weird behaviour - when you switch off the screen (dark), wifi will enter sleep mode. It's still on, though, you will receive your push notifications, but if you try to use SSH, the reaction will be very sluggish, so you type a letter, and it takes like 10 seconds to pass it to iPhone. This is not the case with iOS 12.x. Apple obviously doesn't give a damn about SSH or our jailbroken phones. So I was first keeping the display lighted, but this eats up the battery. I searched the entire net trying to find a solution, nothing. Then I accidentally just stumbled upon it:
 
 	https://www.ios-repo-updates.com/search/?s=iNoSleep&repository=all&section=all&price=all
 
 	https://repo.packix.com/package/com.tonykraft.inosleep
 
-This one will keep your phone more alive so you can work over ssh when then screen is dark.
+This one will keep your phone more alive so you can work over ssh when the screen is dark.
 
 Someone also suggested to rip out Wifi firmware from iOS 12.x and load it into memory on older iOS versions:
 
@@ -975,7 +982,7 @@ Someone also suggested to rip out Wifi firmware from iOS 12.x and load it into m
 
 	Resolved to TxCap file path: ""
 
-Well, this sure as hell doesn't work on iOS 10.x. I got firmware from iOS 12.4.7, but no go:
+Well, this sure as hell isn't work on iOS 10.x. I got firmware from iOS 12.4.7, but no go:
 
 	/usr/libexec/wifiFirmwareLoaderLegacy -r -F /usr/share/firmware/wifi/43342a0_NEW/cabernet.trx -N /usr/share/firmware/wifi/43342a0_NEW/cabernet-m-mt.txt
 
@@ -1000,11 +1007,11 @@ Slows down SpringBoard + UserEventAgent + launchd if disabled:
 
 	/System/Library/LaunchDaemons/com.apple.managedconfiguration.profiled.plist
 
-Pretty much kills your system, making it totally unresponsive (morons on the net of course tell you, it's ok to disable. MORONS!):
+Pretty much kills your system, making it totally unresponsive (morons on the net will of course tell you, it's ok to disable. MORONS!):
 
 	/System/Library/LaunchDaemons/com.apple.identityservicesd.plist
 
-this service is responsible displaying this stupid popup:
+this service is responsible for displaying the following annoying popup:
 
 	Your carrier may charge for SMS messages used to activate iMessage / Facetime
 
@@ -1066,7 +1073,7 @@ btw, I love this service, it was the first time (out of like 20) that I killed m
 
 	HKLM\SYSTEM\CurrentControlSet\Services\CoreMessagingRegistrar
 
-If I had known this I wouldn't even have considered disabling it. CoreMessagingRegistrar iss the most important Windows service, some might object, stating lsass is more important, but pals, you kill lsass, you at least get a warning the system will reboot, but killing the notification service will result in an immediate freeze and the system will reboot in picoseconds! It's actually a wonder the system is still capable of rebooting! I once tried to install CoreMessagingRegistrar on WinPE, that system is the only one that doesn't require it, yet even that system rebooted immediately when CoreMessagingRegistrar crashed. So, retrospectively, even intentionally I couldn't have selected a worse target.
+If I had known this I wouldn't even have considered disabling it. CoreMessagingRegistrar iss the most important Windows service, some might object, stating lsass is more important, but pals, you kill lsass, you at least get a warning stating the system will reboot, but killing the notification service will result in an immediate freeze and the system will reboot in picoseconds! It's actually a wonder the system is still capable of rebooting! I once tried to install CoreMessagingRegistrar on WinPE, that system is the only one that doesn't require it, yet even that system rebooted immediately when CoreMessagingRegistrar crashed. So, retrospectively, even intentionally I couldn't have selected a worse target.
 
 Service required for, surprise! text input (it's loaded, when the keyboard appears on screen):
 
@@ -1344,7 +1351,7 @@ Display file path of a particular programme:
 
 	which XXX
 
-Note that which will resolve symlinks and display the path of the REAL file.
+Note that "which" will resolve symlinks and display the path of the REAL file.
 
 Mysterious programme:
 
@@ -1464,15 +1471,12 @@ check my "install" script in this repo's root. so you add an exception (reboot),
 
 	scutil --proxy
 
-	`
 	ExceptionsList : <array>
 	{
 		0 : *.local
 		1 : 169.254/16
 		2 : 192.168/16
 	}
-
-	`
 
 192.168/16 is the one added. The syntax is actually the same across all systems (so can be also be used for iptables, e.g.). so:
 
@@ -1662,7 +1666,7 @@ Supposed to restart a service (xpc too):
 
 XXX -> service name (no ".plist" !). Didn't work for me
 
-Remove service from memory (xpc too). Non-persistent between reboots:
+Remove service from memory (xpc too). Non-persistent (gone after reboot):
 
 	launchctl remove XXX
 
@@ -1716,7 +1720,7 @@ Get wifi APs in the neighbourhood:
 
 	airscan -s -v
 
-Check my version of "airscan". It has different colours than the original github repo. The original coder uses purple. Pal, putty background is black by default. Purple on black?! You got to be kidding! I set green.
+Check my version of "airscan" ("Packs" folder on this repo). It has different colours than the original github repo. The original coder uses purple. Pal, putty background is black by default. Purple on black?! You got to be kidding! I set green.
 
 Disable Wifi:
 
@@ -1790,11 +1794,11 @@ How do I REALLY clear Safari cache?
 
 wait, I think I made a mistake in the script! Hmm, I think, it will format the hard disk. Bah, who cares...
 
-Where are the crash anylytics stored?
+Where are the crash analytics stored?
 
 	/private/var/mobile/Library/Logs/CrashReporter/
 
-I disabled the service responsible for this (now, which one was it again?). No more anylytics for you! for Apple either... err, I mean, "neither".
+I disabled the service responsible for this (now, which one was it again?). No more analytics for you! for Apple either... err, I mean, "neither".
 
 Where are the Appstore and provisioned apps residing?
 
@@ -1810,7 +1814,7 @@ Yeah, but after boot the system is not jailbroken yet, so the popup is still dis
 
 Some plists contain data encoded as base64. How do I decode it?
 
-	https://github.com/WRFan/jailbreak10.3.3/blob/main/base64/atob.html
+	https://github.com/WRFan/jailbreak10.3.3/tree/main/base64
 
 How do I compile stuff?
 
@@ -1870,7 +1874,7 @@ How do I kill the "update available" badge on icons? Well, you shouldn't have gi
 
 	plutil -key kBadgedForSoftwareUpdateJumpOnceKey -false /private/var/mobile/Library/Preferences/com.apple.Preferences.plist
 
-How do I swipe away an app from the task bar? First, task bar is called "multitasking" on iOS. Second, nobody knows how to do that. But I suggest taking a look at:
+How do I swipe away an app from the task bar programmatically? First, task bar is called "multitasking" on iOS. Second, nobody knows how to do that. But I suggest taking a look at:
 
 	/private/var/mobile/Library/Preferences/com.apple.springboard.plist
 
@@ -1897,6 +1901,10 @@ How do I check which package a particular file belongs to?
 How do I set bash colors on iOS?
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/private/etc/profile
+
+Is iOs case-sensitive?
+
+	unfortunately, yes.
 
 So much for this. Wait... I notice you still got a question on your mind. Pose it.
 
