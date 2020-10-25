@@ -604,7 +604,7 @@ I'm trying to combat this by:
 
 but I'm still not sure if this actually helps, it's a solution for real Macs, not iOS.
 
-Most internet access by iPhones can be stopped though by disabling the services. And here we are - the SERVICES! Services is the major source of trouble, yet the most surprising fact is that nobody knows what services actually do or if the system will boot if you disable a particular service. This is true for all systems - windows, linux, darwin. One might think, it is easier with linux, since it's open source, but unless you dive deep into the source code, you can't easily find out what a service does. Nobody cares about this, nobody knows anything, except the developers of course, and MS and Apple are not talking. Or they are talking, but nobody understands a word of their tech-babble. Now let me pose a question to you:
+Most internet access by iPhones can be stopped though by disabling the services. And here we are - the SERVICES! Services are the major source of trouble, yet the most surprising fact is that nobody knows what services actually do or if the system will boot if you disable a particular service. This is true for all systems - windows, linux, darwin. One might think, it is easier with linux, since it's open source, but unless you dive deep into the source code, you can't easily find out what a service does. Nobody cares about this, nobody knows anything, except the developers of course, and MS and Apple are not talking. Or they are talking, but nobody understands a word of their tech-babble. Now let me pose a question to you:
 
 	HKLM\SYSTEM\CurrentControlSet\Services\ksecdd
 
@@ -618,7 +618,7 @@ Needed to boot, yes, no? What does the service do? You don't know?! Get into the
 
 Nothing? Failure, total failure! That's the kind of pupils we have nowadays!
 
-Messing with services is extremely problematic on iOS, because Windows and Linux can be tested on a virtual machine, so if the system doesn't boot, you just restore a snapshot, but if iOS doesn't boot, you are done for. The only people who actually concerned themselves with iOS services to a greater extent are some Chinese people, translate.google.com is your friend. There are some pages, which will speak about some services, but not many, other internet resources will mention Mac services, but there's no guarantee a service that can be disabled on a Mac can be safely disabled on iOS either. A service may not be required on one system, but very well required on many other systems (mDNSResponder). The problem is, morons on the net state something, but nobody ever mentions, what system they use, this is true for any problem, not just services-specific. So a moron says, mDNSResponder can be disabled, because his system uses discoveryd for DNS. So you disable mDNSResponder on Sierra/iOS 10.x - 12.x, try to ping google.com, nada. Hey, but that guy said, mDNSResponder isn't required! Yeah, just listen to those morons. Other idiots are even worse, they just copy-paste info from other pages to their pages, without testing, so errors spread all over the net. So let me tell you some stuff I've found out about iOS services MYSELF, stuff, most of which nobody knows about... except Apple... and me... and now YOU! You lucky guy!
+Messing with services is extremely problematic on iOS, because Windows and Linux can be tested on a virtual machine, so if the system doesn't boot, you just restore a snapshot, but if iOS doesn't boot, you are done for. The only people who actually concerned themselves with iOS services to a greater extent are some Chinese people, translate.google.com is your friend. There are some pages, which will speak about some services, but not many, other internet resources will mention Mac services, but there's no guarantee a service that can be disabled on a Mac can be safely disabled on iOS either. A service may not be required on one system, but very well required on many other systems (mDNSResponder). The problem is, morons on the net state something, but nobody ever mentions, what system they use, this is true for any problem, not just services-specific. So a moron says, mDNSResponder can be disabled, because his system uses discoveryd for DNS. So you disable mDNSResponder on Sierra/iOS 10.x - 12.x, try to ping google.com, nada. Hey, but that guy said, mDNSResponder isn't required! Yeah, just listen to those morons. Other idiots are even worse, they just copy-paste info from other pages to their pages without testing, so errors spread all over the net. So let me tell you some stuff I've found out about iOS services MYSELF, stuff, most of which nobody knows about... except Apple... and me... and now YOU! You lucky guy!
 
 On darwin, launchctl is the equivalent of systemctl. You can get info about that on the net.
 
@@ -638,7 +638,7 @@ so your changes will simply be overwritten at some point. Also, when I say "rebo
 
 	reboot
 
-into ssh, don't use the iPhone buttons to switch the iPhone off/on, because iOS will write cached settings to disk before turning itself on, and we want to prevent that.
+into ssh, don't use the iPhone buttons to switch the iPhone off/on, because iOS will write cached settings to disk before turning itself off, and we want to prevent that.
 
 Alternatively, you can also kill "cfprefsd". Check for an example:
 
@@ -1810,7 +1810,7 @@ How do I disable that damn "No SIM Card Installed" popup?
 
 Yeah, but after boot the system is not jailbroken yet, so the popup is still displayed?
 
-	So? Apple is annoying. So it will annoy you with this message FOREVER. Because annoying you is Apple's purpose. That's what Aristotle said. μῆλον φύσις εἰμί βαρύς. Wait... I think I got a grammar mistake in there. Quick, someone correct me!
+	So? Apple is annoying. So it will annoy you with this message FOREVER. Because annoying you is Apple's purpose. That's what Aristotle said. μῆλον φύσις εἰμί βαρύς. Wait... I think I got a mistake in there. Quick, someone correct me!
 
 Some plists contain data encoded as base64. How do I decode it?
 
@@ -1902,7 +1902,7 @@ How do I set bash colors on iOS?
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/private/etc/profile
 
-Is iOs case-sensitive?
+Is iOS case-sensitive?
 
 	unfortunately, yes.
 
