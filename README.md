@@ -1395,7 +1395,7 @@ sbreload is quicker. Check:
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/jailbreak/payload
 
-I actually disabled "ldrestart" in the binary and moved the "sbreload" to:
+I actually disabled "ldrestart" in the binary and added "sbreload" to:
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/private/etc/rc.d/zzz
 
@@ -1712,7 +1712,7 @@ How to get pid? Well, you know, I kindof *appropriated* a "pidof" script from:
 
 hihi.
 
-Btw, why is everybody killing service executables instead of restarting services themselves? Seems a more proper way to restart the service.
+Btw, why is everybody killing service executables instead of restarting services themselves? Seems like a more proper way to restart the service.
 
 Get wifi APs in the neighbourhood:
 
@@ -1905,6 +1905,16 @@ How do I set bash colors on iOS?
 Is iOs case-sensitive?
 
 	unfortunately, yes.
+
+I accidentally created a file named
+
+	-v
+
+and now I can't remove it. HEEEELP!
+
+	Execute in the directory where the file resides:
+
+	rm ./-v
 
 So much for this. Wait... I notice you still got a question on your mind. Pose it.
 
