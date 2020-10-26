@@ -222,7 +222,7 @@ The "jailbreak" folder in this repo is a fork of the github repo mentioned above
 
 	http://jailbreakme.com
 
-I basically got it safely sitting on my local apache server, just in case the web server goes down. Now, because the project is partially closed source, I had to hack edit the binary payload, which is just ridiculous. Please, Siguza, give us the code! Pleeeasse?
+I basically got it safely sitting on my local apache server, just in case the web server goes down. Now, because the project is partially closed source, I had to hack edit the binary payload, which is just ridiculous. We need the code, Siguza!
 
 So if you check:
 
@@ -280,6 +280,32 @@ The Meridian jailbreak is kpp-less, so I wouldn't recommend it. It's not a real 
 
 sock_port is supposed to be more stable, so maybe Siguza or somebody else can give us a sock_port version of the payload.
 
+Concerning the javascript part of the jailbreak, if you look at:
+
+https://github.com/WRFan/jailbreak10.3.3/blob/main/jailbreak/index.html
+
+you'll may wonder why there's a time check there. This has to do with the weird nature of the Safari browser, which is limited to this browser only, haven't experienced anything like this on IE/FF. Sometimes, Safari reloads the page, when it deems it not properly loaded. Now, since human beings are the only beings capable of grasping purpose, it is obvious why neither MS, nor Mozilla have not built in such functionality into their browsers. Take this jailbreak, for example. The purpose of the jailbreak webpage is to, well, jailbreak. Safari, obviously, interprets "purpose" in its own machine-like way, so it reloads the page. This would re-trigger the jailbreak. There's no way as far as I know to determine if a system has been jailbroken through javascript, so I added this time check. The usual process is this:
+
+- Safari opens the page
+
+- jailbreak runs, duration appr. 24.000 - 27.000 sec.
+
+- Safari detects an anormaly, reloads the page. The script detects a reload based on duration and prevents a fallthrough.
+
+Why is it not a problem with totally-not.spyware.lol ? Because they don't initiate the jailbreak process automatically on page load, but my script does.
+
+The same problem occurs, if you jailbreak, close the browser, then later open it. Again, weird behaviour by Safari. It doesn't open the home page, as other browsers do, instead, it loads the page that was loaded before, that would be the jailbreak, so the jailbreak would be re-initiated. Again, my time check code prevents this.
+
+Also take a look at:
+
+https://github.com/WRFan/jailbreak10.3.3/blob/main/jailbreak/pwn.js
+
+If the "stage1" function (subfunction of the "pwn" function) fails:
+
+	webkit exploit failed: please reload the page...
+
+the original script will still execute the "spyware" function (at the end of the "pwn" function). This is not supposed to happen, the script must cease execution and the page must be reloaded.
+
 3. Post-jailbreak setup:
 
 All right, so we jailbroke the device, for better or worse. Now what? Well, we install some cool apps! Lots of them! Tons of them! Except, there's a tiny problem. The repos on the internet:
@@ -336,7 +362,7 @@ As you can see, I'm using cmake to compile. Now I may be stupid, but what's the 
 
 	%ctor
 
-What's a "%ctor"? A new jailbreak? No, really this is ridiculous. I'm staying with cmake.
+What's a "%ctor"? A new jailbreak? No, really, this is ridiculous. I'm staying with cmake.
 
 Now if you take a look at the "Packs" directory, you'll notice a folder called "unzip-lzfse". You can get the compiled version from the cloud. I haven't found an lzfse capable iOS unzip binary anywhere, so I compiled it myself. What's lzfse? Well, you see, Apple used to package their Appstore apps using standard zip format, but they now switched to this new type of compression (by facebook?), so most programmes fail to extract the Appstore archives. 7z can do it, but you need the newest version. Plus, no 7z on iOS (I think?). That's where this repo comes into play:
 
@@ -388,7 +414,7 @@ Call your cellular provider using /Applications/MobilePhone.app/MobilePhone:
 
 Input the number, hit the green button, nothing happens. Now, this cost me some nerves and time to find out what was causing this! There are only so many programmes using SSL pinning, and only those programmes need to be targeted!
 
-Also, I've never been able to actually install Whatsapp over Appstore + proxy, even with SSL pinning disabled. I was able to sniff out the entire traffic, get the .ipa link, everything was downloaded properly, but during the actual installation I got some error, don't remember what it was. That's irrelevant, however, since once you got the traffic log, you can disable the proxy.
+Also, I've never been able to actually install Whatsapp over Appstore + proxy, even with SSL pinning disabled. I was able to sniff out the entire traffic, get the .ipa link, everything was downloaded properly, but during the actual installation I got some error, don't remember what it was. That's irrelevant, however, since once you've got the traffic log, you can disable the proxy.
 
 To actually disable SSL Pinning, the plugin must be injected into all apps/daemons used during the Appstore download process, and since Mobile Substrate is loaded AFTER boot, you need to restart the daemons:
 
@@ -588,11 +614,21 @@ is not required to boot the system, but if the service is enabled and you change
 
 but just try to run an altered pathetic useless "locationd" on iOS!
 
-The primary reason I'd jailbroken was to prevent the iPhone from accessing the network and the internet. Fire up Wireshark and check what an iPhone is doing - it's hammering request after request, mDNS RAs on the local network, sending data to apple servers... It's exactly the same with Macs. No network can handle this amount of traffic. I've read complaints by admins, whose routers break down under the load, when too many iPhones sign into their wifi networks. iOS 12 is extremely annoying in terms of mDNS RAs, that's another reason I prefer iOS 10.x, although, for some completely incomprehensible reason, it will sometimes (extremely seldom) send
+The primary reason I'd jailbroken was to prevent the iPhone from accessing the network and the internet. Fire up Wireshark and check what an iPhone is doing - it's hammering request after request, mDNS RAs on the local network, sending data to apple servers... It's exactly the same with Macs. No network can handle this amount of traffic. I've read complaints by admins, whose routers break down under the load, when too many iPhones sign into their wifi networks. iOS 12 is extremely annoying in terms of mDNS RAs, that's another reason I prefer iOS 10.x, although, for some completely incomprehensible reason, it will sometimes (extremely seldom) send:
 
 	MDNS Standard query PTR _sleep-proxy._udp.local, "QU" question OPT
 
-I'm trying to combat this by:
+if you enable, then disable airplane mode. This can be fixed by:
+
+	launchctl unload /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist && launchctl load /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+
+Question is, why this happens in the first place. The code is here:
+
+	https://opensource.apple.com/source/mDNSResponder/mDNSResponder-765.50.9
+
+but there's (surprise!) no iOS code there, although the code is surely pretty much the same. /usr/sbin/mDNSResponder on iOS 10.3.3 definitely checks for "UseInternalSleepProxy" flag, as you can see if you open the binary in a hex editor.
+
+I'm trying to combat this behaviour by:
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/private/var/preferences/com.apple.mDNSResponder.plist
 
