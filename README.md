@@ -284,7 +284,7 @@ Concerning the javascript part of the jailbreak, if you look at:
 
 https://github.com/WRFan/jailbreak10.3.3/blob/main/jailbreak/index.html
 
-you'll may wonder why there's a time check there. This has to do with the weird nature of the Safari browser, which is limited to this browser only, haven't experienced anything like this on IE/FF. Sometimes, Safari reloads the page, when it deems it not properly loaded. Now, since human beings are the only beings capable of grasping purpose, it is obvious why neither MS, nor Mozilla have not built in such functionality into their browsers. Take this jailbreak, for example. The purpose of the jailbreak webpage is to, well, jailbreak. Safari, obviously, interprets "purpose" in its own machine-like way, so it reloads the page. This would re-trigger the jailbreak. There's no way as far as I know to determine if a system has been jailbroken through javascript, so I added this time check. The usual process is this:
+you may wonder why there's a time check there. This has to do with the weird nature of the Safari browser, which is limited to this browser only, haven't experienced anything like this on IE/FF. Sometimes, Safari reloads the page, when it deems it not properly loaded. Now, since human beings are the only beings capable of grasping purpose, it is obvious why neither MS, nor Mozilla have built such functionality into their browsers. Take this jailbreak, for example. The purpose of the jailbreak webpage is to, well, jailbreak. Safari, obviously, interprets "purpose" in its own machine-like way, so it reloads the page. This would re-trigger the jailbreak. As far as I know, there's no way  to determine if a system has been jailbroken through javascript, so I added this time check. The usual process is this:
 
 - Safari opens the page
 
@@ -294,7 +294,7 @@ you'll may wonder why there's a time check there. This has to do with the weird 
 
 Why is it not a problem with totally-not.spyware.lol ? Because they don't initiate the jailbreak process automatically on page load, but my script does.
 
-The same problem occurs, if you jailbreak, close the browser, then later open it. Again, weird behaviour by Safari. It doesn't open the home page, as other browsers do, instead, it loads the page that was loaded before, that would be the jailbreak, so the jailbreak would be re-initiated. Again, my time check code prevents this.
+The same problem occurs, if you jailbreak, close the browser, then later re-open it. Again, weird behaviour by Safari. It doesn't open the home page, as other browsers do, instead, it loads the page that was loaded before, that would be the jailbreak, so the jailbreak would be rerun. Again, my time check code prevents this.
 
 Also take a look at:
 
