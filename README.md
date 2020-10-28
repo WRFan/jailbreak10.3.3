@@ -200,7 +200,7 @@ Xcode, Altstore, cydia impactor, AltDeploy:
 
 Except, we won't, at least leave me out of it. Provisioning does not work. Has never worked, will never work. Apple constantly changes the signing process, all programmes created for signing go down one by one, some are updated, but it takes time, so people are stuck with their devices waiting for a jailbreak, lamentations all over the internet. The free certificate is only valid for 7 days, the developer one for a year (300 bucks!), plus Apple will kill the certificate prematurely if it detects a jailbreak, check:
 
-	https://github.com/WRFan/jailbreak10.3.3/tree/main/dnsmasq
+	https://github.com/WRFan/jailbreak10.3.3/blob/main/dnsmasq/dnsmasq.conf
 
 to block iOS from talking to Apple servers. btw, AltDeploy died on me a couple of days ago, another one bites the dust.
 
@@ -730,9 +730,43 @@ Enter Airplane mode, exit. Let somebody call you. Doesn't ring.
 
 So now you know what this service is for and what domains you have to unblock. As opposed to MS and Apple, I've told you this in plain English, which anybody can understand, not just tech freaks.
 
-Probably required for iMessage / Facetime activation, not sure yet, have to test:
+Probably required for iMessage / Facetime activation:
 
 	/System/Library/LaunchDaemons/com.apple.idsremoteurlconnectionagent.plist
+
+	/System/Library/LaunchDaemons/com.apple.absd.plist
+
+If activating through a proxy, disable SSL-Pinning for:
+
+	com.apple.imfoundation.IMRemoteURLConnectionAgent
+
+	https://github.com/WRFan/jailbreak10.3.3/blob/main/Library/MobileSubstrate/DynamicLibraries/SSLKillSwitch2.plist
+
+Required URLs (unblock):
+
+	http://static.ess.apple.com/identity/validation/cert-1.0.plist
+
+	https://identity.ess.apple.com/WebObjects/TDIdentityService.woa/wa/initializeValidation
+
+	https://identity.ess.apple.com/WebObjects/TDIdentityService.woa/wa/register
+
+	https://identity.ess.apple.com/WebObjects/TDIdentityService.woa/wa/authenticatePhoneNumber
+
+May be also required:
+
+	http://init.ess.apple.com/WebObjects/VCInit.woa/wa/getBag?ix=XXX&gr=XXX
+
+Either idsremoteurlconnectionagent or absd are hammering this url if enabled:
+
+	http://init-p01md.apple.com/bag?gr=DE
+
+shouldn't be required for activation though
+
+If idsremoteurlconnectionagent and absd are enabled and iMessage/Facetime is not activating, and you don't see:
+
+	User-Agent: com.apple.invitation-registration
+
+connecting to the "ess.apple.com" addresses above, chances are you annoyed Apple too much, so they blocked you. Check your mobile carrier. If it says something about outgoing "SMS Services", that means SMS got sent, but Apple assh*les just blocked you and didn't reply. Congratulations, you've got to wait at least 24 hours until they unblock you. That's why Apple says, "it may take up to 24 hours to activate...", that means "we blocked your sorry ass", because otherwise Apple is replying immedately (so activation takes like 20 seconds). So don't annoy them by hitting the Activation button On/Off continuously like a moron, that won't help.
 
 Required to create backup in iTunes, can be disabled otherwise, just re-enable if needed:
 
@@ -806,7 +840,7 @@ Now of course, nobody knows about this, just search for "com.apple.DuetHeuristic
 
 The urls that need to be un-blocked are listed in:
 
-	https://github.com/WRFan/jailbreak10.3.3/tree/main/dnsmasq
+	https://github.com/WRFan/jailbreak10.3.3/blob/main/dnsmasq/dnsmasq.conf
 
 Plus, check:
 
