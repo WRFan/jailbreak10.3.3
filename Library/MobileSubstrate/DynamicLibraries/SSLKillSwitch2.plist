@@ -21,7 +21,11 @@
 			<string>com.apple.iBooks</string>
 			<string>com.apple.Maps</string>
 
+			<string>com.apple.imfoundation.IMRemoteURLConnectionAgent</string>
+
 			<!--
+			<string>com.apple.idsfoundation.IDSRemoteURLConnectionAgent</string>
+
 			<string>com.apple.OTACrashCopier</string>
 			<string>com.apple.mobileassetd</string>
 			<string>com.apple.captiveagent</string>
@@ -104,7 +108,7 @@
 		<!--
 		<key>Executables</key>
 		<array>
-		<string>akd</string>
+		<string>absd</string>
 		</array>
 		-->
 	</dict>
