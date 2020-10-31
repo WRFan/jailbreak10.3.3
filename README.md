@@ -730,7 +730,7 @@ Enter Airplane mode, exit. Let somebody call you. Doesn't ring.
 
 So now you know what this service is for and what domains you have to unblock. As opposed to MS and Apple, I've told you this in plain English, which anybody can understand, not just tech freaks.
 
-Probably required for iMessage / Facetime activation:
+Required for iMessage / Facetime activation and actual sending of iMessages through /Applications/MobileSMS.app/MobileSMS:
 
 	/System/Library/LaunchDaemons/com.apple.idsremoteurlconnectionagent.plist
 
@@ -756,9 +756,11 @@ May be also required:
 
 	http://init.ess.apple.com/WebObjects/VCInit.woa/wa/getBag?ix=XXX&gr=XXX
 
-Either idsremoteurlconnectionagent or absd are hammering this url if enabled:
+Either idsremoteurlconnectionagent or absd are hammering these urls if enabled:
 
 	http://init-p01md.apple.com/bag?gr=DE
+
+	query.ess.apple.com
 
 shouldn't be required for activation though
 
