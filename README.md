@@ -730,7 +730,7 @@ Enter Airplane mode, exit. Let somebody call you. Doesn't ring.
 
 So now you know what this service is for and what domains you have to unblock. As opposed to MS and Apple, I've told you this in plain English, which anybody can understand, not just tech freaks.
 
-Required for iMessage / Facetime activation and actual sending of iMessages through /Applications/MobileSMS.app/MobileSMS:
+Required for iMessage / Facetime activation (talking about phone number activation here, NOT Apple ID, services required for the latter one? /System/Library/LaunchDaemons/com.apple.akd.plist ? unsure) and actual sending of iMessages through /Applications/MobileSMS.app/MobileSMS :
 
 	/System/Library/LaunchDaemons/com.apple.idsremoteurlconnectionagent.plist
 
@@ -755,6 +755,18 @@ Required URLs (unblock):
 May be also required:
 
 	http://init.ess.apple.com/WebObjects/VCInit.woa/wa/getBag?ix=XXX&gr=XXX
+
+getBag is cached to:
+
+	/private/var/mobile/Library/Preferences/com.apple.facetime.bag.plist
+
+and is pointing to the required URLs (above). features:
+
+	bag-expiry-timestamp
+
+(Unix Timestamp), which can be converted to human-readable format:
+
+	https://www.epochconverter.com
 
 Either idsremoteurlconnectionagent or absd are hammering these urls if enabled:
 
