@@ -774,7 +774,11 @@ Either idsremoteurlconnectionagent or absd are hammering these urls if enabled:
 
 	query.ess.apple.com
 
-shouldn't be required for activation though
+shouldn't be required for activation / iMessage sending though
+
+This one is NOT required to send iMessage (phone number activation method):
+
+	/System/Library/LaunchDaemons/com.apple.imtransferagent.plist
 
 If idsremoteurlconnectionagent and absd are enabled and iMessage/Facetime is not activating, and you don't see:
 
