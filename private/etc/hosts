@@ -3,11 +3,82 @@
 #
 # localhost is used to configure the loopback interface
 # when the system is booting.  Do not change this entry.
-##
+
+# /private/etc/hosts
+
 127.0.0.1	localhost
 255.255.255.255	broadcasthost
 ::1 localhost
 
+17.56.48.13 identity.ess.apple.com
+::1 identity.ess.apple.com
+
+17.253.57.201 static.ess.apple.com
+::1 static.ess.apple.com
+
+95.101.185.4 www.apple.com
+2a02:26f0:120:2a1::1aca www.apple.com
+
+23.2.13.17 init-p01st.push.apple.com
+::1 init-p01st.push.apple.com
+
+17.253.57.201 iosapps.itunes.apple.com
+::1 iosapps.itunes.apple.com
+
 127.0.0.1 init.itunes.apple.com
 ::1 init.itunes.apple.com
 
+127.0.0.1 xp.apple.com
+::1 xp.apple.com
+
+127.0.0.1 ocsp.apple.com
+::1 ocsp.apple.com
+
+127.0.0.1 mesu.apple.com
+::1 mesu.apple.com
+
+127.0.0.1 init-p01md.apple.com
+::1 init-p01md.apple.com
+
+127.0.0.1 init.ess.apple.com
+::1 init.ess.apple.com
+
+127.0.0.1 query.ess.apple.com
+::1 query.ess.apple.com
+
+###############################################################################
+# 17.57.146.20 3-courier.push.apple.com
+# ::1 3-courier.push.apple.com
+
+# 17.57.146.20 5-courier.push.apple.com
+# ::1 5-courier.push.apple.com
+
+# 17.57.146.20 7-courier.push.apple.com
+# ::1 7-courier.push.apple.com
+
+# 17.57.146.20 10-courier.push.apple.com
+# ::1 10-courier.push.apple.com
+
+# 17.57.146.20 13-courier.push.apple.com
+# ::1 13-courier.push.apple.com
+
+# 17.57.146.20 12-courier.push.apple.com
+# ::1 12-courier.push.apple.com
+
+# 17.57.146.20 26-courier.push.apple.com
+# ::1 26-courier.push.apple.com
+
+# 17.57.146.20 38-courier.push.apple.com
+# ::1 38-courier.push.apple.com
+
+# 17.57.146.20 41-courier.push.apple.com
+# ::1 41-courier.push.apple.com
+
+# 17.57.146.20 44-courier.push.apple.com
+# ::1 44-courier.push.apple.com
+
+# 17.57.146.20 47-courier.push.apple.com
+# ::1 47-courier.push.apple.com
+
+# 17.57.146.20 48-courier.push.apple.com
+# ::1 48-courier.push.apple.com
