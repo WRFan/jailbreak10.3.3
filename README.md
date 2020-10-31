@@ -770,15 +770,27 @@ and is pointing to the required URLs (above). features:
 
 Either idsremoteurlconnectionagent or absd are hammering these urls if enabled:
 
-	http://init-p01md.apple.com/bag?gr=DE
+	http://init-p01md.apple.com/bag?gr=XXX
 
 	query.ess.apple.com
 
 shouldn't be required for activation / iMessage sending though
 
+The plist acquired from this url (base64 encoded):
+	http://init-p01md.apple.com/bag?gr=XXX
+
+is cached to:
+	/private/var/mobile/Library/Preferences/com.apple.imessage.bag.plist
+
 This one is NOT required to send iMessage (phone number activation method):
 
 	/System/Library/LaunchDaemons/com.apple.imtransferagent.plist
+
+Instead, it's "com.apple.apsd" that is actually responsible for delivering iMessages
+
+Also check ("isMadridEnabled" -> iMessage enabled?):
+
+	https://github.com/nst/iOS-Runtime-Headers/blob/master/PrivateFrameworks/CommunicationsSetupUI.framework/CKSettingsMessagesController.h
 
 If idsremoteurlconnectionagent and absd are enabled and iMessage/Facetime is not activating, and you don't see:
 
