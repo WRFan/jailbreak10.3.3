@@ -12,7 +12,10 @@ alias ls='ls -la --color=auto --block-size=K'
 alias dir='dir -A --color=auto'
 alias vdir='vdir --color=auto'
 
+alias cls='clear'
+
 LS_COLORS='di=0;32:ln=01;36:ex=01;35:st=0;44;0:so=0;0:pi=0;0:bd=0;0;0:cd=0;0;0:su=0;0:sg=0;0:tw=0;0:ow=0;0:do=0;0:or=0;0;0:ca=0;0'
 
-cd /
+bind '"\e": kill-whole-line'
 
+cd /
