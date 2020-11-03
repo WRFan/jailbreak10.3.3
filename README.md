@@ -1136,6 +1136,8 @@ inside the "carrier.plist" of your carrier bundle, also check:
 
 	/private/var/mobile/Library/Preferences/com.apple.carrier.plist
 
+which is a symlink to "carrier.plist" of the carrier bundle actually used.
+
 Now open:
 
 	/System/Library/PrivateFrameworks/IDS.framework/identityservicesd.app/identityservicesd
