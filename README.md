@@ -1189,7 +1189,7 @@ This whole process is still very unclear and Apple is revealing nothing, althoug
 
 - how often is this SMS sent?
 
-- how often does the device connect to ess.apple.com , identity.ess.apple.com and init.ess.apple.com to verify the device is still used for iMessage/Facetime?
+- how often does the device connect to static.ess.apple.com , identity.ess.apple.com and init.ess.apple.com to verify the device is still used for iMessage/Facetime?
 
 - what happens if the user switches off their iPhone for a longer period of time or prevents access to ess.apple.com servers? Will iMessage/Facetime become deactivated? Apple states nothing on this, however, from my own experience as well as from what I've read on the net, the services will auto-deactivate themselves every couple of days (2-7) and attempt re-activation. This is interesting, because on all their pages Apple states activation is only required ONCE, but as you can clearly see, periodic re-activation is required. I am not sure if the re-activation SMS is re-sent to GB, but if the device fails to re-check activation state (because com.apple.idsremoteurlconnectionagent or com.apple.absd services are deactivated, or because access is blocked to the ess.apple.com servers, or simply because you switched off your device for a longer period of time), iMessage/Facetime will fall back to deactivated state, in which case the SMS will have to be resent.
 
