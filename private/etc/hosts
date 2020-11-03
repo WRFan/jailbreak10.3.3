@@ -10,6 +10,7 @@
 255.255.255.255	broadcasthost
 ::1 localhost
 
+###############################################################################
 17.56.48.13 identity.ess.apple.com
 ::1 identity.ess.apple.com
 
@@ -25,14 +26,25 @@
 17.253.57.201 iosapps.itunes.apple.com
 ::1 iosapps.itunes.apple.com
 
+###############################################################################
 127.0.0.1 init.itunes.apple.com
 ::1 init.itunes.apple.com
+
+###############################################################################
+127.0.0.1 itunes.com
+::1 itunes.com
+
+127.0.0.1 itunes.apple.com
+::1 itunes.apple.com
 
 127.0.0.1 xp.apple.com
 ::1 xp.apple.com
 
 127.0.0.1 ocsp.apple.com
 ::1 ocsp.apple.com
+
+127.0.0.1 ocsp.digicert.com
+::1 ocsp.digicert.com
 
 127.0.0.1 mesu.apple.com
 ::1 mesu.apple.com
@@ -45,6 +57,9 @@
 
 127.0.0.1 query.ess.apple.com
 ::1 query.ess.apple.com
+
+127.0.0.1 appldnld.apple.com
+::1 appldnld.apple.com
 
 ###############################################################################
 # 17.57.146.20 3-courier.push.apple.com
@@ -61,6 +76,9 @@
 
 # 17.57.146.20 10-courier.push.apple.com
 # ::1 10-courier.push.apple.com
+
+# 17.57.146.20 11-courier.push.apple.com
+# ::1 11-courier.push.apple.com
 
 # 17.57.146.20 12-courier.push.apple.com
 # ::1 12-courier.push.apple.com
@@ -79,6 +97,9 @@
 
 # 17.57.146.20 27-courier.push.apple.com
 # ::1 27-courier.push.apple.com
+
+# 17.57.146.20 30-courier.push.apple.com
+# ::1 30-courier.push.apple.com
 
 # 17.57.146.20 38-courier.push.apple.com
 # ::1 38-courier.push.apple.com
