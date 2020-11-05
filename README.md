@@ -1203,7 +1203,7 @@ but Apple doesn't mention the servers used by their services!
 
 If you fall for Apple and click "OK" when the warning popup is presented to you, iOS will hammer the GB SMS server until it receives a reply. This is problematic, because the SMS server may not answer, for example, if you send too many SMS, the GB server will block you for 1-3 days; some mobile carriers misinterpret the activation SMS sent as a "silent SMS" for a standard SMS, so it either will not be sent at all (your mobile budget too low and SMS is not free), or your mobile carrier will send it improperly, or forward the reply improperly to your device (as a standard SMS, although this SMS is not supposed to appear in the Messages app), or send it to a wrong device (if you moved your SIM card to another smartphone), so the activation process will not complete properly. You disable iMessage/Facetime in the settings, does not matter! The process is ALREADY running, and will not stop until iOS gets a proper reply from the SMS server. So every time you re-initialise "identityservicesd" (enter-exit airplane mode etc.), it will bother you with this pathetic popup, or simply re-send the SMS automatically if your "carrier.plist" says it's free (which may not always be the case as I've stated above).
 
-So in such a case, people tend to get angry and hit the "OK" button every time the activation warning popup is presented to them, not realising hittinhg "OK" initiates another SMS send. Then people call their mobile carriers or Apple and complain about their mobile budget being wasted by sending SMS messages to the UK, "although they never allowed it".
+So in such a case, people tend to get angry and hit the "OK" button every time the activation warning popup is presented to them, not realising hitting "OK" initiates another SMS send. Then people call their mobile carriers or Apple and complain about their mobile budget being wasted by sending SMS messages to the UK, "although they never allowed it".
 
 Required to get system info:
 
@@ -1901,6 +1901,26 @@ How to get pid? Well, you know, I kindof *appropriated* a "pidof" script from:
 hihi.
 
 Btw, why is everybody killing service executables instead of restarting services themselves? Seems like a more proper way to restart the service.
+
+Thinking about it, this implementation of "pidof" sux. E.g.:
+
+	pidof CallDirectory
+
+only returns one process. You can probably find something better on github. Me, I compiled the proctools instead (pgrep, pfind, pkill):
+
+	https://github.com/WRFan/jailbreak10.3.3/tree/main/Packs/proctools
+
+	http://proctools.sourceforge.net
+
+Couldn't find a compiled version for iOS anywhere. The compiled binaries are in the cloud (link above).
+
+So:
+
+	pgrep -f CallDirectory
+
+	pgrep -f CallDirectory | xargs --max-args=1 lsof -p
+
+	https://github.com/WRFan/jailbreak10.3.3/blob/main/bin/lso
 
 Get wifi APs in the neighbourhood:
 
