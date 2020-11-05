@@ -1941,7 +1941,7 @@ While at it, I actually compiled an iOS version of "pidof" either:
 
 	https://github.com/WRFan/jailbreak10.3.3/tree/main/Packs/pidof
 
-	https://github.com/WRFan/jailbreak10.3.3/tree/main/Packs/pidof
+	http://www.nightproductions.net/cli.htm
 
 In case you have problems with long file names using "lsof", "pgrep", and "pidof", this seems to be a linux kernel restriction:
 
