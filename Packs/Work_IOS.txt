@@ -9,11 +9,16 @@ https://github.com/PureDarwin/Building-XNU-16.7-Kernel-Guide
 
 https://opensource.apple.com/source
 
+https://github.com/nst/RuntimeBrowser
+https://github.com/nst/iOS-Runtime-Headers
+
 "XXX" site:clang.llvm.org
 "XXX" site:gcc.gnu.org
 "XXX" site:docs.microsoft.com/en-us/cpp
 
 "XXX" site:developer.apple.com
+
+"XXX" site:opensource.apple.com
 
 //############################################################################# compile
 cmake .. -DCMAKE_C_COMPILER="/usr/lib/llvm-10/bin/clang-10" -DCMAKE_CXX_COMPILER="/usr/lib/llvm-10/bin/clang-10" -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT="/usr/include/iPhoneOS10.3.sdk" -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DCMAKE_C_FLAGS:STRING="-Ofast -DNDEBUG -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unused-command-line-argument -Wno-unknown-pragmas -Wno-format-security -Wno-unused-function -flto=thin -fwhole-program-vtables -funroll-loops -lto_library /usr/lib/llvm-10/lib/libLTO.dylib" -DCMAKE_CXX_FLAGS:STRING="-Ofast -DNDEBUG -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unused-command-line-argument -Wno-unknown-pragmas -Wno-format-security -Wno-unused-function -flto=thin -fwhole-program-vtables -funroll-loops -lto_library /usr/lib/llvm-10/lib/libLTO.dylib"
@@ -100,30 +105,13 @@ lzfse -decode -i 1.lzfse -o 1
 
 /usr/lib/llvm-10/lib/libLTO.dylib
 
-//############################################################################# unzip-lzfse
-cd /packs/unzip-lzfse/build
-mv /tmp/CMakeLists.txt /packs/unzip-lzfse
-
-//----------------------------------------------------------------------------- ???
-/usr/bin/unzip
-
-unzip -d /tmp/whatsapp /packs/pre-thinned13567484966014256980.thinned.signed.dpkg.ipa
-
-//############################################################################# touch
-cd /packs/touch
-mv /tmp/CMakeLists.txt /packs/touch
-
-//############################################################################# tbd
-cd /packs/airscan/build
-mv /tmp/CMakeLists.txt /packs/airscan
-
 //############################################################################# WORK my1
 mkdir /packs/XXX
 
-mv /tmp/* /work/airscan
+mv /tmp/* /work/packs/proctools
 
 //############################################################################# CRAP
 rm -r /tmp/*
 rm -r *
 
-zip -r /tmp/1.zip /work/airscan/build
+zip -r /tmp/1.zip /work/packs/proctools/build
