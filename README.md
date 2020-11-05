@@ -1200,13 +1200,13 @@ This whole process is still very unclear and Apple is revealing nothing, althoug
 
 - why is iOS attempting to send the activation SMS every couple of days even if iMessage/Facetime are deactivated (talking about pure phone number activation! not the iCloud e-mail activation! so assuming, you are not signed into any Apple services)?
 
-- how often is this SMS sent? From my experience, "identityservicesd" decides randomly by generating a number between 2-7, so will prompt you every 2-7 days about sending, or, if the carrier bundle states the SMS is free, will SILENTLY re-send an SMS. Still have to test if the SMS is resent if iMessage and Facetime are activated, it seems, in that case it checks with "ess.apple.com" servers using your internet connection (damn charges for cellular apply, of course, for this shit unless you are on Wifi!), and if it doesn't get a response for whatever reason (because com.apple.idsremoteurlconnectionagent or com.apple.absd services are deactivated, or because access is blocked to the ess.apple.com servers, or simply because you switched off your device for a longer period of time), iMessage and Facetime fall to deactivated state, so "identityservicesd" starts hammering the SMS server again.
+- how often is this SMS sent? From my experience, "identityservicesd" decides randomly by generating a number between 2-7, so will prompt you every 2-7 days about sending, or, if the carrier bundle states the SMS is free, will SILENTLY re-send an SMS. Still have to test if the SMS is resent if iMessage and Facetime are currently activated, it seems, in that case it only checks with "ess.apple.com" servers using your internet connection (damn charges for cellular apply, of course, for this shit unless you are on Wifi!), but if it doesn't get a response for whatever reason (because com.apple.idsremoteurlconnectionagent or com.apple.absd services are deactivated, or because access is blocked to the ess.apple.com servers, or because you don't have an internet connection at the time re-activation is attempted, or simply because you switched off your device for a longer period of time), iMessage and Facetime will fall to deactivated state, so "identityservicesd" will begin hammering the SMS server again.
 
 - how often does the device connect to static.ess.apple.com , identity.ess.apple.com and init.ess.apple.com to verify the device is still used for iMessage/Facetime?
 
 On all their pages Apple states activation is only required **ONCE**, but as you can clearly see, periodic re-activation is required (look at the image above!). So obviously, Apple is lying in our faces, and, of course, the EU doesn't give a damn about this.
 
-I should add that I neither removed the SIM card from my phone, nor disabled iMessage/Facetime in the iOS settings, nor was I roaming, I didn't even touch the damn phone, yet a re-activation SMS was sent exactly 5 days after initial activation. Just stating this, because Apple wants you believe, ra-activation is only attempted on such occasions, yet another lie by Apple.
+I should add that I neither removed the SIM card from my phone, nor disabled iMessage/Facetime in the iOS settings, nor was I roaming, I didn't even touch the damn phone, yet a re-activation SMS was sent exactly 5 days after initial activation. Just stating this, because Apple wants you to believe, re-activation is only ever attempted on such occasions, yet another lie by Apple.
 
 Of course, most pages on the net telling you about "fixing" your iMessage/Facetime are copy-pasted bullshit and don't help. Like, why isn't Apple mentioning anywhere the necessity of access to "ess.apple.com" servers? This is important information for network admins, you can find this info on the official Apple forums, but it's mentioned by people NOT affiliated with Apple.
 
@@ -1216,9 +1216,9 @@ https://support.apple.com/en-gb/HT202944
 
 but Apple doesn't mention the servers used by their services!
 
-If you fall for Apple and click "OK" when the warning popup is presented to you, iOS will hammer the GB SMS server until it receives a reply. This is problematic, because the SMS server may not answer, for example, if you send too many SMS, the GB server will block you for 1-3 days; some mobile carriers misinterpret the activation SMS sent as a "silent SMS" for a standard SMS, so it either will not be sent at all (your mobile budget too low and SMS is not free), or your mobile carrier will send it improperly, or forward the reply improperly to your device (as a standard SMS, although this SMS is not supposed to appear in the Messages app), or send it to a wrong device (if you moved your SIM card to another smartphone), so the activation process will not complete properly. You disable iMessage/Facetime in the settings, does not matter! The process is ALREADY running, and will not stop until iOS gets a proper reply from the SMS server. So every time you re-initialise "identityservicesd" (enter-exit airplane mode etc.), it will bother you with this pathetic popup, or simply re-send the SMS automatically if your "carrier.plist" says it's free (which may not always be the case as I've stated above).
+If you fall for Apple and click "OK" when the warning popup is presented to you, iOS will hammer the GB SMS server until it receives a reply. This is problematic, because the SMS server may not answer, for example, if you send too many SMS, the GB server will block you for 1-3 days; some mobile carriers misinterpret the activation SMS sent as a "silent SMS" for a standard SMS, so it either will not be sent at all (your mobile budget too low and SMS is not free), or your mobile carrier will send it improperly, or forward the reply improperly to your device (as a standard SMS, although this SMS is not supposed to appear in the Messages app), or send it to a wrong device (if you moved your SIM card to another smartphone), so the activation process will not complete properly. You disable iMessage/Facetime in the settings, does not matter! The process is ALREADY running, and will not stop until iOS gets a proper reply from the SMS server. So every time you re-initialise "identityservicesd" (enter-exit airplane mode, reboot the device, restart the "identityservicesd" service, etc.), it will bother you with this pathetic popup, or simply re-send the SMS automatically if your "carrier.plist" says it's free (which may not always be the case as I've stated above).
 
-So in such a case, people tend to get angry and hit the "OK" button every time the activation warning popup is presented to them, not realising hitting "OK" initiates another SMS send. Then people call their mobile carriers or Apple and complain about their mobile budget being wasted by sending SMS messages to the UK, "although they never allowed it".
+So in such a case, people tend to get angry and hit the "OK" button every time the activation warning popup is presented to them, not realising hitting "OK" initiates another SMS send. Then people call their mobile carriers or Apple and complain about their mobile budget being wasted by sending hundreds (!) of SMS messages to the UK, "although they never allowed it".
 
 Required to get system info:
 
@@ -1936,6 +1936,37 @@ So:
 	pgrep -f CallDirectory | xargs --max-args=1 lsof -p
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/bin/lso
+
+While at it, I actually compiled an iOS version of "pidof" either:
+
+	https://github.com/WRFan/jailbreak10.3.3/tree/main/Packs/pidof
+
+	https://github.com/WRFan/jailbreak10.3.3/tree/main/Packs/pidof
+
+In case you have problems with long file names using "lsof", "pgrep", and "pidof", this seems to be a linux kernel restriction:
+
+	TASK_COMM_LEN -> 16 bytes (15 + terminator)
+
+http://lxr.linux.no/linux+v2.6.37/include/linux/sched.h#L245
+
+Seems, Darwin inherited this
+
+File name - 31 chars:
+	/System/Library/Frameworks/CallKit.framework/XPCServices/com.apple.CallKit.CallDirectory.xpc/com.apple.CallKit.CallDirectory
+
+Working (16 chars):
+
+	pidof com.apple.CallKi
+
+	pidof CallKi
+
+Not working:
+
+	pidof com.apple.CallKit
+
+	pidof CallKit
+
+This can be fixed (since "ps" doesn't have problems with long times), but would require source code adjustment.
 
 Get wifi APs in the neighbourhood:
 
