@@ -24,7 +24,7 @@ dpkg --force-remove-essential --purge apt7-lib
 rm -r /private/etc/apt
 rm -r /private/var/lib/apt
 
-############################################################################### DEBUG
+###############################################################################
 # dpkg --force-depends --purge apt1.4
 # dpkg --purge apt
 # dpkg --purge apt-key
@@ -40,6 +40,7 @@ rm -r /private/var/lib/apt
 rm -r /usr/lib/apt
 rm -r /usr/lib/dpkg
 
+###############################################################################
 mkdir /work
 
 rm -r /tmp/*
@@ -557,140 +558,153 @@ wget http://192.168.0.11/Homepage/jailbreak/Backup/com.julioverne.cmdsapp_0.1_ip
 dpkg -i com.julioverne.cmdsapp_0.1_iphoneos-arm.deb
 
 ###############################################################################
-wget http://192.168.0.11/Homepage/jailbreak/Backup/com.ps.letmeblock_0.0.7.5_iphoneos-arm.deb
-dpkg -i com.ps.letmeblock_0.0.7.5_iphoneos-arm.deb
+# wget http://192.168.0.11/Homepage/jailbreak/Backup/com.ps.letmeblock_0.0.7.5_iphoneos-arm.deb
+# dpkg -i com.ps.letmeblock_0.0.7.5_iphoneos-arm.deb
 
 wget http://192.168.0.15/private/etc/hosts
 mv /tmp/hosts /private/etc
 
+###############################################################################
+wget http://192.168.0.15/bin/clean
+mv /tmp/clean /bin
+chmod 755 /bin/clean
+
+###############################################################################
+# wget http://192.168.0.11/Homepage/jailbreak/Backup/com.charliewhile13.ccpatch13.deb
+# dpkg -i com.charliewhile13.ccpatch13.deb
+
 ############################################################################### SIM ONLY !!!
-# https://itunes.apple.com/WebObjects/MZStore.woa/wa/com.apple.jingle.appserver.client.MZITunesClientCheck/version
+if [ $(ecidecid) = "0x" ]; then
+	# https://itunes.apple.com/WebObjects/MZStore.woa/wa/com.apple.jingle.appserver.client.MZITunesClientCheck/version
 
-# wget https://updates.cdn-apple.com/2019/carrierbundles/041-40586-20190218-49A92548-33DB-11E9-B6DB-0A74DA98EEDB/EPlus_de_iPhone.ipcc
+	# wget https://updates.cdn-apple.com/2019/carrierbundles/041-40586-20190218-49A92548-33DB-11E9-B6DB-0A74DA98EEDB/EPlus_de_iPhone.ipcc
 
-wget http://192.168.0.11/Homepage/jailbreak/Backup/Carrier/EPlus_de_iPhone_12.1.1_35.3.ipcc
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/Carrier/EPlus_de_iPhone_12.1.1_35.3.ipcc
 
-unzip /tmp/EPlus_de_iPhone_12.1.1_35.3.ipcc
+	unzip /tmp/EPlus_de_iPhone_12.1.1_35.3.ipcc
 
-mv "/private/var/mobile/Library/Carrier Bundles/iPhone/EPlus_de.bundle" "/private/var/mobile/Library/Carrier Bundles/iPhone/EPlus_de.bundle_ORG"
+	mv "/private/var/mobile/Library/Carrier Bundles/iPhone/EPlus_de.bundle" "/private/var/mobile/Library/Carrier Bundles/iPhone/EPlus_de.bundle_ORG"
 
-mv /tmp/Payload/EPlus_de.bundle "/private/var/mobile/Library/Carrier Bundles/iPhone"
+	mv /tmp/Payload/EPlus_de.bundle "/private/var/mobile/Library/Carrier Bundles/iPhone"
+fi
 
-############################################################################### no_sim TestPhone ONLY BELOW !!!
-wget http://192.168.0.11/Homepage/jailbreak/Backup/NoSimAlert_1.0.deb
-dpkg -i 1.0.0.deb
+############################################################################### no_sim TestPhone ONLY
+if [ $(ecidecid) = "0x" ]; then
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/NoSimAlert_1.0.deb
+	dpkg -i 1.0.0.deb
 
-############################################################################### compile_1
-# wget http://192.168.0.11/Homepage/jailbreak/Backup/net.siguza.ios-kern-utils_1.4.1_iphoneos-arm.deb
-# dpkg -i net.siguza.ios-kern-utils_1.4.1_iphoneos-arm.deb
+	############################################################################### compile_1
+	# wget http://192.168.0.11/Homepage/jailbreak/Backup/net.siguza.ios-kern-utils_1.4.1_iphoneos-arm.deb
+	# dpkg -i net.siguza.ios-kern-utils_1.4.1_iphoneos-arm.deb
 
-############################################################################### compile_1
-wget http://192.168.0.11/Homepage/jailbreak/Backup/cmake_3.14.2-1_iphoneos-arm.deb
-dpkg --force-depends -i cmake_3.14.2-1_iphoneos-arm.deb
+	############################################################################### compile_1
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/cmake_3.14.2-1_iphoneos-arm.deb
+	dpkg --force-depends -i cmake_3.14.2-1_iphoneos-arm.deb
 
-############################################################################### compile_2
-wget http://192.168.0.11/Homepage/jailbreak/Backup/make_4.2.1-2_iphoneos-arm.deb
-dpkg -i make_4.2.1-2_iphoneos-arm.deb
+	############################################################################### compile_2
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/make_4.2.1-2_iphoneos-arm.deb
+	dpkg -i make_4.2.1-2_iphoneos-arm.deb
 
-############################################################################### compile_3
-wget http://192.168.0.11/Homepage/jailbreak/Backup/libffi_3.2.1-1_iphoneos-arm.deb
-dpkg -i libffi_3.2.1-1_iphoneos-arm.deb
+	############################################################################### compile_3
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/libffi_3.2.1-1_iphoneos-arm.deb
+	dpkg -i libffi_3.2.1-1_iphoneos-arm.deb
 
-############################################################################### compile_3
-wget http://192.168.0.11/Homepage/jailbreak/Backup/libllvm10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
-dpkg -i libllvm10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
+	############################################################################### compile_3
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/libllvm10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
+	dpkg -i libllvm10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
 
-# _futimens -> /usr/lib/llvm-10/lib/libLLVM.dylib
+	# _futimens -> /usr/lib/llvm-10/lib/libLLVM.dylib
 
-############################################################################### compile_3
-wget http://192.168.0.11/Homepage/jailbreak/Backup/libclang-cpp10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
-dpkg -i libclang-cpp10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
+	############################################################################### compile_3
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/libclang-cpp10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
+	dpkg -i libclang-cpp10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
 
-wget http://192.168.0.11/Homepage/jailbreak/Backup/libuuid16_1.6.2-3_iphoneos-arm.deb
-dpkg -i libuuid16_1.6.2-3_iphoneos-arm.deb
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/libuuid16_1.6.2-3_iphoneos-arm.deb
+	dpkg -i libuuid16_1.6.2-3_iphoneos-arm.deb
 
-wget http://192.168.0.11/Homepage/jailbreak/Backup/uuid_1.6.2-3_iphoneos-arm.deb
-dpkg -i uuid_1.6.2-3_iphoneos-arm.deb
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/uuid_1.6.2-3_iphoneos-arm.deb
+	dpkg -i uuid_1.6.2-3_iphoneos-arm.deb
 
-wget http://192.168.0.11/Homepage/jailbreak/Backup/xar_1.8.0.420+fc-6_iphoneos-arm.deb
-dpkg --force-depends -i xar_1.8.0.420+fc-6_iphoneos-arm.deb
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/xar_1.8.0.420+fc-6_iphoneos-arm.deb
+	dpkg --force-depends -i xar_1.8.0.420+fc-6_iphoneos-arm.deb
 
-# xar_1.6.1-2_iphoneos-arm.deb
-wget http://192.168.0.11/Homepage/jailbreak/Backup/usr/lib/libxar.1.dylib
-mv /tmp/libxar.1.dylib /usr/lib
-chmod 755 /usr/lib/libxar.1.dylib
+	# xar_1.6.1-2_iphoneos-arm.deb
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/usr/lib/libxar.1.dylib
+	mv /tmp/libxar.1.dylib /usr/lib
+	chmod 755 /usr/lib/libxar.1.dylib
 
-wget http://192.168.0.11/Homepage/jailbreak/Backup/liblto10_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
-dpkg -i liblto10_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/liblto10_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
+	dpkg -i liblto10_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
 
-wget http://192.168.0.11/Homepage/jailbreak/Backup/libtapi_1100.0.11_iphoneos-arm.deb
-dpkg --force-depends -i libtapi_1100.0.11_iphoneos-arm.deb
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/libtapi_1100.0.11_iphoneos-arm.deb
+	dpkg --force-depends -i libtapi_1100.0.11_iphoneos-arm.deb
 
-wget http://192.168.0.11/Homepage/jailbreak/Backup/Debs/ld64_530-2_iphoneos-arm.deb
-dpkg -i ld64_530-2_iphoneos-arm.deb
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/Debs/ld64_530-2_iphoneos-arm.deb
+	dpkg -i ld64_530-2_iphoneos-arm.deb
 
-wget http://192.168.0.11/Homepage/jailbreak/Backup/libclang-common-10-dev_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
-dpkg -i libclang-common-10-dev_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/libclang-common-10-dev_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
+	dpkg -i libclang-common-10-dev_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
 
-wget http://192.168.0.11/Homepage/jailbreak/Backup/clang-10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
-dpkg -i clang-10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/clang-10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
+	dpkg -i clang-10_10.0.0~svn-20191106+dcaf932-1_iphoneos-arm.deb
 
-# wget http://192.168.0.11/Homepage/jailbreak/Backup/clang_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
-# dpkg -i clang_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
+	# wget http://192.168.0.11/Homepage/jailbreak/Backup/clang_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
+	# dpkg -i clang_10.0.0~5.3~RELEASE-1-1_iphoneos-arm.deb
 
-ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/clang
-ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/clang++
-ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/clang-cpp
-ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/clang-cc
-ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/cc
-ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/c++
+	ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/clang
+	ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/clang++
+	ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/clang-cpp
+	ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/clang-cc
+	ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/cc
+	ln -s /usr/lib/llvm-10/bin/clang-10 /usr/bin/c++
 
-############################################################################### compile_4 otool
-# https://github.com/tpoechtrager/cctools-port
+	############################################################################### compile_4 otool
+	# https://github.com/tpoechtrager/cctools-port
 
-wget http://192.168.0.11/Homepage/jailbreak/Backup/Debs/odcctools_949.0.1-1_iphoneos-arm.deb
-dpkg -i odcctools_949.0.1-1_iphoneos-arm.deb
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/Debs/odcctools_949.0.1-1_iphoneos-arm.deb
+	dpkg -i odcctools_949.0.1-1_iphoneos-arm.deb
 
-############################################################################### compile_5 tbd
-wget http://192.168.0.11/Homepage/jailbreak/Backup/bin/tbd
-mv /tmp/tbd /bin
-chmod 755 /bin/tbd
+	############################################################################### compile_5 tbd
+	wget http://192.168.0.11/Homepage/jailbreak/Backup/bin/tbd
+	mv /tmp/tbd /bin
+	chmod 755 /bin/tbd
 
-############################################################################### compile_6 headers
-# upload iPhoneOS10.3.sdk + iPhoneOS10.3_headers !!!
+	############################################################################### compile_6 headers
+	# upload iPhoneOS10.3.sdk + iPhoneOS10.3_headers !!!
 
-unzip /tmp/iPhoneOS10.3.sdk
-mv /tmp/iPhoneOS10.3.sdk /usr/include
+	unzip /tmp/iPhoneOS10.3.sdk
+	mv /tmp/iPhoneOS10.3.sdk /usr/include
 
-unzip /tmp/iPhoneOS10.3_headers
-mv /tmp/iPhoneOS10.3_headers /usr/include/iPhoneOS10.3.sdk/usr/local/include
+	unzip /tmp/iPhoneOS10.3_headers
+	mv /tmp/iPhoneOS10.3_headers /usr/include/iPhoneOS10.3.sdk/usr/local/include
 
-rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libSystem.tbd
-ln -s libSystem.B.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libSystem.tbd
+	rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libSystem.tbd
+	ln -s libSystem.B.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libSystem.tbd
 
-rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libobjc.tbd
-ln -s libobjc.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libobjc.tbd
+	rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libobjc.tbd
+	ln -s libobjc.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libobjc.tbd
 
-rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libicucore.tbd
-ln -s libicucore.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libicucore.tbd
+	rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libicucore.tbd
+	ln -s libicucore.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libicucore.tbd
 
-rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libtidy.tbd
-ln -s libtidy.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libtidy.tbd
+	rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libtidy.tbd
+	ln -s libtidy.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libtidy.tbd
 
-rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libDHCPServer.tbd
-ln -s libDHCPServer.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libDHCPServer.tbd
+	rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libDHCPServer.tbd
+	ln -s libDHCPServer.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libDHCPServer.tbd
 
-rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libipsec.tbd
-ln -s libipsec.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libipsec.tbd
+	rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libipsec.tbd
+	ln -s libipsec.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libipsec.tbd
 
-# wget https://codeload.github.com/theos/headers/zip/master
-# unzip master
-# mv headers-master /usr/include/iPhoneOS10.3.sdk/
+	# wget https://codeload.github.com/theos/headers/zip/master
+	# unzip master
+	# mv headers-master /usr/include/iPhoneOS10.3.sdk/
 
-# rm -r /usr/include/iPhoneOS10.3.sdk/Developer
-# rm -r /usr/include/iPhoneOS10.3.sdk/Library
-# rm -r /usr/include/iPhoneOS10.3.sdk/System
-# rm -r /usr/include/iPhoneOS10.3.sdk/usr/share
+	# rm -r /usr/include/iPhoneOS10.3.sdk/Developer
+	# rm -r /usr/include/iPhoneOS10.3.sdk/Library
+	# rm -r /usr/include/iPhoneOS10.3.sdk/System
+	# rm -r /usr/include/iPhoneOS10.3.sdk/usr/share
+fi
 
 ###############################################################################
 wget http://192.168.0.15/bin/jtool
@@ -749,6 +763,27 @@ wget http://192.168.0.15/bin/pidof
 mv /tmp/pidof /bin
 chmod 755 /bin/pidof
 
+wget http://192.168.0.15/bin/lso
+mv /tmp/lso /bin
+chmod 755 /bin/lso
+
+wget http://192.168.0.15/bin/pgrep
+mv /tmp/pgrep /bin
+chmod 755 /bin/pgrep
+
+wget http://192.168.0.15/bin/pfind
+mv /tmp/pfind /bin
+chmod 755 /bin/pfind
+
+wget http://192.168.0.15/bin/pkill
+mv /tmp/pkill /bin
+chmod 755 /bin/pkill
+
+############################################################################### jailbreaks crap
+wget http://192.168.0.15/work/test
+mv /tmp/test /work
+chmod 755 /work/test
+
 ############################################################################### jailbreaks crap
 # find /private/var/containers/Bundle/Application/ \( -iname "*.tar" -o -iname "launchctl" -o -iname "tar" -o -iname "grief.m4v" -o -iname "y0nkers.m4v" \) -type f -exec rm -rv {} \;
 
@@ -759,6 +794,9 @@ mv /tmp/doubleH3lix.app /Applications
 mv /tmp/Meridian.app /Applications
 mv /tmp/g0blin.app /Applications
 mv /tmp/sockH3lix.app /Applications
+
+###############################################################################
+uicache mobile
 
 ############################################################################### FINAL
 rm -r /private/var/MobileDevice/ProvisioningProfiles/*
@@ -1410,7 +1448,7 @@ mv /System/Library/Frameworks/CallKit.framework/XPCServices/com.apple.CallKit.Ca
 
 # launchctl load /System/Library/LaunchDaemons/com.apple.telephonyutilities.callservicesd.plist
 
-############################################################################### plugz
+############################################################################### plugz my4
 launchctl unload /System/Library/LaunchDaemons/com.apple.UserEventAgent-System.plist
 
 rm -r /System/Library/UserEventPlugins/BonjourEvents.plugin
@@ -1436,18 +1474,12 @@ rm -r /System/Library/SpringBoardPlugins/StoreServicesPlugin.servicebundle
 rm -r /System/Library/HIDPlugins/CompassBacklightCompensation.plugin
 rm -r /System/Library/HIDPlugins/CompassPlugIn.plugin
 
+rm -r /System/Library/Messages/iMessageBalloons/RichLinkProvider.bundle
+
 ###############################################################################
 rm -r /System/Library/PrivateFrameworks/UpNextWidget.framework
 
 rm -r /Applications/MobileSlideShow.app/PlugIns/PhotosWidget.appex
-
-############################################################################### TestPhone only !!!
-# causes probs with whatsapp and other apps in non-jailbroken mode!
-# /private/var/installd/Library/Logs/MobileInstallation/mobile_installation.log.0
-
-# find / \( -iname "*.plist" -o -iname "*.strings" \) -type f -exec plutil -convert xml1 {} \;
-
-find / \( -iname "*.plist" -o -iname "*.strings" \) \( -not -iname 'Info.plist' \) -type f -exec plutil -convert xml1 {} \;
 
 ############################################################################### manual -> Regenerate PhotoData my3
 launchctl load -w /System/Library/LaunchDaemons/com.apple.assetsd.plist
@@ -1485,6 +1517,8 @@ var1=`getappdir net.whatsapp.WhatsApp` && find $var1/ \( -iname "domain_fronting
 
 var1=`lsdtrip app net.whatsapp.WhatsApp | grep 'Container URL'` && var2=`expr length $var1` && var1="`expr substr $var1 25 $var2`" && rm -rfv $var1/Library/Logs && ln -s /tmp $var1/Library/Logs
 
+find /private/var/mobile/Containers/Shared/AppGroup/ \( -iname "group.net.whatsapp.WhatsApp.shared.plist" \) -type f -exec plutil -key MessageAlertsReminderPresentationDate -setvalue "2099-12-30T23:59:59Z" {} \;
+
 ############################################################################### update badge
 # <string>Set up iCloud, the App Store, and more.</string>
 # <key>kBadgedForSoftwareUpdateKey</key>
@@ -1498,26 +1532,19 @@ plutil -key kBadgedForSoftwareUpdateKey -false /private/var/mobile/Library/Prefe
 plutil -key kBadgedForSoftwareUpdateJumpOnceKey -false /private/var/mobile/Library/Preferences/com.apple.Preferences.plist
 
 ########################################################## proxy settings (exceptions). itunes backups this, so only perform ONCE !!!
-# nano /private/var/preferences/SystemConfiguration/preferences.plist
+if [ -z "$(jlutil -x /private/var/preferences/SystemConfiguration/preferences.plist | grep '192.168/16')" ]; then
+	plutil -convert xml1 /private/var/preferences/SystemConfiguration/preferences.plist
 
-# <key>ExceptionsList</key>
-# <array>
-		# <string>192.168/16</string>
-# </array>
+	myVar=`cat /private/var/preferences/SystemConfiguration/preferences.plist | sed '\/16<\/string>/a\\\t\t\t\t\t<string>192.168\/16<\/string>'`
 
-# myVar=`cat /private/var/preferences/SystemConfiguration/preferences.plist | sed '\/16<\/string>/a\\\t\t\t\t\t<string>192.168\/16<\/string>'`
-
-# printf $myVar > /private/var/preferences/SystemConfiguration/preferences.plist
-
+	printf $myVar > /private/var/preferences/SystemConfiguration/preferences.plist
+fi
 ############################################################################### my1
 # https://unix.stackexchange.com/questions/179393
 
 find /private/var/containers/ \( -iname "Caches" -o -iname "tmp" -o -iname "BatteryLife" \) -type d -prune -exec bash -c 'rm -rv "{}"/*' \;
 
 find /private/var/mobile/Containers/ \( -iname "Caches" -o -iname "tmp" -o -iname "WebsiteData" \) -type d -prune -exec bash -c 'rm -rv "{}"/*' \;
-
-###############################################################################
-uicache mobile
 
 ###############################################################################
 wget http://192.168.0.15/private/var/db/com.apple.xpc.launchd/disabled.plist
@@ -1528,4 +1555,16 @@ printf '\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00
 
 printf '\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' | dd of=/System/Library/Caches/com.apple.dyld/dyld_shared_cache_armv7s bs=1 seek=333192417 count=61 conv=notrunc
 
-# reboot
+############################################################################### TestPhone only !!!
+if [ $(ecidecid) = "0x" ]; then
+	# causes probs with whatsapp and other apps in non-jailbroken mode!
+	# /private/var/installd/Library/Logs/MobileInstallation/mobile_installation.log.0
+
+	# find / \( -iname "*.plist" -o -iname "*.strings" \) -type f -exec plutil -convert xml1 {} \;
+
+	find / \( -iname "*.plist" -o -iname "*.strings" \) \( -not -iname 'Info.plist' \) -type f -exec plutil -convert xml1 {} \;
+fi
+###############################################################################
+# _sleep_wake_notification_callback: kIOMessageSystemHasPoweredOn (menu): Now witness the firepower of this fully ARMED and OPERATIONAL battle station!
+
+reboot
