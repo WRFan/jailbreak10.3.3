@@ -284,7 +284,7 @@ Concerning the javascript part of the jailbreak, if you look at:
 
 https://github.com/WRFan/jailbreak10.3.3/blob/main/jailbreak/index.html
 
-you may wonder why there's a time check there. This has to do with the weird nature of the Safari browser, which is limited to this browser only, haven't experienced anything like this on IE/FF. Sometimes, Safari reloads the page, when it deems it not properly loaded. Now, since human beings are the only beings capable of grasping purpose, it is obvious why neither MS, nor Mozilla have built such functionality into their browsers. Take this jailbreak, for example. The purpose of the jailbreak webpage is to, well, jailbreak. Safari, obviously, interprets "purpose" in its own machine-like way, so it reloads the page. This would re-trigger the jailbreak. As far as I know, there's no way  to determine if a system has been jailbroken through javascript, so I added this time check. The usual process is this:
+you may wonder why there's a time check there. This has to do with the weird nature of the Safari browser, which is limited to this browser only, haven't experienced anything like this on IE/FF. Sometimes, Safari reloads the page, when it deems it not properly loaded. Now, since human beings are the only beings capable of grasping purpose, it is obvious why neither MS, nor Mozilla have built such functionality into their browsers. Take this jailbreak, for example. The purpose of the jailbreak webpage is to, well, jailbreak. Safari, obviously, interprets "purpose" in its own machine-like way, so it reloads the page. This would re-trigger the jailbreak. As far as I know, there's no way to determine if a system has been jailbroken through javascript, so I added this time check. The usual process is this:
 
 - Safari opens the page
 
@@ -1128,9 +1128,10 @@ Many people on the net are outraged by this popup appearing very often (sometime
 
 	"/private/var/mobile/Library/Carrier Bundles/iPhone/XXX.bundle/"
 
-the second takes precedence over the first. Check for presence of the following var:
+the second takes precedence over the first. Check for presence of the following var (have still to test if this key is responsible for the popup, but looks like it):
 
-	RegistrationOptInRequired
+	<key>RegistrationOptInRequired</key>
+	<true/>
 
 inside the "carrier.plist" of your carrier bundle, also check:
 
@@ -1144,7 +1145,7 @@ Now open:
 
 in a hex editor, check for "RegistrationOptInRequired", it's there, can't same more, since it's not open source.
 
-Now you see, the problem is Apple and your carrier don't care about YOUR problems, plus, there's lack of communication between Apple and mobile carriers, so your carrier has a contract with Apple and lets you activate iMessage/Facetime for free (the activation SMS sent to GB if you are in EU):
+Now you see, the problem is Apple and your carrier don't care about YOUR problems, plus, there's lack of communication between Apple and mobile carriers, so assume your carrier has a contract with Apple and lets you activate iMessage/Facetime for free (the activation SMS sent to GB if you are in EU):
 
 	+447786205094
 
@@ -1159,41 +1160,55 @@ Now you see, the problem is Apple and your carrier don't care about YOUR problem
 	+447537410287
 	+447537410297
 
-but that is not reflected in your carrier bundle, because your carrier is too lazy to contact Apple or Apple is too lazy to update their carrier bundles. So you are still hammered by this popup. My mobile carrier (Telefónica Germany), e.g., has a contract with Apple, so activation is free (as I can see after logging into my carrier account), nevertheless, I still get this popup.
+but this information may not be reflected in your carrier bundle, because your carrier is too lazy to contact Apple or Apple is too lazy to update their carrier bundles. So you are still hammered by this popup. My mobile carrier (Telefónica Germany), e.g., has a contract with Apple, so activation is free (as I can see after logging into my carrier account:
+
+![](sms/sms.jpg)
+
+nevertheless, I still get this popup!
 
 Carrier bundles can be downloaded off Apple:
 
 	https://itunes.apple.com/WebObjects/MZStore.woa/wa/com.apple.jingle.appserver.client.MZITunesClientCheck/version
 
-I was using "EPlus_de.bundle" (v. 28.3 for iOS 10.3). Checking "carrier.plist", "RegistrationOptInRequired" is there (set to "true"). Of course, it's too much to ask of Telefónica to tell Apple their services are free. Or maybe Apple is just damn lazy to update their files. Now you may think, easy! just change the value to "false", but... damn Apple again! the files are signed, so you can't change them, CommCenter will simply fall back to:
+I was using "EPlus_de.bundle" (v. 28.3 for iOS 10.3). Checking "carrier.plist", "RegistrationOptInRequired" is there (set to "true"):
+
+Of course, it's too much to ask of Telefónica to tell Apple their services are free. Or, more probably, Apple is just damn lazy to update their files. Now you may think - easy! - just change the value to "false", but... damn Apple again! the files are signed, so you can't change them, CommCenter will simply fall back to:
 
 	"/System/Library/Carrier Bundles/iPhone/Unknown.bundle/"
 
 There's a mobile substrate patch for this:
 
-	https://www.ios-repo-updates.com/repository/iospackix/package/com.charliewhile13.ccpatch13/
+	https://www.ios-repo-updates.com/repository/iospackix/package/com.charliewhile13.ccpatch13
 
 	https://github.com/CharlieWhile13/commcenterpatch13
 
 But what good is this, since it only works in jailbroken state? The popup may appear on boot (so not jailbroken yet), plus your modiefied carrier bundle will not be accepted until jailbroken. So if a rapist pursues you, you gotta tell him to wait till you've jailbroken the device to be able to call the police.
 
-Now, I checked the "EPlus_de.bundle" 35.3 for iOS 12.1.1, and the "RegistrationOptInRequired" setting is not there. So Telefónica updated their system, Apple updated the carrier bundle for iOS 12, but was too lazy to update the OS 10.x bundle. So does that mean the popup will not be displayed if this bundle is used? It is properly signed by Apple, so will work in unjailbroken state. The question was whether it is possible to use this bundle on iOS 10.x, and indeed, it's possible, I replaced the old bundle by this one, rebooted (you can also run "ldrestart" or restart the "com.apple.CommCenter" service), the device is using the bundle (I can see it, 'cause the "Cellular" and "Phone" settings in iOS settings reflect the values set by the new carrier bundle). No idea if Cellular would work, 'cause I am using Wifi only, but phone calls and standard SMS work.
+Now, I checked the "EPlus_de.bundle" 35.3 for iOS 12.1.1, and the "RegistrationOptInRequired" setting is not there. So Telefónica updated their system, Apple updated the carrier bundle for iOS 12, but was too lazy to update the OS 10.x bundle. The iOS 12.x bundle is properly signed by Apple, so will work in unjailbroken state. The question was whether it is possible to use this bundle on iOS 10.x, and indeed, it's possible, I replaced the old bundle by this one, rebooted (you can also run "ldrestart" or restart the "com.apple.CommCenter" service), the device is using the bundle (I can see it, 'cause the "Cellular" and "Phone" settings in iOS settings reflect the values set by the new carrier bundle, plus, look at the image above - the second SMS was sent to a different UK number, as listed in the new carrier bundle). No idea if Cellular would work, 'cause I am using Wifi only, but phone calls and standard SMS work.
 
-Currently, I have iMessage/Facetime activated, so need to check yet if the popup still appears with the new bundle. Concerning those people who complain they got billed by their mobile carriers for sending activation SMS to GB, it's partially Apple's and mobile carriers' fault, but partially this happens due to iPhone owners' own stupidity. When this popup appears, there are two options: "OK" and "Cancel". Now, Apple designed their OS for people with at least half a brain, so, obviously, "OK" means "yes, send the damn SMS". Somehow most people don't get it. They click "OK", then get all angry, stating they never allowed Apple to send anything to GB.
+Now check how many carriers are listed as charging for the activation SMS:
 
-Then again, some of those people, who are complaining, are right to complain. If your mobile carrier decides to charge you for the activation SMS, but doesn't provide this info to Apple, or Apple is too lazy to update their carrier bundles, or you simply have an outdated carrier bundle, because you haven't manually downloaded it (and killed the service that automates this, lol), then "identityservicesd" will probably assume it's ok to send the SMS, since "carrier.plist" states it's free... except it's not.
+	grep -lir 'RegistrationOptInRequired' "/System/Library/Carrier Bundles/iPhone/"
+
+370 carriers! I am pretty sure at least half of them aren't charging any more, but Apple's too lazy to update their files. Who cares about the customers, right? Let them get annoyed by the popup. Time is money. Now just imagine, a new jailbreak comes out! This time, Apple is not feeling lazy and throws a "bugfix" at us the day after.
+
+Concerning those people who complain they got billed by their mobile carriers for sending activation SMS to GB, it's partially Apple's and mobile carriers' fault, but partially this happens due to iPhone owners' own stupidity. When this popup appears, there are two options: "OK" and "Cancel". Now, Apple designed their OS for people with at least half a brain, so, obviously, "OK" means "yes, send the damn SMS". Somehow most people don't get it. They click "OK", then get all angry, stating they never allowed Apple to send anything to GB.
+
+Then again, some of those people, who are complaining, are right to complain. If your mobile carrier decides to charge you for the activation SMS, but doesn't provide this info to Apple, or Apple is too lazy to update their carrier bundles, or you simply have an outdated carrier bundle, because you haven't manually downloaded it (and killed the service that automates this, lol), then "identityservicesd" will assume it's ok to send the SMS, since "carrier.plist" states it's free... except it's not.
 
 This whole process is still very unclear and Apple is revealing nothing, although it's obliged to reveal such information. For example:
 
 - why is iOS attempting to send the activation SMS every couple of days even if iMessage/Facetime are deactivated (talking about pure phone number activation! not the iCloud e-mail activation! so assuming, you are not signed into any Apple services)?
 
-- how often is this SMS sent?
+- how often is this SMS sent? From my experience, "identityservicesd" decides randomly by generating a number between 2-7, so will prompt you every 2-7 days about sending, or, if the carrier bundle states the SMS is free, will SILENTLY re-send an SMS. Still have to test if the SMS is resent if iMessage and Facetime are activated, it seems, in that case it checks with "ess.apple.com" servers using your internet connection (damn charges for cellular apply, of course, for this shit unless you are on Wifi!), and if it doesn't get a response for whatever reason (because com.apple.idsremoteurlconnectionagent or com.apple.absd services are deactivated, or because access is blocked to the ess.apple.com servers, or simply because you switched off your device for a longer period of time), iMessage and Facetime fall to deactivated state, so "identityservicesd" starts hammering the SMS server again.
 
 - how often does the device connect to static.ess.apple.com , identity.ess.apple.com and init.ess.apple.com to verify the device is still used for iMessage/Facetime?
 
-- what happens if the user switches off their iPhone for a longer period of time or prevents access to ess.apple.com servers? Will iMessage/Facetime become deactivated? Apple states nothing on this, however, from my own experience as well as from what I've read on the net, the services will auto-deactivate themselves every couple of days (2-7) and attempt re-activation. This is interesting, because on all their pages Apple states activation is only required ONCE, but as you can clearly see, periodic re-activation is required. I am not sure if the re-activation SMS is re-sent to GB, but if the device fails to re-check activation state (because com.apple.idsremoteurlconnectionagent or com.apple.absd services are deactivated, or because access is blocked to the ess.apple.com servers, or simply because you switched off your device for a longer period of time), iMessage/Facetime will fall back to deactivated state, in which case the SMS will have to be resent.
+On all their pages Apple states activation is only required **ONCE**, but as you can clearly see, periodic re-activation is required (look at the image above!). So obviously, Apple is lying in our faces, and, of course, the EU doesn't give a damn about this.
 
-Of course, most pages on the net telling you about "fixing" your iMessage/Facetime are copy-paste bullshit and don't help. Like, why isn't Apple mentioning anywhere the necessity of access to ess.apple.com servers? This is important information for network admins, you can find this info on the official Apple forums, but it's mentioned by people NOT affiliated with Apple.
+I should add that I neither removed the SIM card from my phone, nor disabled iMessage/Facetime in the iOS settings, nor was I roaming, I didn't even touch the damn phone, yet a re-activation SMS was sent exactly 5 days after initial activation. Just stating this, because Apple wants you believe, ra-activation is only attempted on such occasions, yet another lie by Apple.
+
+Of course, most pages on the net telling you about "fixing" your iMessage/Facetime are copy-pasted bullshit and don't help. Like, why isn't Apple mentioning anywhere the necessity of access to "ess.apple.com" servers? This is important information for network admins, you can find this info on the official Apple forums, but it's mentioned by people NOT affiliated with Apple.
 
 This page mentions the ports used by Apple:
 
