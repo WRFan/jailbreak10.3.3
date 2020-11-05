@@ -197,6 +197,18 @@ mkdir /work/final
 cp /usr/bin/launchctl /work/final
 cp /bin/tar /work/final
 
+//-----------------------------------------------------------------------------
+cp /usr/bin/cfversion /work/Cydia-10/usr/bin
+cp /usr/bin/ecidecid /work/Cydia-10/usr/bin
+cp /usr/bin/gssc /work/Cydia-10/usr/bin
+cp /usr/bin/iomfsetgamma /work/Cydia-10/usr/bin
+cp /usr/bin/ldrestart /work/Cydia-10/usr/bin
+cp /usr/bin/sbdidlaunch /work/Cydia-10/usr/bin
+cp /usr/bin/sbreload /work/Cydia-10/usr/bin
+cp /usr/bin/uicache /work/Cydia-10/usr/bin
+cp /usr/bin/uiduid /work/Cydia-10/usr/bin
+cp /usr/bin/uiopen /work/Cydia-10/usr/bin
+
 //----------------------------------------------------------------------------- my1
 cd /work/Cydia-10
 
