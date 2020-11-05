@@ -1,0 +1,5 @@
+# var1=`pidof $1`
+
+# lsof -p $var1
+
+pgrep -f $1 | xargs --max-args=1 lsof -p
