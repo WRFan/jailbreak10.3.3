@@ -6,7 +6,11 @@ This repo provides sources only. The full package can be downloaded from the clo
 
 	https://cloud.mail.ru/public/RC9C/3hzpcTVcG
 
-It contains everything from this repo, as well as anything else mentioned in the "install" script (debian install packages, iPhoneOS10.3.sdk, iPhoneOS10.3_headers, compiled files etc.)
+It contains everything from this repo, as well as anything else mentioned in the "install" script (debian install packages, iPhoneOS10.3.sdk, iPhoneOS10.3_headers, compiled files etc.). To compile yourself, refer to:
+
+https://github.com/WRFan/jailbreak10.3.3/blob/main/Packs/README.md
+
+Pre-compiled libraries are also available (cloud link above).
 
 Disclaimer:
 
@@ -1477,6 +1481,8 @@ Process programmes:
 Get cpu/memory info (wait, where are "free" and "vmstat" commands? damn iOS!):
 
 	top -l 1 | grep PhysMem
+	sysctl hw.memsize
+	sysctl hw.physmem
 
 	top -l 1 | grep "CPU usage"
 
@@ -1949,9 +1955,10 @@ In case you have problems with long file names using "lsof", "pgrep", and "pidof
 
 http://lxr.linux.no/linux+v2.6.37/include/linux/sched.h#L245
 
-Seems, Darwin inherited this
+Seems, Darwin XNU inherited this.
 
 File name - 31 chars:
+
 	/System/Library/Frameworks/CallKit.framework/XPCServices/com.apple.CallKit.CallDirectory.xpc/com.apple.CallKit.CallDirectory
 
 Working (16 chars):
