@@ -1,3 +1,5 @@
+# lsof all pids of a process
+
 # var1=`pidof $1`
 
 # lsof -p $var1
