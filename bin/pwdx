@@ -1,0 +1,1 @@
+lsof -a -p $1 -d cwd -Fn | tail -1 | sed 's/.//'
