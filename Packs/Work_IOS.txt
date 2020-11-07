@@ -18,6 +18,8 @@ https://github.com/nst/iOS-Runtime-Headers
 
 "XXX" site:developer.apple.com
 
+"XXX" github.com/freebsd/freebsd
+
 "XXX" site:opensource.apple.com
 
 //############################################################################# compile
@@ -90,6 +92,10 @@ Sign:
 jtool --sign --inplace --ent entitlements.plist XXX
 ldid -SXXX.plist XXX
 
+
+//############################################################################# preprocessor definitions
+clang -dM -E - < /dev/null
+
 //############################################################################# lzfse
 cd /packs/lzfse/build
 mv /tmp/CMakeLists.txt /packs/lzfse
@@ -108,10 +114,15 @@ lzfse -decode -i 1.lzfse -o 1
 //############################################################################# WORK my1
 mkdir /packs/XXX
 
-mv /tmp/* /work/packs/proctools
+mv /tmp/* /work/packs/whereis
 
-//############################################################################# CRAP
 rm -r /tmp/*
 rm -r *
 
-zip -r /tmp/1.zip /work/packs/proctools/build
+unzip /tmp/whereis.zip
+mv /tmp/whereis /work/packs
+cd /work/packs/whereis/build
+
+zip -r /tmp/whereis.zip /work/packs/whereis/build
+
+//############################################################################# CRAP
