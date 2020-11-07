@@ -791,6 +791,10 @@ wget http://192.168.0.15/bin/rng
 mv /tmp/rng /bin
 chmod 755 /bin/rng
 
+wget http://192.168.0.15/bin/whereis
+mv /tmp/whereis /bin
+chmod 755 /bin/whereis
+
 ############################################################################### jailbreaks crap
 wget http://192.168.0.15/work/test
 mv /tmp/test /work
