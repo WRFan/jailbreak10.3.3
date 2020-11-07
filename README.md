@@ -2,9 +2,13 @@ This repo provides some info on how to downgrade, jailbreak, and setup IOS 10.3.
 
 The "install" script in this repo lists all post-jailbreak steps, so use that one in addition to this readme to guide you.
 
-This repo provides sources only. The full package can be downloaded from the cloud:
+This repo provides sources only. The full package can be downloaded from the releases section:
 
 	https://cloud.mail.ru/public/RC9C/3hzpcTVcG
+
+or from the cloud:
+
+	https://github.com/WRFan/jailbreak10.3.3/releases
 
 It contains everything from this repo, as well as anything else mentioned in the "install" script (debian install packages, iPhoneOS10.3.sdk, iPhoneOS10.3_headers, compiled files etc.). To compile yourself, refer to:
 
