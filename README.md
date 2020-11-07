@@ -1454,9 +1454,9 @@ Display binary plist without converting it:
 
 This may be useful, because if you convert Info.plist files in the WhatsApp folder to XML, it will refuse to run when unjailbroken. Weird.
 
-Also check "jlutil" when working with plists. Besides:
+Also check:
 
-	plistutil -i XXX -o XXX
+	plistutil -i IN_PLIST -o OUT_PLIST
 
 	plconvert IN_PLIST OUT_PLIST
 
@@ -1466,7 +1466,9 @@ Check if there's a service corresponding to a binary:
 
 Get process info:
 
-	ps aux | grep -i 'XXX*'
+	ps auxww | grep -i 'XXX*'
+
+	ps auxww | grep -i $(echo 'XXX*' | sed "s/^\(.\)/[\1]/g")
 
 Process programmes:
 
@@ -1478,8 +1480,9 @@ Process programmes:
 
 	top
 
-Get cpu/memory info (wait, where are "free" and "vmstat" commands? damn iOS!):
+Get cpu/memory info ("vmstat"? "vm_stat"?! damn iOS!):
 
+	free -m
 	top -l 1 | grep PhysMem
 	sysctl hw.memsize
 	sysctl hw.physmem
