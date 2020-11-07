@@ -5,13 +5,16 @@ cmake .. -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DBUILD_SHARED_LIBS:BOOL=OFF -DCMAKE_
 cmake --build . --config Release
 
 ######################################################################################### Utils
-"c:\program files\visual studio\vc\tools\msvc\14.16.27023\bin\hostx86\x86\dumpbin.exe" /exports "C:\Copy\Packs\ndisapi\build_my\Release\ndisapi.lib" > "C:\Copy\1.txt"
+"c:\program files\visual studio\vc\tools\msvc\14.16.27023\bin\hostx86\x86\dumpbin" /exports "C:\Copy\Packs\ndisapi\build_my\Release\ndisapi.lib" > "C:\Copy\1.txt"
 
-"c:\program files\visual studio\vc\tools\msvc\14.16.27023\bin\hostx86\x86\dumpbin.exe" /symbols "C:\Copy\Packs\ndisapi\build_my\Release\ndisapi.lib" > "C:\Copy\1.txt"
+"c:\program files\visual studio\vc\tools\msvc\14.16.27023\bin\hostx86\x86\dumpbin" /symbols "C:\Copy\Packs\ndisapi\build_my\Release\ndisapi.lib" > "C:\Copy\1.txt"
 
-"c:\program files\visual studio\vc\tools\msvc\14.16.27023\bin\hostx86\x86\dumpbin.exe" /imports "C:\Copy\Packs\ndisapi\build_my\Release\ndisapi.lib" > "C:\Copy\1.txt"
+"c:\program files\visual studio\vc\tools\msvc\14.16.27023\bin\hostx86\x86\dumpbin" /imports "C:\Copy\Packs\ndisapi\build_my\Release\ndisapi.lib" > "C:\Copy\1.txt"
 
-"c:\program files\visual studio\vc\tools\msvc\14.16.27023\bin\hostx86\x86\dumpbin.exe" /linkermember "C:\Copy\Packs\ndisapi\build_my\Release\ndisapi.lib" > "C:\Copy\1.txt"
+"c:\program files\visual studio\vc\tools\msvc\14.16.27023\bin\hostx86\x86\dumpbin" /linkermember "C:\Copy\Packs\ndisapi\build_my\Release\ndisapi.lib" > "C:\Copy\1.txt"
+
+//############################################################################### preprocessor definitions
+https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros?view=msvc-150
 
 //############################################################################### echo cmake
 message(BLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: __${XXX}__)
