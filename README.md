@@ -6,15 +6,11 @@ This repo provides sources only. The full package can be downloaded from the rel
 
 	https://github.com/WRFan/jailbreak10.3.3/releases
 
-or from the cloud:
-
-	https://cloud.mail.ru/public/RC9C/3hzpcTVcG
-
 It contains everything from this repo, as well as anything else mentioned in the "install" script (debian install packages, iPhoneOS10.3.sdk, iPhoneOS10.3_headers, compiled files etc.). To compile yourself, refer to:
 
 https://github.com/WRFan/jailbreak10.3.3/blob/main/Packs/README.md
 
-Pre-compiled libraries are also available (cloud link above).
+Pre-compiled libraries are also available (github releases section).
 
 Disclaimer:
 
@@ -240,7 +236,7 @@ I changed the server address to 192.168.0.11, which is the address of my local s
 
 All of the files in the "jailbreak" folder must be hosted on a server, not just the binaries. Waaait, why a server for html / javascript? It's client-side, why not jailbreak once by getting the files from a local server, then put the files on the iOS hard disk and execute index.html inside Safari? Hahaha, you are kidding, right? We are talking APPLE here! Is there anything Apple will allow us to do on OUR phones? Like executing locally stored html files in Safari? No, really, don't be naive.
 
-The binaries used by the jailbreak are in the 7z file (cloud.mail.ru link above), or you can grab the originals from here:
+The binaries used by the jailbreak are in the 7z file (github releases section), or you can grab the originals from here:
 
 	https://totally-not.spyware.lol/manifest.appcache
 
@@ -250,7 +246,7 @@ The binaries used by the jailbreak are in the 7z file (cloud.mail.ru link above)
 
 	https://totally-not.spyware.lol/bootstrap/Meridian.tar.xz
 
-However, I adjusted the DH.tar.xz file (cloud link above) by adding some apps, to be independent from Cydia (PATHETIC!) and Apt (CRAP!) right from the start:
+However, I adjusted the DH.tar.xz file (github releases section) by adding some apps, to be independent from Cydia (PATHETIC!) and Apt (CRAP!) right from the start:
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/jailbreak/jailbreaker
 
@@ -324,7 +320,7 @@ All right, so we jailbroke the device, for better or worse. Now what? Well, we i
 
 	https://apt.bingner.com/debs/1443.00
 
-don't really care about us poor shmoks still running 10.x iOS. They compile for later versions of iOS, which means the apps rely on symbols not present on 10.x iOS. That's why I uploaded the 10.x iOS compatible apps to cloud (above), the files that work on iOS 10.x are very difficult to find, plus you need to check the symbols used by executables and dylibs (libraries) to determine if a programme is compatible. In particular, the following symbols are causing most problems:
+don't really care about us poor shmoks still running 10.x iOS. They compile for later versions of iOS, which means the apps rely on symbols not present on 10.x iOS. That's why I uploaded the 10.x iOS compatible apps to the github releases section (above), the files that work on iOS 10.x are very difficult to find, plus you need to check the symbols used by executables and dylibs (libraries) to determine if a programme is compatible. In particular, the following symbols are causing most problems:
 
 	_chkstk_darwin
 
@@ -360,7 +356,7 @@ In fact, I never managed to find some files working on iOS 10.x, so I had to com
 
 	https://github.com/WRFan/jailbreak10.3.3/tree/main/Packs
 
-The binaries are in the cloud (link above). I compile right on the phone, but here's the problem, there are two versions of the iPhoneOS10.3.sdk on the internet, one of them is totally broken, yet every single moron links to that repo and it appears first on google. The SDK I provide in the cloud is the proper version. I also provide the iPhoneOS10.3 headers. compiler installation instructions:
+The binaries are in the github releases section (link above). I compile right on the phone, but here's the problem, there are two versions of the iPhoneOS10.3.sdk on the internet, one of them is totally broken, yet every single moron links to that repo and it appears first on google. The SDK I provide in the releases section is the proper version. I also provide the iPhoneOS10.3 headers. compiler installation instructions:
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/install
 
@@ -372,7 +368,7 @@ As you can see, I'm using cmake to compile. Now I may be stupid, but what's the 
 
 What's a "%ctor"? A new jailbreak? No, really, this is ridiculous. I'm staying with cmake.
 
-Now if you take a look at the "Packs" directory, you'll notice a folder called "unzip-lzfse". You can get the compiled version from the cloud. I haven't found an lzfse capable iOS unzip binary anywhere, so I compiled it myself. What's lzfse? Well, you see, Apple used to package their Appstore apps using standard zip format, but they now switched to this new type of compression (by facebook?), so most programmes fail to extract the Appstore archives. 7z can do it, but you need the newest version. Plus, no 7z on iOS (I think?). That's where this repo comes into play:
+Now if you take a look at the "Packs" directory, you'll notice a folder called "unzip-lzfse". You can get the compiled version from the github releases section. I haven't found an lzfse capable iOS unzip binary anywhere, so I compiled it myself. What's lzfse? Well, you see, Apple used to package their Appstore apps using standard zip format, but they now switched to this new type of compression (by facebook?), so most programmes fail to extract the Appstore archives. 7z can do it, but you need the newest version. Plus, no 7z on iOS (I think?). That's where this repo comes into play:
 
 	https://github.com/sskaje/unzip-lzfse
 
@@ -522,7 +518,7 @@ There was a guy on reddit, who deleted /.cydia_no_stash , then suddenly, his jai
 
 Next, we delete all Apt crap.
 
-Install basic programmes like wget and ssh (I added them to my DH.tar.xz available in the cloud - see above, but you still need to install them to add them to dpkg properly). Concerning the binaries, some links in the "install" script still point to the original locations, others, which are not available online any longer, point to my local servers (Apache on linux + filza WebDav on my other phone). You obviously need to adjust them. Download my 7z archive from the cloud and put it on your local apache or something to wget the files onto the iPhone.
+Install basic programmes like wget and ssh (I added them to my DH.tar.xz available in the github releases section - see above, but you still need to install them to add them to dpkg properly). Concerning the binaries, some links in the "install" script still point to the original locations, others, which are not available online any longer, point to my local servers (Apache on linux + filza WebDav on my other phone). You obviously need to adjust them. Download my 7z archive from the releases section and put it on your local apache or something to wget the files onto the iPhone.
 
 Again, be careful what files you install, always check the symbols (see above)! The files I provide are working, although there are still some incompatible symbols in some apps/libraries, but I haven't run into any problems.
 
@@ -1366,7 +1362,7 @@ This is not a complete list. If you find out anything else, you can add a topic:
 
 	https://github.com/WRFan/jailbreak10.3.3/issues
 
-Now let me mention some useful commands. The utilities themselves are in the cloud package (above).
+Now let me mention some useful commands. The utilities themselves are in the github releases section (above).
 
 Get some system and hardware info:
 
@@ -1940,7 +1936,7 @@ only returns one process. You can probably find something better on github. Me, 
 
 	http://proctools.sourceforge.net
 
-Couldn't find a compiled version for iOS anywhere. The compiled binaries are in the cloud (link above).
+Couldn't find a compiled version for iOS anywhere. The compiled binaries are in the github releases section (link above).
 
 So:
 
