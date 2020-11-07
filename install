@@ -450,6 +450,10 @@ dpkg -i gawk_5.1.0-1_iphoneos-arm.deb
 wget http://192.168.0.11/Homepage/jailbreak/Backup/lsof_62_iphoneos-arm.deb
 dpkg -i lsof_62_iphoneos-arm.deb
 
+wget http://192.168.0.15/bin/lso
+mv /tmp/lso /bin
+chmod 755 /bin/lso
+
 ###############################################################################
 wget http://192.168.0.11/Homepage/jailbreak/Backup/shell-cmds_207.40.1_iphoneos-arm.deb
 dpkg -i shell-cmds_207.40.1_iphoneos-arm.deb
@@ -763,10 +767,6 @@ wget http://192.168.0.15/bin/pidof
 mv /tmp/pidof /bin
 chmod 755 /bin/pidof
 
-wget http://192.168.0.15/bin/lso
-mv /tmp/lso /bin
-chmod 755 /bin/lso
-
 wget http://192.168.0.15/bin/pgrep
 mv /tmp/pgrep /bin
 chmod 755 /bin/pgrep
@@ -778,6 +778,18 @@ chmod 755 /bin/pfind
 wget http://192.168.0.15/bin/pkill
 mv /tmp/pkill /bin
 chmod 755 /bin/pkill
+
+wget http://192.168.0.15/bin/free
+mv /tmp/free /bin
+chmod 755 /bin/free
+
+wget http://192.168.0.15/bin/pwdx
+mv /tmp/pwdx /bin
+chmod 755 /bin/pwdx
+
+wget http://192.168.0.15/bin/rng
+mv /tmp/rng /bin
+chmod 755 /bin/rng
 
 ############################################################################### jailbreaks crap
 wget http://192.168.0.15/work/test
