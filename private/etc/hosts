@@ -30,7 +30,7 @@
 127.0.0.1 init.itunes.apple.com
 ::1 init.itunes.apple.com
 
-###############################################################################
+############################################################################### CRAP
 127.0.0.1 itunes.com
 ::1 itunes.com
 
@@ -100,6 +100,9 @@
 
 # 17.57.146.20 30-courier.push.apple.com
 # ::1 30-courier.push.apple.com
+
+# 17.57.146.20 36-courier.push.apple.com
+# ::1 36-courier.push.apple.com
 
 # 17.57.146.20 38-courier.push.apple.com
 # ::1 38-courier.push.apple.com
