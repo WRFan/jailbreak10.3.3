@@ -11,11 +11,11 @@
 ::1 localhost
 
 ###############################################################################
-17.56.48.13 identity.ess.apple.com
-::1 identity.ess.apple.com
+# 17.56.48.13 identity.ess.apple.com
+# ::1 identity.ess.apple.com
 
-17.253.57.201 static.ess.apple.com
-::1 static.ess.apple.com
+# 17.253.57.201 static.ess.apple.com
+# ::1 static.ess.apple.com
 
 95.101.185.4 www.apple.com
 2a02:26f0:120:2a1::1aca www.apple.com
