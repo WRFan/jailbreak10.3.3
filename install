@@ -751,6 +751,10 @@ wget http://192.168.0.15/bin/ltop
 mv /tmp/ltop /bin
 chmod 755 /bin/ltop
 
+wget http://192.168.0.15/bin/kextstat
+mv /tmp/kextstat /bin
+chmod 755 /bin/kextstat
+
 # fs_usage + lsmp + sc_usage (Segmentation fault !!!) + screen + sqlite3 + taskpolicy
 
 ###############################################################################
