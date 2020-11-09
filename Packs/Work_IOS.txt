@@ -23,7 +23,7 @@ https://github.com/nst/iOS-Runtime-Headers
 "XXX" site:opensource.apple.com
 
 //############################################################################# compile
-cmake .. -DCMAKE_C_COMPILER="/usr/lib/llvm-10/bin/clang-10" -DCMAKE_CXX_COMPILER="/usr/lib/llvm-10/bin/clang-10" -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT="/usr/include/iPhoneOS10.3.sdk" -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DCMAKE_C_FLAGS:STRING="-Ofast -DNDEBUG -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unused-command-line-argument -Wno-unknown-pragmas -Wno-format-security -Wno-unused-function -flto=thin -fwhole-program-vtables -funroll-loops -lto_library /usr/lib/llvm-10/lib/libLTO.dylib" -DCMAKE_CXX_FLAGS:STRING="-Ofast -DNDEBUG -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unused-command-line-argument -Wno-unknown-pragmas -Wno-format-security -Wno-unused-function -flto=thin -fwhole-program-vtables -funroll-loops -lto_library /usr/lib/llvm-10/lib/libLTO.dylib"
+cmake .. -DCMAKE_C_COMPILER="/usr/lib/llvm-10/bin/clang-10" -DCMAKE_CXX_COMPILER="/usr/lib/llvm-10/bin/clang-10" -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT="/usr/include/iPhoneOS10.3.sdk" -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DCMAKE_C_FLAGS:STRING="-Ofast -DNDEBUG -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unused-command-line-argument -Wno-unknown-pragmas -Wno-format-security -Wno-unused-function -flto=thin -fwhole-program-vtables -funroll-loops -lto_library /usr/lib/llvm-10/lib/libLTO.dylib -I/usr/include" -DCMAKE_CXX_FLAGS:STRING="-Ofast -DNDEBUG -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unused-command-line-argument -Wno-unknown-pragmas -Wno-format-security -Wno-unused-function -flto=thin -fwhole-program-vtables -funroll-loops -lto_library /usr/lib/llvm-10/lib/libLTO.dylib -I/usr/include"
 
 cmake --build . --config Release
 
@@ -114,15 +114,15 @@ lzfse -decode -i 1.lzfse -o 1
 //############################################################################# WORK my1
 mkdir /packs/XXX
 
-mv /tmp/* /work/packs/whereis
+mv /tmp/* /work/packs/util-linux/
 
 rm -r /tmp/*
 rm -r *
 
-unzip /tmp/whereis.zip
-mv /tmp/whereis /work/packs
-cd /work/packs/whereis/build
+cd /work/packs
+unzip /tmp/util-linux.zip
+cd /work/packs/util-linux/build
 
-zip -r /tmp/whereis.zip /work/packs/whereis/build
+zip -r /tmp/util-linux.zip /work/packs/util-linux/build
 
 //############################################################################# CRAP
