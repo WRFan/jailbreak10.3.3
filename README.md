@@ -1126,13 +1126,13 @@ this service is responsible for displaying the following annoying popup:
 
 	Your carrier may charge for SMS messages used to activate iMessage / Facetime
 
-Many people on the net are outraged by this popup appearing very often (sometimes every time you enter-exit airplane mode, restart this service or reboot the device) and blame Apple for this. Apple will tell you shit and your mobile carrier will blame Apple. Truth is, they are BOTH responsible. It seems "identityservicesd" decides whether this popup should be displayed by checking the carrier bundle your device is using. There are up to two carrier bundles:
+Many people on the net are outraged by this popup appearing very often (sometimes every time you enter-exit airplane mode, restart this service or reboot the device) and blame Apple for this. Apple will tell you shit and your mobile carrier will blame Apple. Truth is, they are BOTH responsible. "identityservicesd" decides whether this popup is to be displayed by checking the carrier bundle your device is using. There are up to two carrier bundles:
 
 	"/System/Library/Carrier Bundles/iPhone/XXX.bundle/"
 
 	"/private/var/mobile/Library/Carrier Bundles/iPhone/XXX.bundle/"
 
-the second takes precedence over the first. Check for presence of the following var (have still to test if this key is responsible for the popup, but looks like it):
+the second takes precedence over the first. Check for presence of the following variable:
 
 	<key>RegistrationOptInRequired</key>
 	<true/>
@@ -1188,7 +1188,13 @@ There's a mobile substrate patch for this:
 
 But what good is this, since it only works in jailbroken state? The popup may appear on boot (so not jailbroken yet), plus your modiefied carrier bundle will not be accepted until jailbroken. So if a rapist pursues you, you gotta tell him to wait till you've jailbroken the device to be able to call the police.
 
-Now, I checked the "EPlus_de.bundle" 35.3 for iOS 12.1.1, and the "RegistrationOptInRequired" setting is not there. So Telefónica updated their system, Apple updated the carrier bundle for iOS 12, but was too lazy to update the OS 10.x bundle. The iOS 12.x bundle is properly signed by Apple, so will work in unjailbroken state. The question was whether it is possible to use this bundle on iOS 10.x, and indeed, it's possible, I replaced the old bundle by this one, rebooted (you can also run "ldrestart" or restart the "com.apple.CommCenter" service), the device is using the bundle (I can see it, 'cause the "Cellular" and "Phone" settings in iOS settings reflect the values set by the new carrier bundle, plus, look at the image above - the second SMS was sent to a different UK number, as listed in the new carrier bundle). No idea if Cellular would work, 'cause I am using Wifi only, but phone calls and standard SMS work.
+Now, I checked the "EPlus_de.bundle" 35.3 for iOS 12.1.1, and the "RegistrationOptInRequired" setting is not there. So Telefónica updated their system, Apple updated the carrier bundle for iOS 12, but was too lazy to update the OS 10.x bundle. The iOS 12.x bundle is properly signed by Apple, so will work in unjailbroken state. The question was whether it is possible to use this bundle on iOS 10.x, and indeed, it's possible, I replaced the old bundle by this one, rebooted (you can also run "ldrestart" or restart the "com.apple.CommCenter" service), the device is using the bundle (I can see it, 'cause the "Cellular" and "Phone" settings in iOS settings reflect the values set by the new carrier bundle, plus, look at the image above - the second SMS was sent to a different UK number, as listed in the new carrier bundle). No idea if Cellular would work, 'cause I am using Wifi only, but phone calls and standard SMS work. The popup is gone, hallelujah! iOS of course continues to send its damn SMS messages:
+
+	07.11.2020 01:23 447786205xxx SMS Services 00:00:00  0,00 €
+
+	06.11.2020 15:23 447786205xxx SMS Services 00:00:00  0,00 €
+
+not that I really care as long as Apple doesn't bother me. Telefónica's probably not amused, but that's their problem, as long as I am not charged.
 
 Now check how many carriers are listed as charging for the activation SMS:
 
@@ -1204,7 +1210,7 @@ This whole process is still very unclear and Apple is revealing nothing, althoug
 
 - why is iOS attempting to send the activation SMS every couple of days even if iMessage/Facetime are deactivated (talking about pure phone number activation! not the iCloud e-mail activation! so assuming, you are not signed into any Apple services)?
 
-- how often is this SMS sent? From my experience, "identityservicesd" decides randomly by generating a number between 2-7, so will prompt you every 2-7 days about sending, or, if the carrier bundle states the SMS is free, will SILENTLY re-send an SMS. Still have to test if the SMS is resent if iMessage and Facetime are currently activated, it seems, in that case it only checks with "ess.apple.com" servers using your internet connection (damn charges for cellular apply, of course, for this shit unless you are on Wifi!), but if it doesn't get a response for whatever reason (because com.apple.idsremoteurlconnectionagent or com.apple.absd services are deactivated, or because access is blocked to the ess.apple.com servers, or because you don't have an internet connection at the time re-activation is attempted, or simply because you switched off your device for a longer period of time), iMessage and Facetime will fall to deactivated state, so "identityservicesd" will begin hammering the SMS server again.
+- how often is this SMS sent? From my experience, "identityservicesd" decides randomly by generating a number between 1-7, so will prompt you every 1-7 days about sending, or, if the carrier bundle states the SMS is free, will SILENTLY re-send an SMS. If iMessage and Facetime are currently activated, it seems to only check with "ess.apple.com" servers using your internet connection (damn charges for cellular apply, of course, for this shit unless you are on Wifi!), but if it doesn't get a response for whatever reason (because com.apple.idsremoteurlconnectionagent or com.apple.absd services are deactivated, or because access is blocked to the ess.apple.com servers, or because you don't have an internet connection at the time re-activation is attempted, or simply because you switched off your device for a longer period of time), iMessage and Facetime will fall to deactivated state, so "identityservicesd" will begin hammering the SMS server again.
 
 - how often does the device connect to static.ess.apple.com , identity.ess.apple.com and init.ess.apple.com to verify the device is still used for iMessage/Facetime?
 
