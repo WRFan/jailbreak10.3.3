@@ -1216,7 +1216,7 @@ This whole process is still very unclear and Apple is revealing nothing, althoug
 
 On all their pages Apple states activation is only required **ONCE**, but as you can clearly see, periodic re-activation is required (look at the image above!). So obviously, Apple is lying in our faces, and, of course, the EU doesn't give a damn about this.
 
-I should add that I neither removed the SIM card from my phone, nor disabled iMessage/Facetime in the iOS settings, nor was I roaming, I didn't even touch the damn phone, yet a re-activation SMS was sent exactly 5 days after initial activation. Just stating this, because Apple wants you to believe, re-activation is only ever attempted on such occasions, yet another lie by Apple.
+I should add that during the test phase (as reflected in the image above) I neither removed the SIM card from my phone, nor disabled iMessage/Facetime in the iOS settings, nor was I roaming, I didn't even touch the damn phone, yet a re-activation SMS was sent exactly 5 days after initial activation. Just stating this, because Apple wants you to believe, re-activation is only ever attempted on such occasions, yet another lie by Apple.
 
 Of course, most pages on the net telling you about "fixing" your iMessage/Facetime are copy-pasted bullshit and don't help. Like, why isn't Apple mentioning anywhere the necessity of access to "ess.apple.com" servers? This is important information for network admins, you can find this info on the official Apple forums, but it's mentioned by people NOT affiliated with Apple.
 
