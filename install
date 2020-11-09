@@ -700,6 +700,11 @@ if [ $(ecidecid) = "0x" ]; then
 	rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libipsec.tbd
 	ln -s libipsec.A.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libipsec.tbd
 
+	rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libcurses.tbd
+	rm /usr/include/iPhoneOS10.3.sdk/usr/lib/libncurses.tbd
+	ln -s libncurses.5.4.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libcurses.tbd
+	ln -s libncurses.5.4.tbd /usr/include/iPhoneOS10.3.sdk/usr/lib/libncurses.tbd
+
 	# wget https://codeload.github.com/theos/headers/zip/master
 	# unzip master
 	# mv headers-master /usr/include/iPhoneOS10.3.sdk/
@@ -798,6 +803,14 @@ chmod 755 /bin/rng
 wget http://192.168.0.15/bin/whereis
 mv /tmp/whereis /bin
 chmod 755 /bin/whereis
+
+wget http://192.168.0.15/bin/look
+mv /tmp/look /bin
+chmod 755 /bin/look
+
+wget http://192.168.0.15/bin/pg
+mv /tmp/pg /bin
+chmod 755 /bin/pg
 
 ############################################################################### jailbreaks crap
 wget http://192.168.0.15/work/test
