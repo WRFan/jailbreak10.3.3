@@ -1,5 +1,5 @@
 //############################################################################### basic
-cmake .. -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DBUILD_SHARED_LIBS:BOOL=OFF -DCMAKE_CONFIGURATION_TYPES:STRING=Release -DCMAKE_C_FLAGS:STRING="/DWIN32 /D_WINDOWS /W0 /utf-8" -DCMAKE_CXX_FLAGS:STRING="/DWIN32 /D_WINDOWS /W3 /utf-8 /GR /EHsc" -DCMAKE_C_FLAGS_RELEASE:STRING="/MT /O2 /Oi /Gy /Ob2 /DNDEBUG /favor:blend" -DCMAKE_CXX_FLAGS_RELEASE:STRING="/MT /O2 /Oi /Gy /Ob2 /DNDEBUG /favor:blend" -DCMAKE_EXE_LINKER_FLAGS_RELEASE:STRING="/INCREMENTAL:NO /OPT:REF /OPT:ICF" -DCMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING="/INCREMENTAL:NO /OPT:REF /OPT:ICF"
+cmake .. -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=OFF -DCMAKE_CONFIGURATION_TYPES:STRING=Release -DCMAKE_C_FLAGS:STRING="/DWIN32 /D_WINDOWS /W0 /utf-8" -DCMAKE_CXX_FLAGS:STRING="/DWIN32 /D_WINDOWS /W3 /utf-8 /GR /EHsc" -DCMAKE_C_FLAGS_RELEASE:STRING="/MT /O2 /Oi /Gy /Ob2 /DNDEBUG /favor:blend" -DCMAKE_CXX_FLAGS_RELEASE:STRING="/MT /O2 /Oi /Gy /Ob2 /DNDEBUG /favor:blend" -DCMAKE_EXE_LINKER_FLAGS_RELEASE:STRING="/INCREMENTAL:NO /OPT:REF /OPT:ICF" -DCMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING="/INCREMENTAL:NO /OPT:REF /OPT:ICF"
 
 //###############################################################################
 cmake --build . --config Release
@@ -21,7 +21,7 @@ message(BLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: __${XXX}__)
 
 message(${XXX})
 
-######################################################################################### Comment out
+######################################################################################### Comment
 #[[
 ]]
 

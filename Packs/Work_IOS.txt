@@ -9,6 +9,7 @@ https://github.com/PureDarwin/Building-XNU-16.7-Kernel-Guide
 
 https://opensource.apple.com/source
 
+https://developer.limneos.net/?ios=10.2
 https://github.com/nst/RuntimeBrowser
 https://github.com/nst/iOS-Runtime-Headers
 
@@ -16,42 +17,53 @@ https://github.com/nst/iOS-Runtime-Headers
 "XXX" site:gcc.gnu.org
 "XXX" site:docs.microsoft.com/en-us/cpp
 
+"XXX" site:developer.limneos.net/?ios=10.2
+
+"XXX" site:github.com/nst/iOS-Runtime-Headers
+
 "XXX" site:developer.apple.com
 
 "XXX" github.com/freebsd/freebsd
 
 "XXX" site:opensource.apple.com
 
-//############################################################################# compile
-cmake .. -DCMAKE_C_COMPILER="/usr/lib/llvm-10/bin/clang-10" -DCMAKE_CXX_COMPILER="/usr/lib/llvm-10/bin/clang-10" -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT="/usr/include/iPhoneOS10.3.sdk" -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF -DCMAKE_C_FLAGS:STRING="-Ofast -DNDEBUG -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unused-command-line-argument -Wno-unknown-pragmas -Wno-format-security -Wno-unused-function -flto=thin -fwhole-program-vtables -funroll-loops -lto_library /usr/lib/llvm-10/lib/libLTO.dylib -I/usr/include" -DCMAKE_CXX_FLAGS:STRING="-Ofast -DNDEBUG -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unused-command-line-argument -Wno-unknown-pragmas -Wno-format-security -Wno-unused-function -flto=thin -fwhole-program-vtables -funroll-loops -lto_library /usr/lib/llvm-10/lib/libLTO.dylib -I/usr/include"
+############################################################################### compile
+cmake .. -DCMAKE_C_COMPILER="/usr/lib/llvm-10/bin/clang-10" -DCMAKE_CXX_COMPILER="/usr/lib/llvm-10/bin/clang-10" -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT="/usr/include/iPhoneOS10.3.sdk" -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_C_FLAGS:STRING="-Ofast -DNDEBUG -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unknown-pragmas -Wno-format-security -Wno-unused-function -funroll-loops -flto=thin -fwhole-program-vtables -lto_library /usr/lib/llvm-10/lib/libLTO.dylib -I/usr/include" -DCMAKE_CXX_FLAGS:STRING="-Ofast -DNDEBUG -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unknown-pragmas -Wno-format-security -Wno-unused-function -funroll-loops -flto=thin -fwhole-program-vtables -lto_library /usr/lib/llvm-10/lib/libLTO.dylib -I/usr/include"
 
 cmake --build . --config Release
 
 //----------------------------------------------------------------------------- ???
 -DCMAKE_C_COMPILER:STRING="/usr/lib/llvm-10/bin/clang-10" -DCMAKE_EXE_LINKER_FLAGS_RELEASE:STRING="-flto=thin" -DCMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING="-flto=thin"
 
-//############################################################################# symbols
+-Wno-unused-command-line-argument
+
+######################################################################################### Comment
+#[[
+]]
+
+############################################################################### symbols
 jtool -arch arm64 -S XXX
 dyldinfo -export XXX
 nm XXX
 
-//############################################################################# dependent libraries
+############################################################################### dependent libraries
 jtool -L -vv -arch arm64 XXX
 otool -L XXX
 dyldinfo -dylibs XXX
 
-//############################################################################# architecture
+############################################################################### architecture
 otool -hv -arch arm64 XXX
 vtool -arch arm64 -show XXX
 
-//############################################################################# dirs
+############################################################################### dirs
 /usr/lib/llvm-10/
 
-//############################################################################# tools
+############################################################################### tools
 clang
 	/usr/lib/llvm-10/bin/clang-10
 
 linker:
+https://www.manpagez.com/man/1/ld64
 	/usr/bin/ld
 	CMAKE_LINKER
 
@@ -63,18 +75,18 @@ archiving tool for static libraries
 	/usr/bin/ar
 	CMAKE_AR
 
-//############################################################################# clang command-line
+############################################################################### clang command-line
 -Wunknown-pragmas
 -Wno-unknown-pragmas
 
 -W -> -Wno-
 
-//############################################################################# ld64 (linker) + make
+############################################################################### ld64 (linker) + make
 /usr/include/
 /usr/gnu/include/
 /usr/local/include/
 
- /usr/lib/clang/10.0.0 -> /usr/lib/llvm-10/lib/clang/10.0.0/include
+/usr/lib/clang/10.0.0 -> /usr/lib/llvm-10/lib/clang/10.0.0/include
 
 Library search paths:
 	/usr/lib
@@ -83,7 +95,7 @@ Framework search paths:
 	/Library/Frameworks/
 	/System/Library/Frameworks/
 
-//############################################################################# ldid
+############################################################################### ldid
 ldid -e XXX
 jtool --ent -vv -arch arm64 XXX
 jtool2 --sig --ent XXX
@@ -92,37 +104,10 @@ Sign:
 jtool --sign --inplace --ent entitlements.plist XXX
 ldid -SXXX.plist XXX
 
-
-//############################################################################# preprocessor definitions
+############################################################################### preprocessor definitions
 clang -dM -E - < /dev/null
 
-//############################################################################# lzfse
-cd /packs/lzfse/build
-mv /tmp/CMakeLists.txt /packs/lzfse
+############################################################################### theos
+make package FINALPACKAGE=1
 
-//----------------------------------------------------------------------------- ???
-/bin/lzfse
-/usr/lib/liblzfse.dylib
-
-lzfse -encode -i 1.txt -o 1.lzfse
-lzfse -decode -i 1.lzfse -o 1
-
--DCMAKE_SYSTEM_NAME=Darwin -DCMAKE_CROSSCOMPILING=true
-
-/usr/lib/llvm-10/lib/libLTO.dylib
-
-//############################################################################# WORK my1
-mkdir /packs/XXX
-
-mv /tmp/* /work/packs/util-linux/
-
-rm -r /tmp/*
-rm -r *
-
-cd /work/packs
-unzip /tmp/util-linux.zip
-cd /work/packs/util-linux/build
-
-zip -r /tmp/util-linux.zip /work/packs/util-linux/build
-
-//############################################################################# CRAP
+############################################################################### CRAP
