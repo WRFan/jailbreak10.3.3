@@ -1283,6 +1283,11 @@ So, since we don't want "com.apple.CommCenterMobileHelper" to use the outdated c
 
 	ln -s "/private/var/mobile/Library/Carrier Bundles/iPhone/O2_Germany.bundle" "/System/Library/Carrier Bundles/iPhone/26203"
 
+	launchctl load -w /System/Library/LaunchDaemons/com.apple.CommCenterMobileHelper.plist
+
+	ldrestart
+
+You can disable com.apple.CommCenterMobileHelper again.
 
 "O2_Germany" (28.3 for iOS 10.3) bundle I'm talking about here is actually more appropriate than the "EPlus_de.bundle" (35.3 for iOS 12.1.1) I mentioned above. The only thing that really matters is that "RegistrationOptInRequired" is NOT mentioned, means no stupid popup.
 
