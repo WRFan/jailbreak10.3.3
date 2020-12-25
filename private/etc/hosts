@@ -65,11 +65,11 @@
 ::1 appldnld.apple.com
 
 ############################################################################### whatsapp
-157.240.27.55 g.whatsapp.net
+31.13.81.48 g.whatsapp.net
 2a03:2880:f23f:c8:face:b00c:0:7260 g.whatsapp.net
 
-# 157.240.27.54 static.whatsapp.net
-# 2a03:2880:f23f:c7:face:b00c:0:167 static.whatsapp.net
+127.0.0.1 static.whatsapp.net
+::1 static.whatsapp.net
 
 127.0.0.1 media-muc2-1.cdn.whatsapp.net
 ::1 media-muc2-1.cdn.whatsapp.net
