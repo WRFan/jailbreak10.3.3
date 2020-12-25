@@ -6,36 +6,45 @@
 
 # /private/etc/hosts
 
-127.0.0.1	localhost
+127.0.0.1 localhost
 255.255.255.255	broadcasthost
 ::1 localhost
 
-###############################################################################
-# 17.56.48.13 identity.ess.apple.com
-# ::1 identity.ess.apple.com
-
-# 17.253.57.201 static.ess.apple.com
-# ::1 static.ess.apple.com
+89.15.232.32 epdg.epc.mnc007.mcc262.pub.3gppnetwork.org
 
 95.101.185.4 www.apple.com
 2a02:26f0:120:2a1::1aca www.apple.com
 
+############################################################################### apsd push
 23.2.13.17 init-p01st.push.apple.com
 ::1 init-p01st.push.apple.com
 
 17.253.57.201 iosapps.itunes.apple.com
 ::1 iosapps.itunes.apple.com
 
-###############################################################################
+############################################################################### appstore
 127.0.0.1 init.itunes.apple.com
 ::1 init.itunes.apple.com
 
-############################################################################### CRAP
-127.0.0.1 itunes.com
-::1 itunes.com
-
 127.0.0.1 itunes.apple.com
 ::1 itunes.apple.com
+
+############################################################################### iMessage / Facetime
+# 17.56.48.13 identity.ess.apple.com
+# ::1 identity.ess.apple.com
+
+# 17.253.57.201 static.ess.apple.com
+# ::1 static.ess.apple.com
+
+############################################################################### CRAP
+127.0.0.1 init.ess.apple.com
+::1 init.ess.apple.com
+
+127.0.0.1 query.ess.apple.com
+::1 query.ess.apple.com
+
+127.0.0.1 itunes.com
+::1 itunes.com
 
 127.0.0.1 xp.apple.com
 ::1 xp.apple.com
@@ -52,14 +61,43 @@
 127.0.0.1 init-p01md.apple.com
 ::1 init-p01md.apple.com
 
-127.0.0.1 init.ess.apple.com
-::1 init.ess.apple.com
-
-127.0.0.1 query.ess.apple.com
-::1 query.ess.apple.com
-
 127.0.0.1 appldnld.apple.com
 ::1 appldnld.apple.com
+
+############################################################################### whatsapp
+157.240.27.55 g.whatsapp.net
+2a03:2880:f23f:c8:face:b00c:0:7260 g.whatsapp.net
+
+# 157.240.27.54 static.whatsapp.net
+# 2a03:2880:f23f:c7:face:b00c:0:167 static.whatsapp.net
+
+127.0.0.1 media-muc2-1.cdn.whatsapp.net
+::1 media-muc2-1.cdn.whatsapp.net
+
+############################################################################### acrobits
+159.65.253.49 s-4.sipis.acrobits.cz
+2604:a880:800:a1::174f:e001 s-4.sipis.acrobits.cz
+
+127.0.0.1 graph.facebook.com
+::1 graph.facebook.com
+
+127.0.0.1 providers.acrobits.cz
+::1 providers.acrobits.cz
+
+127.0.0.1 app-measurement.com
+::1 app-measurement.com
+
+127.0.0.1 https://app-measurement.com/sdk-exp
+::1 https://app-measurement.com/sdk-exp
+
+127.0.0.1 firebaselogging-pa.googleapis.com
+::1 firebaselogging-pa.googleapis.com
+
+127.0.0.1 firebaseinstallations.googleapis.com
+::1 firebaseinstallations.googleapis.com
+
+127.0.0.1 ipv4only.arpa
+::1 ipv4only.arpa
 
 ###############################################################################
 # 17.57.146.20 3-courier.push.apple.com
