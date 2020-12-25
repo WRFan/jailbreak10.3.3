@@ -13,7 +13,6 @@ launchctl load /System/Library/LaunchDaemons/com.apple.nsurlstoraged.plist
 # launchctl remove com.apple.twitter.xpc
 # launchctl remove com.apple.tencentweibo.xpc
 # launchctl remove com.apple.weibo.xpc
-# launchctl remove com.apple.weibo.xpc
 # launchctl remove com.apple.facebook.xpc
 # launchctl remove com.apple.vimeo.xpc
 # launchctl remove com.apple.VideoSubscriberAccount.DeveloperService
@@ -46,4 +45,5 @@ launchctl load /Library/LaunchDaemons2/com.apple.mDNSResponder2.plist
 wifiutil disable-wifi
 wifiutil enable-wifi
 
-sbreload
+# sbreload
+launchctl kickstart -k system/com.apple.SpringBoard
