@@ -1235,13 +1235,13 @@ There's a mobile substrate patch for this:
 
 	https://github.com/CharlieWhile13/commcenterpatch13
 
-But what good is this, since it only works in jailbroken state? The popup may appear on boot (so not jailbroken yet), plus your modiefied carrier bundle will not be accepted until jailbroken. So if a rapist pursues you, you gotta tell him to wait till you've jailbroken the device to be able to call the police.
+But what good is this, since it only works in jailbroken state? The popup may appear on boot (so not jailbroken yet), plus your modified carrier bundle will not be accepted until jailbroken. So if a rapist pursues you, you gotta tell him to wait till you've jailbroken the device to be able to call the police.
 
 Now, I checked the "EPlus_de.bundle" 35.3 for iOS 12.1.1, and the "RegistrationOptInRequired" setting is not there. So Telefónica updated their system, Apple updated the carrier bundle for iOS 12, but was too lazy to update the OS 10.x bundle. The iOS 12.x bundle is properly signed by Apple, so will work in unjailbroken state. The question was whether it is possible to use this bundle on iOS 10.x, and indeed, it's possible, I replaced the old bundle by this one, rebooted (you can also run "ldrestart" or restart the "com.apple.CommCenter" service), the device is using the bundle (I can see it, 'cause the "Cellular" and "Phone" settings in iOS settings reflect the values set by the new carrier bundle, plus, look at the image above - the second SMS was sent to a different UK number, as listed in the new carrier bundle). No idea if Cellular would work, 'cause I am using Wifi only, but phone calls and standard SMS work. The popup is gone, hallelujah! iOS of course continues to send its damn SMS messages (iMessage/Facetime **disabled** now, 'cause they were constantly trying to communicate with "ess.apple.com" servers, so much for once-only activation):
 
-	07.11.2020 01:23 447786205xxx SMS Services 00:00:00  0,00 €
+	07.11.2020 01:23 447786205xxx SMS Services 00:00:00 0,00 €
 
-	06.11.2020 15:23 447786205xxx SMS Services 00:00:00  0,00 €
+	06.11.2020 15:23 447786205xxx SMS Services 00:00:00 0,00 €
 
 not that I really care as long as Apple doesn't bother me. Telefónica's probably not amused, but that's their problem, as long as I am not charged.
 
@@ -2013,11 +2013,11 @@ where XXX is the service identifier:
 
 "mach". right. Ask Levin, he knows.
 
-Supposed to restart a service (xpc too):
+Restart a service (xpc too):
 
-	launchctl kickstart system/XXX
+	launchctl kickstart -k system/XXX
 
-XXX -> service name (no ".plist" !). Didn't work for me
+XXX -> service name (no ".plist" !).
 
 Remove service from memory (xpc too). Non-persistent (gone after reboot):
 
