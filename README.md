@@ -418,17 +418,60 @@ Call your cellular provider using /Applications/MobilePhone.app/MobilePhone:
 
 Input the number, hit the green button, nothing happens. Now, this cost me some nerves and time to find out what was causing this! There are only so many programmes using SSL pinning, and only those programmes need to be targeted!
 
-Also, I've never been able to actually install Whatsapp over Appstore + proxy, even with SSL pinning disabled. I was able to sniff out the entire traffic, get the .ipa link, everything was downloaded properly, but during the actual installation I got some error, don't remember what it was. That's irrelevant, however, since once you've got the traffic log, you can disable the proxy.
+**UPDATE**
+
+I swear to GOD, the phone app on iOS is the most capricious system component EVER! After fixing SSLKillSwitch2, I still got "Call Failed" from time to time. Turns out, this app was responsible:
+
+	https://www.ios-repo-updates.com/repository/iospackix/package/com.tonykraft.inosleep
+
+Replaced it by:
+
+	https://www.ios-repo-updates.com/repository/julioverne-s-repo/package/com.julioverne.fiona
+
+	https://github.com/julioverne/Fiona
+
+Same thing. Recompiled Fiona myself against SDK 10.3:
+
+	https://github.com/WRFan/jailbreak10.3.3/tree/main/Packs/fiona
+
+No more "Call Failed". Phew! Was happily using my iPhone for a month. Then, all of a sudden, "Call Failed" again. Have been scouting iOS 7 days and 7 nights, begging it, sucking it, licking it, performing ritual dances... Nothing helped. Then I accidentally find out, it's caused by removing the following symlink:
+
+	/private/var/tmp/com.apple.purplebuddy.sentinel -> /Applications/Setup.app
+
+Ok, so I was sometimes cleaning out the tmp directory, how was I supposed to know it contains important files? Damn Google knows nothing, of course. Ask Google, right?
+
+So make sure this file stays untouched.
+
+**UPDATE END**
 
 To actually disable SSL Pinning, the plugin must be injected into all apps/daemons used during the Appstore download process, and since Mobile Substrate is loaded AFTER boot, you need to restart the daemons:
 
-	launchctl unload /System/Library/LaunchDaemons/com.apple.akd.plist && launchctl load /System/Library/LaunchDaemons/com.apple.akd.plist
+If NOT running:
 
-	launchctl unload /System/Library/LaunchDaemons/com.apple.appstored.plist && launchctl load /System/Library/LaunchDaemons/com.apple.appstored.plist
+	launchctl load -w /System/Library/LaunchDaemons/com.apple.akd.plist
 
-	launchctl unload /System/Library/LaunchDaemons/com.apple.itunesstored.plist && launchctl load /System/Library/LaunchDaemons/com.apple.itunesstored.plist
+	launchctl load -w /System/Library/LaunchDaemons/com.apple.appstored.plist
 
-But, as I said, I still run into problems during the actual install process.
+	launchctl load -w /System/Library/LaunchDaemons/com.apple.itunesstored.plist
+
+	launchctl load -w /System/Library/LaunchDaemons/com.apple.nsurlsessiond.plist
+
+	launchctl load -w /System/Library/LaunchDaemons/com.apple.adid.plist
+
+	launchctl load -w /System/Library/LaunchDaemons/com.apple.DuetHeuristic-BM.plist
+
+If running:
+
+	launchctl kickstart -k system/com.apple.akd
+	launchctl kickstart -k system/com.apple.appstored
+	launchctl kickstart -k system/com.apple.itunesstored
+	launchctl kickstart -k system/com.apple.nsurlsessiond
+	launchctl kickstart -k system/com.apple.adid
+	launchctl kickstart -k system/com.apple.DuetHeuristic-BM
+
+Kickstart the Springboard as well:
+
+	launchctl kickstart -k system/com.apple.SpringBoard
 
 Personally, I'm using Fiddler to sniff out http(s) access. Obviously, requires an Windows OS, set the iPhone proxy to the ip address of your Windows machine and port to the port of Fiddler. When downloading something off Appstore, it will display something like:
 
@@ -1077,7 +1120,15 @@ While talking about Wifi, iOS 10.x exhibits an extremely weird behaviour - when 
 
 	https://repo.packix.com/package/com.tonykraft.inosleep
 
-This one will keep your phone more alive so you can work over ssh when the screen is dark.
+**UPDATE**
+
+Check out my version of Fiona:
+
+	https://github.com/WRFan/jailbreak10.3.3/tree/main/Packs/fiona
+
+**UPDATE END**
+
+This one will keep your wifi alive so you can work over ssh when the screen is dark.
 
 Someone also suggested to rip out Wifi firmware from iOS 12.x and load it into memory on older iOS versions:
 
@@ -1132,7 +1183,7 @@ Many people on the net are outraged by this popup appearing very often (sometime
 
 	"/private/var/mobile/Library/Carrier Bundles/iPhone/XXX.bundle/"
 
-the second takes precedence over the first. Check for presence of the following variable:
+Check for presence of the following variable:
 
 	<key>RegistrationOptInRequired</key>
 	<true/>
@@ -1140,8 +1191,6 @@ the second takes precedence over the first. Check for presence of the following 
 inside the "carrier.plist" of your carrier bundle, also check:
 
 	/private/var/mobile/Library/Preferences/com.apple.carrier.plist
-
-which is a symlink to "carrier.plist" of the carrier bundle actually used.
 
 Now open:
 
@@ -1195,6 +1244,87 @@ Now, I checked the "EPlus_de.bundle" 35.3 for iOS 12.1.1, and the "RegistrationO
 	06.11.2020 15:23 447786205xxx SMS Services 00:00:00  0,00 €
 
 not that I really care as long as Apple doesn't bother me. Telefónica's probably not amused, but that's their problem, as long as I am not charged.
+
+**UPDATE**
+
+I can actually provide additional info on this whole "Carrier Bundles" shebang:
+
+You can set up your carrier bundle manually:
+
+	wget http://appldnld.apple.com/ios10.3/carrierbundles/091-15327-20170531-4162032A-47A4-11E7-8461-ED722D6174CC/O2_Germany_iPhone.ipcc
+
+	unzip /tmp/O2_Germany_iPhone.ipcc
+
+	mv /tmp/Payload/O2_Germany.bundle "/private/var/mobile/Library/Carrier Bundles/iPhone"
+
+	rm /private/var/mobile/Library/Preferences/com.apple.carrier.plist
+
+	ln -s "/private/var/mobile/Library/Carrier Bundles/iPhone/O2_Germany.bundle/carrier.plist" /private/var/mobile/Library/Preferences/com.apple.carrier.plist
+
+However, if you enable the
+
+	com.apple.CommCenterMobileHelper
+
+service, it will break your setup. And anyway, it's much better to let the system setup the carrier bundle. We just need to point it in the right direction. "com.apple.CommCenterMobileHelper" follows the following symlink:
+
+	"/System/Library/Carrier Bundles/iPhone/XXX"
+
+where "XXX" is the appropriate number for your SIM card. Not exactly sure where it gets the actual number. It must be defined on the SIM card. E.g., my number is 26203 (Telefónica), so all symlinks point to "/System/Library/Carrier Bundles/iPhone/26203":
+
+	"/private/var/mobile/Library/Carrier Bundle.bundle" -> "/System/Library/Carrier Bundles/iPhone/26203"
+
+	"/private/var/mobile/Library/Operator Bundle.bundle" -> "/System/Library/Carrier Bundles/iPhone/26203"
+
+So, since we don't want "com.apple.CommCenterMobileHelper" to use the outdated carrier bundle, we point the symlink to the proper bundle:
+
+	rm /private/var/mobile/Library/Preferences/com.apple.carrier.plist
+
+	rm "/System/Library/Carrier Bundles/iPhone/26203"
+
+	ln -s "/private/var/mobile/Library/Carrier Bundles/iPhone/O2_Germany.bundle" "/System/Library/Carrier Bundles/iPhone/26203"
+
+
+"O2_Germany" (28.3 for iOS 10.3) bundle I'm talking about here is actually more appropriate than the "EPlus_de.bundle" (35.3 for iOS 12.1.1) I mentioned above. The only thing that really matters is that "RegistrationOptInRequired" is NOT mentioned, means no stupid popup.
+
+Now see, if the carrier bundle didn't contain an "overrides_XXX_XXX_XXX_N53" file (N53 -> n53ap: BoardConfig / HWModelStr), you could just as well symlink "/private/var/mobile/Library/Preferences/com.apple.carrier.plist" to "/private/var/mobile/Library/Carrier Bundles/iPhone/O2_Germany.bundle/carrier.plist", but since the carrier bundle actually does contain an "overrides_" file, "com.apple.CommCenterMobileHelper" will merge the "carrier.plist" and "overrides_N48_N49_N51_N53.plist" into a single file and then point the "/private/var/mobile/Library/Preferences/com.apple.carrier.plist" symlink to it:
+
+	/private/var/mobile/Library/Preferences/com.apple.carrier.plist -> "/private/var/mobile/Library/Carrier Bundles/Overlay/device+carrier+26203+N53+28.3.plist"
+
+where "28.3" is the version number as defined in:
+
+	"/private/var/mobile/Library/Carrier Bundles/iPhone/O2_Germany.bundle/version.plist"
+
+	<key>CFBundleVersion</key>
+	<string>28.3</string>
+
+Now see, Telefónica Germany doesn't have too many towers, so half the German territory is devoid of cellular signal:
+
+	https://satellites.pro/Hochst_im_Odenwald_map#49.785562,8.927545,19
+
+However, there's this cool new thing called "wifi calling":
+
+	https://www.blau.de/service/vowifi
+
+Except Apple is lazy, so the "EPlus_de.bundle" (v. 28.3 for iOS 10.3) not only annoys you the stupid UK SMS popup, but it also lacks the Wifi calling information, although Telefónica DOES supply this feature. There's Apple for you - it sells you a phone, which lacks the ability to make calls. Somebody's got to explain to Apply what a phone is actually for. It's not there to send crap SMS to the UK! It's primary purpose is to place and accept calls. Damn it, it's pointless, they simply don't get it. Cupertino must be lacking a school.
+
+So, anyhow, by updating the bundle we get access to this feature as well:
+
+	https://github.com/WRFan/jailbreak10.3.3/blob/main/Carrier/Overlay/device+carrier+26203+N53+28.3.plist
+
+Interesting stuff, actually. If monitoring with Wireshark, set the filter to "udpencap", which will display "ISAKMP", "ESP" as well as "UDPENCAP" NAT-keepalives:
+
+	https://tools.ietf.org/html/draft-ietf-dccp-udpencap-10
+
+My intent was to use Wifi Calling at home too, but the constant NAT-keepalive pings get on my nerves. I was thinking about port forwarding ports 500 and 4500 to the iPhone, but that's pointless, because NAT-keepalives are prescribed by the carrier bundle:
+
+	<key>NATTKeepAliveEnabled</key>
+	<true/>
+
+and you can't edit those damn carrier bundles without breaking the damn signature. So I disabled wifi calling for the time being, since my home area is close to a Telefónica cellular tower (O2). Will come in handy in areas devoid of towers. As long as Telefónica hammers foreign routers with their stupid NAT-keepalives, I don't care. Not my router, after all, lol.
+
+I was actually thinking about switching to another carrier, but there are only two other carriers in Germany - TMobile_Germany and Vodafone_de, checked the bundles, bah bah bah! "RegistrationOptInRequired". In both of them. Isn't that cool? There are thousands of German pages rating mobile carriers, but NONE of them mentions this "tiny" fact. Then people are like "Vodafone! Cool! 500 MBit/s on LTE! Yeah!" So they pay, two year contract, then BAMM! UK SMS popup! Not to mention, T-Mobile and Vodafone ARE actually charging for this shit. So judging by the info provided by my Telefónica account, my stupid iPhone sent 40 SMS to the UK in the last 24 hours. Do I care? No. Why? Because it's free of charge and because iOS sends this shit silently now, without annoying me with popups. So no deal for you, Vodafone, and no deal for T-Mobile either, 'cause they are too greedy, unwilling to forward the UK silent SMS free of charge, so they get shit from me.
+
+**UPDATE END**
 
 Now check how many carriers are listed as charging for the activation SMS:
 
@@ -1655,7 +1785,7 @@ halt system (never tested):
 
 Delete everything in a folder including subdirectories:
 
-	rm -r /tmp/*
+	rm -r /XXX/*
 
 Get numeric chmod (anybody understand those cryptic letters "ls" displays?):
 
