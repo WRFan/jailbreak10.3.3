@@ -1286,7 +1286,7 @@ So, since we don't want "com.apple.CommCenterMobileHelper" to use the outdated c
 
 "O2_Germany" (28.3 for iOS 10.3) bundle I'm talking about here is actually more appropriate than the "EPlus_de.bundle" (35.3 for iOS 12.1.1) I mentioned above. The only thing that really matters is that "RegistrationOptInRequired" is NOT mentioned, means no stupid popup.
 
-Now see, if the carrier bundle didn't contain an "overrides_XXX_XXX_XXX_N53" file (N53 -> n53ap: BoardConfig / HWModelStr), you could just as well symlink "/private/var/mobile/Library/Preferences/com.apple.carrier.plist" to "/private/var/mobile/Library/Carrier Bundles/iPhone/O2_Germany.bundle/carrier.plist", but since the carrier bundle actually does contain an "overrides_" file, "com.apple.CommCenterMobileHelper" will merge the "carrier.plist" and "overrides_N48_N49_N51_N53.plist" into a single file and then point the "/private/var/mobile/Library/Preferences/com.apple.carrier.plist" symlink to it:
+Now see, if the carrier bundle didn't contain an "overrides_XXX_XXX_XXX_N53" file (N53 -> n53ap: BoardConfig / HWModelStr), you could just as well symlink "/private/var/mobile/Library/Preferences/com.apple.carrier.plist" to "/private/var/mobile/Library/Carrier Bundles/iPhone/O2_Germany.bundle/carrier.plist", but since the carrier bundle DOES contain an "overrides_" file, "com.apple.CommCenterMobileHelper" will merge the "carrier.plist" and "overrides_N48_N49_N51_N53.plist" into a single file and then point the "/private/var/mobile/Library/Preferences/com.apple.carrier.plist" symlink to it:
 
 	/private/var/mobile/Library/Preferences/com.apple.carrier.plist -> "/private/var/mobile/Library/Carrier Bundles/Overlay/device+carrier+26203+N53+28.3.plist"
 
@@ -1305,13 +1305,13 @@ However, there's this cool new thing called "wifi calling":
 
 	https://www.blau.de/service/vowifi
 
-Except Apple is lazy, so the "EPlus_de.bundle" (v. 28.3 for iOS 10.3) not only annoys you the stupid UK SMS popup, but it also lacks the Wifi calling information, although Telefónica DOES supply this feature. There's Apple for you - it sells you a phone, which lacks the ability to make calls. Somebody's got to explain to Apply what a phone is actually for. It's not there to send crap SMS to the UK! It's primary purpose is to place and accept calls. Damn it, it's pointless, they simply don't get it. Cupertino must be lacking a school.
+Except Apple is lazy, so the "EPlus_de.bundle" (v. 28.3 for iOS 10.3) not only annoys you by displaying the stupid UK SMS popup, but it also lacks the Wifi calling information, although Telefónica DOES supply this feature. There's Apple for you - it sells you a phone, which lacks the ability to make calls. Somebody's got to explain Apple what a phone's actually for. It's not there to send crap SMS to the UK! Its primary purpose is to place and accept calls. Damn it, it's pointless, they simply don't get it. Cupertino must be lacking a school.
 
 So, anyhow, by updating the bundle we get access to this feature as well:
 
 	https://github.com/WRFan/jailbreak10.3.3/blob/main/Carrier/Overlay/device+carrier+26203+N53+28.3.plist
 
-Interesting stuff, actually. If monitoring with Wireshark, set the filter to "udpencap", which will display "ISAKMP", "ESP" as well as "UDPENCAP" NAT-keepalives:
+Interesting stuff, actually. If monitoring with Wireshark, set the filter to "udpencap", which will display "ISAKMP", "ESP", as well as "UDPENCAP" NAT-keepalives:
 
 	https://tools.ietf.org/html/draft-ietf-dccp-udpencap-10
 
@@ -1322,7 +1322,7 @@ My intent was to use Wifi Calling at home too, but the constant NAT-keepalive pi
 
 and you can't edit those damn carrier bundles without breaking the damn signature. So I disabled wifi calling for the time being, since my home area is close to a Telefónica cellular tower (O2). Will come in handy in areas devoid of towers. As long as Telefónica hammers foreign routers with their stupid NAT-keepalives, I don't care. Not my router, after all, lol.
 
-I was actually thinking about switching to another carrier, but there are only two other carriers in Germany - TMobile_Germany and Vodafone_de, checked the bundles, bah bah bah! "RegistrationOptInRequired". In both of them. Isn't that cool? There are thousands of German pages rating mobile carriers, but NONE of them mentions this "tiny" fact. Then people are like "Vodafone! Cool! 500 MBit/s on LTE! Yeah!" So they pay, two year contract, then BAMM! UK SMS popup! Not to mention, T-Mobile and Vodafone ARE actually charging for this shit. So judging by the info provided by my Telefónica account, my stupid iPhone sent 40 SMS to the UK in the last 24 hours. Do I care? No. Why? Because it's free of charge and because iOS sends this shit silently now, without annoying me with popups. So no deal for you, Vodafone, and no deal for T-Mobile either, 'cause they are too greedy, unwilling to forward the UK silent SMS free of charge, so they get shit from me.
+I was actually considering switching to another carrier, but there are only two other carriers in Germany - TMobile_Germany and Vodafone_de, checked their carrier bundles, bah bah bah! "RegistrationOptInRequired". In both of them. All versions. Isn't that cool? There are thousands of German pages rating mobile carriers, but NONE of them mentions this "tiny" fact. Then people are like "Vodafone! Cool! 500 MBit/s on LTE! Yeah!" So they pay, two-year contract, then BAMM! UK SMS popup! Hello, baby! Nice to see ya! Care to go to UK? Not to mention, T-Mobile and Vodafone ARE actually charging for this shit. Now, imagine, those SMS are sent to a Vodafone facility in the UK. Nevertheless, they charge for it, while it's completely free for Telefónica customers. Does this make ANY sense to anybody? No? I don't get it either. So judging by the info provided by my Telefónica account, my stupid iPhone sent 40 SMS to the UK in the last 24 hours. Do I care? No. Why? Because it's free of charge and because iOS sends this shit silently now, without annoying me with popups. So no deal for you, Vodafone, and no deal for T-Mobile either, 'cause they are too greedy, unwilling to forward the UK silent SMS free of charge, so they get shit from me.
 
 **UPDATE END**
 
