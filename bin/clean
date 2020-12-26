@@ -1,0 +1,71 @@
+#!/bin/bash
+
+find /private/var/containers/ \( -iname "Caches" -o -iname "tmp" -o -iname "BatteryLife" \) -type d -prune -exec bash -c 'rm -rv "{}"/*' \;
+
+find /private/var/mobile/Containers/ \( -iname "Caches" -o -iname "tmp" -o -iname "WebsiteData" \) -type d -prune -exec bash -c 'rm -rv "{}"/*' \;
+
+rm -r /private/var/mobile/Library/Caches/*
+rm -r /private/var/root/Library/Caches/*
+rm -r /private/var/root/Library/Logs/*
+rm -r /private/var/mobile/Library/com.apple.itunesstored/*
+rm -r /private/var/log/*
+rm -r /private/var/logs/*
+rm -r /private/var/db/systemstats/*
+rm -r /private/var/preferences/Logging/*
+rm -r /private/var/installd/Library/Logs/MobileInstallation/*
+rm -r /private/var/mobile/Library/Logs/*
+rm -r /private/var/wireless/Library/Logs/*
+rm -r /private/var/mobile/Library/com.apple.nsurlsessiond/*
+rm -r /.fseventsd/*
+rm -r /private/var/.fseventsd/*
+rm -r /private/var/.DocumentRevisions-V100/*
+rm -r /System/Library/CacheDelete/*
+rm -r /private/var/mobile/Media/Downloads/*
+rm -r /private/var/installd/Library/Caches/*
+
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_VoiceServices_CustomVoice
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_VoiceServices_VoiceResources
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_VoiceTriggerAssets
+
+rm /System/Library/PreinstalledAssets/com_apple_MobileAsset_VoiceServices_CustomVoice.cpio
+rm /System/Library/PreinstalledAssets/com_apple_MobileAsset_VoiceServices_VoiceResources.cpio
+rm /System/Library/PreinstalledAssets/com_apple_MobileAsset_VoiceServices_VoiceResources.xml
+rm /System/Library/PreinstalledAssets/com_apple_MobileAsset_VoiceTriggerAssets.cpio
+rm /System/Library/PreinstalledAssets/com_apple_MobileAsset_VoiceTriggerAssets.xml
+
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_TimeZoneUpdate
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_LinguisticData
+
+rm -r /private/var/mobile/Media/DCIM/100APPLE
+rm -r /private/var/mobile/Media/DCIM/.MISC/Incoming/*
+rm -r /private/var/mobile/Media/PhotoData/Caches/*
+
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_Activity_Achievements
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_CarPlayAppBlacklist
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_Duet
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_DuetExpertCenterAsset
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_EmbeddedSpeech
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_Health
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_HomeKit
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_IOAccessoryManager
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_MacinTalkVoiceAssets
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_MediaSupport
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_PKITrustServices_PKITrustData
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_SafariCloudHistoryConfiguration
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_SharingAssets
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_SoftwareUpdate
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_SoftwareUpdateDocumentation
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_VoiceServicesVocalizerVoice
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_VoiceServices_CombinedVocalizerVoices
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_VoiceServices_GryphonVoice
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_routined_defaults
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_MobileSoftwareUpdate_UpdateBrain
+
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_CoreSuggestions
+rm -r /private/var/MobileAsset/Assets/com_apple_MobileAsset_CoreSuggestionsQPAssets
+
+rm -r /private/var/vm/*
+
+find /private/var/MobileAsset/Assets/ -iname "*.xml" -type f -exec rm -rv {} \;
+
+find /private/var/tmp/ \( -not -iname 'tmp' -not -iname 'com.apple.purplebuddy.sentinel' \) -prune -exec rm -rv {} \;
